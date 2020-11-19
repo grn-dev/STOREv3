@@ -1,0 +1,14 @@
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\SERCIVE.APPSERVICE.deps.json
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\SERCIVE.APPSERVICE.dll
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\SERCIVE.APPSERVICE.pdb
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\CORE.CONTRACT.dll
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\CORE.DOMAIN.dll
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\CORE.CONTRACT.pdb
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\bin\Debug\netstandard2.0\CORE.DOMAIN.pdb
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.csprojAssemblyReference.cache
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.AssemblyInfoInputs.cache
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.AssemblyInfo.cs
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.csproj.CoreCompileInputs.cache
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.csproj.CopyComplete
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.dll
+D:\Git myproject\STOREv3\Store\SERCIVE.SERVICE\obj\Debug\netstandard2.0\SERCIVE.APPSERVICE.pdb
