@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Infrastructures.Dal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,15 +18,19 @@ namespace ENDPOINT.API.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ContextMed ctx;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ContextMed dbContext_)
         {
+            ctx = dbContext_;
             _logger = logger;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            ctx.Database.EnsureCreated();
+             
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {

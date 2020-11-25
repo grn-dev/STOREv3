@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CORE.CONTRACT\CORE.CONTRACT.csproj" />
     <ProjectReference Include="..\CORE.DOMAIN\CORE.DOMAIN.csproj" />
     <ProjectReference Include="..\INFRASTRUCTURES.DAL\INFRASTRUCTURES.DAL.csproj" />

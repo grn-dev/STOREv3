@@ -1,0 +1,513 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Git myproject\\BizStore\\Solution1\\EndPoint.UI.panelAdmin\\EndPoint.UI.panelAdmin.csproj": {}
+  },
+  "projects": {
+    "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj",
+        "projectName": "Core.Contract",
+        "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj",
+        "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
+        "outputPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sabzali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj",
+        "projectName": "Core.Domian",
+        "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj",
+        "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
+        "outputPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sabzali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Git myproject\\BizStore\\Solution1\\EndPoint.UI.panelAdmin\\EndPoint.UI.panelAdmin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git myproject\\BizStore\\Solution1\\EndPoint.UI.panelAdmin\\EndPoint.UI.panelAdmin.csproj",
+        "projectName": "EndPoint.UI.panelAdmin",
+        "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\EndPoint.UI.panelAdmin\\EndPoint.UI.panelAdmin.csproj",
+        "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
+        "outputPath": "D:\\Git myproject\\BizStore\\Solution1\\EndPoint.UI.panelAdmin\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sabzali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\EndPoints.WebUI\\EndPoints.WebUI.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\EndPoints.WebUI\\EndPoints.WebUI.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNet.Identity.EntityFramework": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.Owin.Host.SystemWeb": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Git myproject\\BizStore\\Solution1\\EndPoints.WebUI\\EndPoints.WebUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git myproject\\BizStore\\Solution1\\EndPoints.WebUI\\EndPoints.WebUI.csproj",
+        "projectName": "EndPoints.WebUI",
+        "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\EndPoints.WebUI\\EndPoints.WebUI.csproj",
+        "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
+        "outputPath": "D:\\Git myproject\\BizStore\\Solution1\\EndPoints.WebUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sabzali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Razor.Tools": {
+              "target": "Package",
+              "version": "[1.1.0-preview4-final, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj",
+        "projectName": "Infrastructures.Dal",
+        "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\Infrastructures.Dal.csproj",
+        "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
+        "outputPath": "D:\\Git myproject\\BizStore\\Solution1\\Infrastructures.Dal\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sabzali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj",
+        "projectName": "Service.AppService",
+        "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\Service.AppService.csproj",
+        "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
+        "outputPath": "D:\\Git myproject\\BizStore\\Solution1\\Service.AppService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sabzali\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Contract\\Core.Contract.csproj"
+              },
+              "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj": {
+                "projectPath": "D:\\Git myproject\\BizStore\\Solution1\\Core.Domian\\Core.Domian.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
