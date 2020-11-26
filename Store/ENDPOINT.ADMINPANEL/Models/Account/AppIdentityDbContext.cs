@@ -7,6 +7,7 @@ namespace EndPoint.UI.panelAdmin.Models.Account
     {//public class ApplicationDbContext : DbContext
         public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options):base(options)
         {
+            
         }
     }
 }

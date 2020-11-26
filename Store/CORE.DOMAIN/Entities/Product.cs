@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CORE.DOMAIN.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -21,10 +22,5 @@ namespace Core.Domian
         //public int Count { get; set; }
         //public string MoreDescription { get; set; }
     }
-    public class imgeProduct
-    {
-        public int imgeProductID { get; set; }
-        public string image { get; set; }
-        public Product  Product{ get; set; }
-    }
+    
 }

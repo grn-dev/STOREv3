@@ -20,14 +20,17 @@ namespace EndPoint.UI.panelAdmin.Controllers
         private UserManager<Appuser> userManager;
         private SignInManager<Appuser> signInManager;
         private readonly ContextMed ctx;
+        private readonly AppIdentityDbContext ctxIdentity;
 
         public AccountController(UserManager<Appuser> userMgr,
         SignInManager<Appuser> signInMgr,
-        ContextMed ctx_)
+        ContextMed ctx_,
+         AppIdentityDbContext ctxIdentity_)
         {
             userManager = userMgr;
             signInManager = signInMgr;
             ctx = ctx_;
+            ctxIdentity = ctxIdentity_;
 
         }
         [AllowAnonymous]
@@ -49,6 +52,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         public IActionResult Login(string returnUrl)
         {
             ctx.Database.EnsureCreated();
+            ctxIdentity.Database.EnsureCreated();
             var d = Request.Headers;
             var d21 = Response.Headers;
             var dgdf=5; //Response.Redirect=;

@@ -16,9 +16,18 @@ namespace Infrastructures.Dal.Repository
 
         public TEntity Add(TEntity entity)
         {
-            ctx.Set<TEntity>().Add(entity);
-            ctx.SaveChanges();
-            return entity;
+            try
+            {
+                ctx.Set<TEntity>().Add(entity);
+                ctx.SaveChanges();
+                return entity;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
         }
 
         public void Delete(int id)

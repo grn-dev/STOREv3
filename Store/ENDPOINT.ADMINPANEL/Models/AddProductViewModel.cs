@@ -11,20 +11,21 @@ namespace EndPoint.UI.panelAdmin.Models
     public class AddProductViewModel
     {
 
-        [Required(ErrorMessage = "Please enter the Name")]
+        [Required(ErrorMessage = "لطفا نام را وارد نمایید")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Description")]
+        [Required(ErrorMessage = "لطفا Description را وارد نمایید")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Image")]
-        public IFormFile Image { get; set; }
+        [Required(ErrorMessage = "لطفا Images را وارد نمایید")]
+        public List<IFormFile> Images { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Price")]
-        public decimal Price { get; set; }
+        //[Required(ErrorMessage = "Please enter the Price")]
+        //public decimal Price { get; set; }
 
-        [Required(ErrorMessage = "Please enter the Name")]
+        [Required(ErrorMessage = "لطفا دسته بندی را وارد نمایید")]
         public int CategoryId { get; set; }
         public List<Category> CategoryForDisplay { get; set; }
     }
+ 
 }

@@ -1,7 +1,9 @@
 using Core.Contract;
+using CORE.CONTRACT;
 using EndPoint.UI.panelAdmin.Models.Account;
 using Infrastructures.Dal;
 using Infrastructures.Dal.Repository;
+using INFRASTRUCTURES.DAL.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +45,7 @@ namespace EndPoint.UI.panelAdmin
             
             services.AddScoped<IPruductRepo, ProductRepository>();
             services.AddScoped<ICategoriRepo, CategoriRepo>();
+            services.AddScoped<IimgeProduct, imgeProductRepository>();
 
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("storeUserDb")));
