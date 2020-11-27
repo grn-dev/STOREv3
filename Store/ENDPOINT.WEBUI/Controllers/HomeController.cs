@@ -1,4 +1,5 @@
-﻿using ENDPOINT.WEBUI.Models;
+﻿using Core.Contract;
+using ENDPOINT.WEBUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,15 +14,41 @@ namespace ENDPOINT.WEBUI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+        private readonly IPruductRepo RepoPrc;
+        public HomeController(IPruductRepo pruduct)
         {
-            _logger = logger;
+            RepoPrc = pruduct;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var allp = RepoPrc.imgeForsingle();
+            List<productSingleImage> singleList = new List<productSingleImage>();
+            foreach (var item in allp)
+            {
+                productSingleImage singleImage = new productSingleImage
+                {
+                    CategoryId = item.CategoryId,
+                    Category = item.Category,
+                    Description = item.Description,
+                    ImageFuckin = item.Images[0],
+                    Name = item.Name,
+
+                };
+                singleList.Add(singleImage);
+            }
+            return View(singleList);
         }
+        //public void Base64ToImage(string source)
+        //{
+        //    string base64 = source.Substring(source.IndexOf(',') + 1);
+        //    base64 = base64.Trim('\0');
+        //    byte[] chartData = Convert.FromBase64String(base64);
+        //}
 
         public IActionResult Privacy()
         {

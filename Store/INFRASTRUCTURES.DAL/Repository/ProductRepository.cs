@@ -35,7 +35,7 @@ namespace Infrastructures.Dal.Repository
 
         public List<Product> searchByname(string name)
         {
-            return ctx.Products.Where(c=> c.Name.Contains(name)).ToList();
+            return ctx.Products.Where(c => c.Name.Contains(name)).ToList();
         }
 
         public int TotalCountSearch(string name)
@@ -86,7 +86,12 @@ namespace Infrastructures.Dal.Repository
 
 
 
-            
+
+        }
+
+        public List<Product> imgeForsingle()
+        {
+            return ctx.Products.Include(c => c.Images).Take(3).ToList();
         }
 
         //public int TotalCount(string category)

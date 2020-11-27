@@ -18,6 +18,8 @@ namespace Core.Contract
         List<Product> GetReletionPruduct(Product prcID);
         List<Product> GetProductByGategoriMainPage(string categoriName);
 
+        List<Product> imgeForsingle();
+
 
     }
 }
