@@ -156,3 +156,5 @@ D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\w
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Partial2.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Partial3.cshtml.g.cs
