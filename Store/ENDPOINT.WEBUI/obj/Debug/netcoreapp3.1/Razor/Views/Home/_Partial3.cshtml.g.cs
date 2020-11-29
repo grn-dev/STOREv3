@@ -14,27 +14,41 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
-using ENDPOINT.WEBUI;
+using EndPoints.WebUI.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
-using ENDPOINT.WEBUI.Models;
+using EndPoints.WebUI.Models.Categories;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
+using ENDPOINT.WEBUI;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
+using ENDPOINT.WEBUI.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
 using CORE.DOMAIN;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bda5972b12e0b85cff362facdedb3a1b50b70b5c", @"/Views/Home/_Partial3.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2124cc0528449fed52120cb18b7ad29641aa010d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4002dd5f0308a86c1c2ea0c865d330f682eea768", @"/Views/_ViewImports.cshtml")]
     public class Views_Home__Partial3 : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<productSingleImage>>
     {
         #pragma warning disable 1998

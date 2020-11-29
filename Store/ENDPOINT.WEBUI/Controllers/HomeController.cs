@@ -37,6 +37,7 @@ namespace ENDPOINT.WEBUI.Controllers
                     Description = item.Description,
                     ImageFuckin = item.Images[0],
                     Name = item.Name,
+                    id= item.ProductID
 
                 };
                 singleList.Add(singleImage);

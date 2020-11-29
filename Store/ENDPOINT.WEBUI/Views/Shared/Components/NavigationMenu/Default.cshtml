@@ -1,0 +1,29 @@
+﻿@model NavigationMenuViewModel
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
+       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        محصولات
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+
+        @foreach (var item in Model.Categories)
+        {
+            <a class="dropdown-item" asp-action="showByCategori" asp-controller="Product" asp-route-Categori="@item.CategoryName"
+                                   asp-route-pn="1" > @item.CategoryName</a>
+        }
+
+        @*<a class="dropdown-item" href="single-product.html">جزئیات محصولات</a>*@
+
+    </div>
+</li>
+
+
+
+
+<script>
+
+
+
+</script>
+

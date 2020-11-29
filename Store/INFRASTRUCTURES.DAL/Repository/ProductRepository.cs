@@ -23,6 +23,7 @@ namespace Infrastructures.Dal.Repository
             return ctx.Products.
                 Where(c => string.IsNullOrWhiteSpace(category) || c.Category.CategoryName == category).
                 Include(c => c.Category).
+                Include(c => c.Images).
                 Skip(pageSize * (pageNumber - 1)).
                 Take(pageSize).ToList();
 
@@ -48,6 +49,7 @@ namespace Infrastructures.Dal.Repository
             return ctx.Products.
                 Where(c => string.IsNullOrWhiteSpace(name) || c.Name.Contains(name)).
                 Include(c => c.Category).
+                Include(c => c.Images).
                 Skip(pageSize * (pageNumber - 1)).
                 Take(pageSize).ToList();
         }
@@ -92,6 +94,11 @@ namespace Infrastructures.Dal.Repository
         public List<Product> imgeForsingle()
         {
             return ctx.Products.Include(c => c.Images).Take(3).ToList();
+        }
+
+        public Product GetSingleProduct(int ProductID)
+        {
+            return ctx.Products.Where(c => c.ProductID== ProductID).Include(c => c.Images).FirstOrDefault();
         }
 
         //public int TotalCount(string category)
