@@ -30,7 +30,7 @@
                             <div class="col-lg-6 col-sm-6">
                                 <div class="single_product_item">
 
-                                    <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@Model.[ite]">
+                                    <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.id">
                                         <img src=@item.ImageFuckin.image alt="#" class="img-fluid">
                                     </a>
                                     <h3> <a href="single-product.html">@item.Name</a> </h3>
@@ -42,12 +42,12 @@
 
 
                     </div>
-                    <div class="load_more_btn text-center">
+                    <div class="load_more_btn text-center" style="align-items:center">
                         @for (int gopagei = 1; gopagei <= Model.PagingInfo.TotalPages; gopagei++)
                         {
-
+                             
                             var classname = gopagei == Model.PagingInfo.CurrentPage ? "btn-primary" : "btn-secondary";
-                            <a asp-action="list" asp-controller="Category" asp-route-pn="@gopagei" asp-route-catname2="@Model.CurrentCategory" class="btn @classname"> @gopagei </a>
+                            <a asp-action="@Model.fromContoller" asp-controller="Product" asp-route-pn="@gopagei" asp-route-Input="@Model.Current" class="btn @classname"> @gopagei </a>
                         }
                     </div>
 

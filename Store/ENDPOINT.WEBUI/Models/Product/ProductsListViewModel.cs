@@ -10,6 +10,7 @@ namespace ENDPOINT.WEBUI.Models.Product
     {
         public List<productSingleImage> Products { get; set; }
         public PagingInfo PagingInfo { get; set; }
-        public string CurrentCategory { get; set; }
+        public string Current { get; set; }
+        public string fromContoller { get; set; }
     }
 }

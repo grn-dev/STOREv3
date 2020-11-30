@@ -3,6 +3,7 @@ using ENDPOINT.WEBUI.Models;
 using ENDPOINT.WEBUI.Models.Product;
 using EndPoints.WebUI.Models.Commons;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,10 +36,10 @@ namespace ENDPOINT.WEBUI.Controllers
             return View(image);
         }
 
-        public IActionResult showByCategori(string Categori, int pn = 1)
+        public IActionResult showByCategori(string Input, int pn = 1)
         {
-            int showpage = 12;
-            var pr = RepoPrc.GetProducts(showpage, pn, Categori).ToList();
+            int showpage = 2;
+            var pr = RepoPrc.GetProducts(showpage, pn, Input).ToList();
 
 
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
@@ -60,19 +61,29 @@ namespace ENDPOINT.WEBUI.Controllers
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCount(Categori),
+                TotalItems = RepoPrc.TotalCount(Input),
                 ItemsPerPage = showpage
 
             };
-            return RedirectToAction("showListproduct", "Product", new { @productSingleImages = singleImagesList, @pagingInfoiInput = pagin, @pn = pn });
+            ProductsListViewModel productsListViewModel = new ProductsListViewModel()
+            {
+                Products = singleImagesList,
+                Current = Input,
+                PagingInfo = pagin,
+                fromContoller= "showByCategori"
+
+            };
+
+            
+            return View("showListproduct", productsListViewModel);
               
         }
 
 
-        public IActionResult showBySeach(string productName, int pn = 1)
+        public IActionResult showBySeach(string Input, int pn = 1)
         {
-            int showpage = 12;
-            var pr = RepoPrc.GetProductsSearch(showpage, pn, productName).ToList();
+            int showpage = 2;
+            var pr = RepoPrc.GetProductsSearch(showpage, pn, Input).ToList();
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
             foreach (var item in pr)
             {
@@ -92,28 +103,32 @@ namespace ENDPOINT.WEBUI.Controllers
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCountSearch(productName),
+                TotalItems = RepoPrc.TotalCountSearch(Input),
                 ItemsPerPage = showpage
 
             };
-            return RedirectToAction("showListproduct", "Product", new { @productSingleImages = singleImagesList, @pagingInfoiInput = pagin, @pn = pn });
-        }
-
-        public IActionResult showListproduct(List<productSingleImage> productSingleImages, PagingInfo pagingInfoiInput, int pn = 1)
-        {
-
-            int showpage = 12;
             ProductsListViewModel productsListViewModel = new ProductsListViewModel()
             {
-                Products= productSingleImages,
-                CurrentCategory=null,
-                PagingInfo = pagingInfoiInput
+                Products = singleImagesList,
+                Current = Input,
+                PagingInfo = pagin,
+                fromContoller = "showBySeach"
 
             };
-            TempData["searchJob"] = searchJob;
-            return RedirectToAction...;
+            return View("showListproduct", productsListViewModel);
+            //TempData["productsListViewModel"] = JsonConvert.SerializeObject(productsListViewModel);
 
-            return View(productsListViewModel);
+
+            //return RedirectToAction("showListproduct", "Product", new { @pn = pn });
+        }
+
+        public IActionResult showListproduct(int pn = 1)
+        {
+
+            var productsListViewModel = JsonConvert.DeserializeObject<ProductsListViewModel>((string)TempData["productsListViewModel"]);
+            ProductsListViewModel listViewModel= (ProductsListViewModel)TempData["productsListViewModel"];
+
+            return View(listViewModel);
         }
 
     }

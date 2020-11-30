@@ -9,7 +9,7 @@
 
         @foreach (var item in Model.Categories)
         {
-            <a class="dropdown-item" asp-action="showByCategori" asp-controller="Product" asp-route-Categori="@item.CategoryName"
+            <a class="dropdown-item" asp-action="showByCategori" asp-controller="Product" asp-route-Input="@item.CategoryName"
                                    asp-route-pn="1" > @item.CategoryName</a>
         }
 
