@@ -51,7 +51,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="about.html">درباره ما</a>
                                 </li>
-                                
+
 
                                 @await Component.InvokeAsync("NavigationMenu")
 
@@ -60,23 +60,21 @@
                                 </li>
                             </ul>
                         </div>
+
                         <div class="hearer_icon d-flex align-items-center">
                             <a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>
 
                         </div>
+
+
                     </nav>
                 </div>
             </div>
         </div>
-        <div class="search_input" id="search_input_box">
-            <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="جست و جو">
-                    <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </form>
-            </div>
-        </div>
+
+
+        @await Component.InvokeAsync("Search")
+
     </header>
     <!-- Header part end-->
     @RenderBody();
