@@ -82,7 +82,7 @@ namespace ENDPOINT.WEBUI.Controllers
 
         public IActionResult showBySeach(string Input, int pn = 1)
         {
-            int showpage = 2;
+            int showpage = 6;
             var pr = RepoPrc.GetProductsSearch(showpage, pn, Input).ToList();
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
             foreach (var item in pr)

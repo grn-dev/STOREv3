@@ -18,7 +18,11 @@
                     {
                         <div class="single_client_review" dir="rtl">
                             <div class="client_img">
-                                <img src=@item.ImageFuckin.image alt="#">
+
+                                <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.id">
+                                    <img src=@item.ImageFuckin.image alt="#">
+                                </a>
+
                             </div>
                             <h5>@item.Name</h5>
                             <p>@item.Description</p>
