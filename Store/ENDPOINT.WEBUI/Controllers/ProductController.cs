@@ -38,7 +38,7 @@ namespace ENDPOINT.WEBUI.Controllers
 
         public IActionResult showByCategori(string Input, int pn = 1)
         {
-            int showpage = 2;
+            int showpage = 6;
             var pr = RepoPrc.GetProducts(showpage, pn, Input).ToList();
 
 

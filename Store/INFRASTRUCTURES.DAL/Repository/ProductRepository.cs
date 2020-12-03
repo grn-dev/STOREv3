@@ -93,7 +93,7 @@ namespace Infrastructures.Dal.Repository
 
         public List<Product> imgeForsingle()
         {
-            return ctx.Products.Include(c => c.Images).Take(3).ToList();
+            return ctx.Products.Include(c => c.Images).Take(3).OrderByDescending(c=> c.ProductID).ToList();
         }
 
         public Product GetSingleProduct(int ProductID)
