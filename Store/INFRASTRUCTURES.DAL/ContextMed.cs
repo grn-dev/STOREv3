@@ -3,7 +3,6 @@ using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
 using Infrastructures.Dal.Config;
 using Microsoft.EntityFrameworkCore;
-
 namespace Infrastructures.Dal
 {
     public class ContextMed : DbContext
@@ -15,12 +14,14 @@ namespace Infrastructures.Dal
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<imgeProduct> imgeProducts { get; set; }
+        public DbSet<ProductInfo> ProductInfo { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductInfoConfiguration());
             base.OnModelCreating(modelBuilder);
 
 
@@ -35,6 +36,14 @@ namespace Infrastructures.Dal
             .WithMany(c => c.Images);
 
 
+
+
+            modelBuilder.Entity<ProductInfo>()
+       .HasOne(c => c.product)
+       .WithMany(e => e.ProductInfos).OnDelete(DeleteBehavior.Cascade);
+
+
         }
+
     }
 }

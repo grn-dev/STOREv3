@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.UI.panelAdmin.Controllers
 {
-    [Authorize()]
+    //[Authorize()]
     public class AccountController : Controller
     {
         private UserManager<Appuser> userManager;
@@ -51,7 +51,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
-            ctx.Database.EnsureCreated();
+            //ctx.Database.EnsureCreated();
             ctxIdentity.Database.EnsureCreated();
             var d = Request.Headers;
             var d21 = Response.Headers;

@@ -3,8 +3,8 @@
     <tr>
         <th>#</th>
         <th>نام</th>
-        <th>قیمت</th>
         <th>توضیحات</th>
+        <th>عملیات</th>
     </tr>
 
     @foreach (var item in Model)
@@ -12,8 +12,181 @@
         <tr>
             <td>@item.ProductID</td>
             <td>@item.Name</td>
-            <td>@item.Price</td>
             <td>@item.Description</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="gettagberbyID(@item.ProductID)" data-target="#exampleModal">
+                    ADD TAG
+                </button>
+
+            </td>
+
+            @*<td>
+                    <button type="button" class="btn btn-primary" id="addtagtest">
+                        ADD sabALI
+                    </button>
+
+                </td>*@
+
+
+
+
         </tr>
     }
+
 </table>
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">افزودن تگ</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="recipient-name" class="col-form-label" dir="rtl">تگ:</label>
+                <input type="text" class="form-control" id="Tagname">
+            </div>
+            <hr>
+            <div class="modal-body">
+                <label for="recipient-name" id="lbltagbefor" class="col-form-label"></label>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                <button type="button" onclick="TegisterTag()" class="btn btn-success">ثبت</button>
+            </div>
+            @*<p hidden id="productID"></p>*@
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts
+{ 
+    <script src="~/lib/jquery/jquery.min.js"></script>
+
+    <script language="javascript">
+
+
+
+        $(document).ready(function () {
+
+            console.log("document loaded");
+
+             
+        });
+
+        function TegisterTag() {
+
+            var tagneme_ = $('#Tagname').val();
+            console.log("call");
+            var dfd = { ProuductID: productIDGlobal, "tagneme": tagneme_ };
+            console.log("dfd=>  " + dfd);
+            var dashagh = JSON.stringify(dfd);
+            console.log("dashagh=>  " + dashagh);
+
+
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/Product/AddTag',
+                    data: dfd,
+                    success:
+                        function (response) {
+                            
+                            if (response.statusCode) {
+                                alert("ثبت شد");
+                                $('#exampleModal').modal().hide();
+                                $('#exampleModal').modal('toggle');
+                                $('#exampleModal').modal('hide');
+                            }
+
+                        },
+                    error:
+                        function (response) {
+                            console.log("call");
+                            alert("Error: " + response.data);
+                        }
+                });
+        }
+
+        let productIDGlobal;
+
+        function SetText(jsonobj) {
+
+             
+            document.getElementById('lbltagbefor').innerHTML = '';
+            var paragraph = document.getElementById("lbltagbefor");
+            
+            for (var i = 0; i < jsonobj.length; i++) {
+                var obj = jsonobj[i];
+                var text = document.createTextNode(obj + " | ");
+                paragraph.appendChild(text);
+            }
+
+
+
+        }
+
+
+        function gettagberbyID(id) {
+            
+            productIDGlobal = id;
+            callAjaxTag();
+        }
+
+        function callAjaxTag() {
+
+
+            console.log("call");
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/Product/GetTag',
+                    data: { ProuductID: productIDGlobal },
+                    success:
+                        function (response) {
+                            // Generate HTML table.
+                             
+                            SetText(response);
+
+                        },
+                    error:
+                        function (response) {
+                            console.log("call");
+                            alert("Error: " + response.data);
+                        }
+                });
+        }
+
+
+    </script>
+
+}
+
+
+<style>
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
+

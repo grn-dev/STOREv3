@@ -18,6 +18,11 @@ namespace Core.Domian
         public bool isShow { get; set; }
         public int count { get; set; }
 
+        public List<ProductInfo> ProductInfos { get; set; }
+
+        //Dictionary<string, string> keyValues = new Dictionary<string, string>();
+         
+
         //public bool IsShow { get; set; }
         //public int Count { get; set; }
         //public string MoreDescription { get; set; }

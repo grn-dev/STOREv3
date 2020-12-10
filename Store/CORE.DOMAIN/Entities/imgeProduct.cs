@@ -13,4 +13,8 @@ namespace CORE.DOMAIN.Entities
         public Product Product { get; set; }
 
     }
+
+
+
+
 }

@@ -1,5 +1,6 @@
 using Core.Contract;
 using CORE.CONTRACT;
+using CORE.DOMAIN.Entities;
 using Infrastructures.Dal;
 using Infrastructures.Dal.Repository;
 using INFRASTRUCTURES.DAL.Repository;
@@ -39,6 +40,7 @@ namespace ENDPOINT.WEBUI
             (Configuration.GetConnectionString("storeDb")));
             services.AddScoped<IPruductRepo, ProductRepository>();
             services.AddScoped<IimgeProduct, imgeProductRepository>();
+            services.AddScoped<IProductInfo, ProductInfoRepository>();
 
             services.AddScoped<ICategoriRepo, CategoriRepo>();
              

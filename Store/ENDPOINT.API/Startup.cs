@@ -14,6 +14,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Core.Contract;
 using Infrastructures.Dal.Repository;
+using CORE.CONTRACT;
+using CORE.DOMAIN.Entities;
+using INFRASTRUCTURES.DAL.Repository;
 
 namespace ENDPOINT.API
 {
@@ -36,7 +39,8 @@ namespace ENDPOINT.API
             (Configuration.GetConnectionString("storeDb")));
             services.AddScoped<IPruductRepo, ProductRepository>();
             services.AddScoped<ICategoriRepo, CategoriRepo>();
-            
+            services.AddScoped<IProductInfo, ProductInfoRepository>();
+
 
         }
 

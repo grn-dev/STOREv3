@@ -1,5 +1,6 @@
 using Core.Contract;
 using CORE.CONTRACT;
+using CORE.DOMAIN.Entities;
 using EndPoint.UI.panelAdmin.Models.Account;
 using Infrastructures.Dal;
 using Infrastructures.Dal.Repository;
@@ -46,6 +47,7 @@ namespace EndPoint.UI.panelAdmin
             services.AddScoped<IPruductRepo, ProductRepository>();
             services.AddScoped<ICategoriRepo, CategoriRepo>();
             services.AddScoped<IimgeProduct, imgeProductRepository>();
+            services.AddScoped<IProductInfo, ProductInfoRepository>();
 
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("storeUserDb")));
@@ -110,7 +112,8 @@ namespace EndPoint.UI.panelAdmin
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                    pattern: "{controller=Product}/{action=Index}/{id?}");
+                    //pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }
