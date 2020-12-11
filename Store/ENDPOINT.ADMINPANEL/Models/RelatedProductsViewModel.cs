@@ -1,5 +1,4 @@
-﻿using Core.Domian;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EndPoint.UI.panelAdmin.Models
