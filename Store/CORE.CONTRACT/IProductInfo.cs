@@ -10,5 +10,7 @@ namespace CORE.CONTRACT
     {
         List<string> GetMoreInfo(int ProductID,string keyname);
         //void AddTagProuduct(int ProductID,string TagName);
+        bool CheckExist(int ProductID, string keyname,string Value);
+
     }
 }

@@ -1,0 +1,38 @@
+﻿@model RelatedProductsViewModel
+@{
+
+}
+
+
+<form asp-action="relatedproducts" asp-controller="Product" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+
+        <div class="form-group">
+            <label> محصول اصلی</label>
+            <select class="form-control" name="MainProductID"
+                    asp-items="@(new SelectList(Model.ProductForDisplay,"ProductID","ProductName"))">
+                <option>Please select one</option>
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label> محصول مرتبط</label>
+            <select class="form-control" name="RelatedProductID"
+                    asp-items="@(new SelectList(Model.ProductForDisplay,"ProductID","ProductName"))">
+                <option>Please select one</option>
+
+            </select>
+        </div>
+
+        <input type="submit" class="btn btn-success" style="align-items:center" value="ثبت" />
+
+    </div>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <h3 style="color:red">@ViewBag.Error</h3>
+}
+

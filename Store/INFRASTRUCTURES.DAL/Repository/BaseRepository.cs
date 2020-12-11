@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Infrastructures.Dal.Repository
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly ContextMed ctx;
         public BaseRepository(ContextMed biz)
@@ -32,7 +32,8 @@ namespace Infrastructures.Dal.Repository
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            TEntity entityToDelete = ctx.Set<TEntity>().Find(id);
+            ctx.Remove(entityToDelete);
         }
 
         public TEntity Get(int id)
@@ -45,14 +46,16 @@ namespace Infrastructures.Dal.Repository
 
         }
 
-        public IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> GetAll()
         {
             return ctx.Set<TEntity>().AsQueryable();
         }
 
-        public bool Update(TEntity entity)
-        {
-            throw new NotImplementedException();
+        public void Update(TEntity entity)
+        { 
+            ctx.Attach(entity);
+            ctx.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            ctx.SaveChanges(); 
         }
     }
 }

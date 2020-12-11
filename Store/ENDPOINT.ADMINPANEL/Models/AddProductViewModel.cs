@@ -27,5 +27,5 @@ namespace EndPoint.UI.panelAdmin.Models
         public int CategoryId { get; set; }
         public List<Category> CategoryForDisplay { get; set; }
     }
- 
+
 }

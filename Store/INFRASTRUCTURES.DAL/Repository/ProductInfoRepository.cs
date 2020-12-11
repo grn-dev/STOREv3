@@ -17,12 +17,17 @@ namespace INFRASTRUCTURES.DAL.Repository
             ctx = dbContext_;
         }
 
+        public bool CheckExist(int ProductID, string keyname, string Value)
+        {
+            return ctx.ProductInfo.Any(c => c.productID == ProductID && c.Value == Value && c.key == keyname);
+        }
+
         public List<string> GetMoreInfo(int ProductID, string keyname)
         {
 
             return ctx.ProductInfo.
                 Where(c => c.key == keyname && c.product.ProductID == ProductID).
-                Select(c=> c.Value).
+                Select(c => c.Value).
                 ToList();
 
 

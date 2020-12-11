@@ -15,17 +15,18 @@
             <td>@item.Description</td>
             <td>
                 <button type="button" class="btn btn-primary" data-toggle="modal" onclick="gettagberbyID(@item.ProductID)" data-target="#exampleModal">
-                    ADD TAG
+                    افزودن تگ
+                </button>
+
+            </td>
+             
+            <td>
+                <button type="button" class="btn btn-danger" onclick="deleteproduct(@item.ProductID)">
+                    حذف
                 </button>
 
             </td>
 
-            @*<td>
-                    <button type="button" class="btn btn-primary" id="addtagtest">
-                        ADD sabALI
-                    </button>
-
-                </td>*@
 
 
 
@@ -75,7 +76,7 @@
 
 
 @section scripts
-{ 
+{
     <script src="~/lib/jquery/jquery.min.js"></script>
 
     <script language="javascript">
@@ -86,8 +87,106 @@
 
             console.log("document loaded");
 
-             
+
         });
+
+
+        let productIDGlobal;
+
+        function SetText(jsonobj) {
+
+
+            document.getElementById('lbltagbefor').innerHTML = '';
+            var paragraph = document.getElementById("lbltagbefor");
+
+            for (var i = 0; i < jsonobj.length; i++) {
+                var obj = jsonobj[i];
+                var text = document.createTextNode(obj + " | ");
+                paragraph.appendChild(text);
+            }
+
+
+
+        }
+
+
+        function gettagberbyID(id) {
+
+            productIDGlobal = id;
+            callAjaxTag();
+        }
+
+        function deleteproduct(id) {
+
+            debugger
+            productIDGlobal = id;
+            ConfirmDialog();
+            
+        }
+
+        function ConfirmDialog() {
+
+
+            var txt;
+            var r = confirm("آیا ادامه میدهید؟");
+            if (r == true) {
+                DeleteProducAjax();
+            } else {
+
+            }
+
+        }
+
+        function callAjaxTag() {
+
+
+            console.log("call");
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/Product/GetTag',
+                    data: { ProuductID: productIDGlobal },
+                    success:
+                        function (response) {
+                            // Generate HTML table.
+
+                            SetText(response);
+
+                        },
+                    error:
+                        function (response) {
+                            console.log("call");
+                            alert("Error: " + response.data);
+                        }
+                });
+        }
+
+        function DeleteProducAjax() {
+
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/Product/DeleteProduct',
+                    data: { ProuductID: productIDGlobal },
+                    success:
+                        function (response) {
+                            debugger
+                            if (response.statusCode == 200) {
+                                alert("حذف شد");
+
+                            }
+
+                        },
+                    error:
+                        function (response) {
+                            console.log("call");
+                            alert("Error: " + response.data);
+                        }
+                });
+        }
+
 
         function TegisterTag() {
 
@@ -107,63 +206,13 @@
                     data: dfd,
                     success:
                         function (response) {
-                            
-                            if (response.statusCode) {
+
+                            if (response.statusCode == 200) {
                                 alert("ثبت شد");
                                 $('#exampleModal').modal().hide();
                                 $('#exampleModal').modal('toggle');
-                                $('#exampleModal').modal('hide');
+
                             }
-
-                        },
-                    error:
-                        function (response) {
-                            console.log("call");
-                            alert("Error: " + response.data);
-                        }
-                });
-        }
-
-        let productIDGlobal;
-
-        function SetText(jsonobj) {
-
-             
-            document.getElementById('lbltagbefor').innerHTML = '';
-            var paragraph = document.getElementById("lbltagbefor");
-            
-            for (var i = 0; i < jsonobj.length; i++) {
-                var obj = jsonobj[i];
-                var text = document.createTextNode(obj + " | ");
-                paragraph.appendChild(text);
-            }
-
-
-
-        }
-
-
-        function gettagberbyID(id) {
-            
-            productIDGlobal = id;
-            callAjaxTag();
-        }
-
-        function callAjaxTag() {
-
-
-            console.log("call");
-            $.ajax(
-                {
-                    type: 'POST',
-                    dataType: 'JSON',
-                    url: '/Product/GetTag',
-                    data: { ProuductID: productIDGlobal },
-                    success:
-                        function (response) {
-                            // Generate HTML table.
-                             
-                            SetText(response);
 
                         },
                     error:

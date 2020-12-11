@@ -18,6 +18,10 @@ namespace Infrastructures.Dal.Repository
             ctx = dbContext_;
         }
 
+        public override IQueryable<Product> GetAll()
+        {
+            return ctx.Products.Where(c => c.isShow == true).AsQueryable();
+        }
         public List<Product> GetProducts(int pageSize = 4, int pageNumber = 1, string category = null)
         {
             return ctx.Products.
@@ -93,12 +97,12 @@ namespace Infrastructures.Dal.Repository
 
         public List<Product> imgeForsingle()
         {
-            return ctx.Products.Include(c => c.Images).Take(3).OrderByDescending(c=> c.ProductID).ToList();
+            return ctx.Products.Include(c => c.Images).Take(3).OrderByDescending(c => c.ProductID).ToList();
         }
 
         public Product GetSingleProduct(int ProductID)
         {
-            return ctx.Products.Where(c => c.ProductID== ProductID).Include(c => c.Images).FirstOrDefault();
+            return ctx.Products.Where(c => c.ProductID == ProductID).Include(c => c.Images).FirstOrDefault();
         }
 
         //public int TotalCount(string category)

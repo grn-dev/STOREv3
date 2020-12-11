@@ -27,14 +27,14 @@ namespace EndPoint.UI.panelAdmin.Controllers
         private readonly ICategoriRepo categoryRepository;
         private readonly IPruductRepo productRepository;
         private readonly IimgeProduct iimgeProduct;
-        private readonly IProductInfo ProductInfo;
+        private readonly IProductInfo ProductInfoRepository;
 
         public ProductController(ICategoriRepo categoryRepository, IPruductRepo productRepository, IimgeProduct iimgeProduct_, IProductInfo ProductInfo_)
         {
             this.categoryRepository = categoryRepository;
             this.productRepository = productRepository;
             this.iimgeProduct = iimgeProduct_;
-            this.ProductInfo = ProductInfo_;
+            this.ProductInfoRepository = ProductInfo_;
         }
 
         public IActionResult Index()
@@ -43,34 +43,36 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
             foreach (var item in products)
             {
-                item.Description = (item.Description.Length> 10) ? item.Description.Substring(0, 10) : item.Description;
+                item.Description = (item.Description.Length > 10) ? item.Description.Substring(0, 10) : item.Description;
             }
-            
+
             return View(products);
         }
 
         //[AllowAnonymous]
-        public IActionResult Add()
-        {
-            AddProductViewModel model = new AddProductViewModel
-            {
-                CategoryForDisplay = categoryRepository.GetAll().ToList()
-            };
-            return View(model);
-        }
+
 
 
         //ProuductID
 
         public string GetTag(int ProuductID)
-        { 
-            var reds=ProductInfo.GetMoreInfo(ProuductID, "tag");
-              
-            var jsonR=Newtonsoft.Json.JsonConvert.SerializeObject(reds);
-             
+        {
+            var reds = ProductInfoRepository.GetMoreInfo(ProuductID, "tag");
+
+            var jsonR = Newtonsoft.Json.JsonConvert.SerializeObject(reds);
+
 
             return jsonR;
 
+        }
+
+        public HttpResponseMessage DeleteProduct(int ProuductID)
+        {
+            var dlpr = productRepository.Get(ProuductID);
+            dlpr.isShow = false;
+            productRepository.Update(dlpr);
+            //RedirectToAction("Index");
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
         [HttpPost]
@@ -85,11 +87,19 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
             };
 
-            ProductInfo.Add(productInfo);
-            return new HttpResponseMessage(HttpStatusCode.OK); 
+            ProductInfoRepository.Add(productInfo);
+            return new HttpResponseMessage(HttpStatusCode.OK);
 
         }
 
+        public IActionResult Add()
+        {
+            AddProductViewModel model = new AddProductViewModel
+            {
+                CategoryForDisplay = categoryRepository.GetAll().ToList()
+            };
+            return View(model);
+        }
         [HttpPost]
         public IActionResult Add(AddProductViewModel model)
         {
@@ -105,9 +115,6 @@ namespace EndPoint.UI.panelAdmin.Controllers
                     Price = 0,
 
                 };
-
-
-
 
 
                 List<imgeProduct> imgeProductsList = new List<imgeProduct>();
@@ -143,5 +150,75 @@ namespace EndPoint.UI.panelAdmin.Controllers
             model.CategoryForDisplay = categoryRepository.GetAll().ToList();
             return View(model);
         }
+
+
+
+        public IActionResult relatedproducts()
+        {
+            var allprd = productRepository.GetAll().Select(c => new ProductReleted()
+            {
+                ProductID = c.ProductID,
+                ProductName = c.Name
+            }).ToList();
+
+            RelatedProductsViewModel model = new RelatedProductsViewModel
+            {
+                ProductForDisplay = allprd,
+
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult relatedproducts(RelatedProductsViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (model.MainProductID == model.RelatedProductID)
+                        throw new Exception("محصولات انتخاب شده یکی میباشد");
+
+                    if (ProductInfoRepository.CheckExist(model.MainProductID, "RelatedProduct", model.RelatedProductID.ToString()))
+                        throw new Exception("قبلا ثبت شده است");
+
+
+
+
+                    ProductInfo productInfo = new ProductInfo()
+                    {
+                        key = "RelatedProduct",
+                        productID = model.MainProductID,
+                        Value = model.RelatedProductID.ToString(),
+
+                    };
+
+                    ProductInfoRepository.Add(productInfo);
+
+                }
+                else
+                {
+
+                    var errors = ModelState.Select(x => x.Value.Errors)
+                               .Where(y => y.Count > 0)
+                               .ToList();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+
+            }
+
+            var allprd = productRepository.GetAll().Select(c => new ProductReleted()
+            {
+                ProductID = c.ProductID,
+                ProductName = c.Name
+            }).ToList();
+            model.ProductForDisplay = allprd;
+            return View(model);
+        }
+
     }
 }
