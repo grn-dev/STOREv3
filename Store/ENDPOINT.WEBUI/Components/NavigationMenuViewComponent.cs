@@ -21,7 +21,9 @@ namespace EndPoints.WebUI.Components
         {
             var model = new NavigationMenuViewModel
             {
-                Categories = _categoryRepository.GetAll().ToList(),
+                Categorieslevel1 = _categoryRepository.GetCategorylevel1().ToList(),
+                //Categorieslevel2 = _categoryRepository.GetCategorylevel2().ToList(),
+
 
             };
             if (RouteData?.Values.ContainsKey("category") == true)

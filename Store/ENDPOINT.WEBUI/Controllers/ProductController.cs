@@ -4,6 +4,7 @@ using ENDPOINT.WEBUI.Models.Product;
 using EndPoints.WebUI.Models.Commons;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -40,6 +41,7 @@ namespace ENDPOINT.WEBUI.Controllers
         {
             int showpage = 6;
             var pr = RepoPrc.GetProducts(showpage, pn, Input).ToList();
+            var level2 = categoriRepo.GetCategorylevel2(Input).ToList();
 
 
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
@@ -70,7 +72,8 @@ namespace ENDPOINT.WEBUI.Controllers
                 Products = singleImagesList,
                 Current = Input,
                 PagingInfo = pagin,
-                fromContoller= "showByCategori"
+                fromContoller= "showByCategori",
+                CategoryChild= level2
 
             };
 

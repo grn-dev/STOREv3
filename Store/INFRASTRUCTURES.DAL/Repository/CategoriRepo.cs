@@ -17,8 +17,39 @@ namespace Infrastructures.Dal.Repository
 
         public Category GetByName(string catname)
         {
-            return ctx.Categories.FirstOrDefault(c=> c.CategoryName==catname );
-            
+            return ctx.Categories.FirstOrDefault(c => c.CategoryName == catname);
+
+        }
+
+        public List<Category> GetCategorylevel1()
+        {
+            return ctx.Categories.Where(x => x.parentId == null).ToList();
+        }
+
+        public List<Category> GetCategorylevel2()
+        {
+            //return ctx.Categories.Where(x => x.parentId == null).ToList().Select(x => x.Childeren);
+
+
+            var query =
+                     (from lvl1 in ctx.Categories
+                      join lvl2 in ctx.Categories on lvl1.CategoryId equals lvl2.parentId
+
+                      select new Category { 
+                      CategoryId=lvl2.CategoryId,
+                      CategoryName=lvl2.CategoryName,
+                      parentId=lvl2.parentId,
+                      
+                      }).ToList();
+
+
+            return query;
+        }
+
+        public List<Category> GetCategorylevel2(string parentName)
+        {
+            var sdsd = ctx.Categories.FirstOrDefault(c => c.CategoryName == parentName);
+            return ctx.Categories.Where(x => x.parentId == sdsd.CategoryId).ToList();
         }
     }
 }

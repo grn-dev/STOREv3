@@ -1,4 +1,5 @@
-﻿using EndPoints.WebUI.Models.Commons;
+﻿using Core.Domian;
+using EndPoints.WebUI.Models.Commons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace ENDPOINT.WEBUI.Models.Product
         public PagingInfo PagingInfo { get; set; }
         public string Current { get; set; }
         public string fromContoller { get; set; }
+        public List<Category> CategoryChild { get; set; }
+
     }
 }
