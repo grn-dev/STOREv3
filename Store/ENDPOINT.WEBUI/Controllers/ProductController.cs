@@ -1,4 +1,5 @@
 ﻿using Core.Contract;
+using CORE.CONTRACT;
 using ENDPOINT.WEBUI.Models;
 using ENDPOINT.WEBUI.Models.Product;
 using EndPoints.WebUI.Models.Commons;
@@ -14,23 +15,30 @@ namespace ENDPOINT.WEBUI.Controllers
     {
         private readonly IPruductRepo RepoPrc;
         private readonly ICategoriRepo categoriRepo;
-        public ProductController(IPruductRepo RepoPrc_, ICategoriRepo categoriRepo_)
+        private readonly IProductInfo ProductInfoREPO;
+        
+        public ProductController(IPruductRepo RepoPrc_, ICategoriRepo categoriRepo_, IProductInfo ProductInfoREPO_)
         {
             RepoPrc = RepoPrc_;
             categoriRepo = categoriRepo_;
+            ProductInfoREPO = ProductInfoREPO_;
         }
 
         public IActionResult showSingle(int ProductID)
         {
 
             var res = RepoPrc.GetSingleProduct(ProductID);
+            List<string> TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
+            var relerted = RepoPrc.GetReletionPruduct(ProductID);
             productMultiImage image = new productMultiImage()
             {
                 AllImages = res.Images,
                 Category = res.Category,
                 Description = res.Description,
                 id = res.ProductID,
-                Name = res.Name
+                Name = res.Name,
+                Tags= TAGS,
+                RelatedProduct= relerted
 
             };
 

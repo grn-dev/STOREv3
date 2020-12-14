@@ -4,7 +4,7 @@
 @{ ViewData["Title"] = "Index"; }
 
 <!-- breadcrumb part start-->
-<section class="breadcrumb_part">
+<section class="breadcrumb_part" style="height:auto">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -19,53 +19,58 @@
 <!-- product list part start-->
 
 
-<ul class="card-list">
 
 
+@if (Model.CategoryChild != null)
+{
+    <ul class="cardCategori-list">
 
-    @foreach (var item in Model.CategoryChild)
-    {
+        @foreach (var item in Model.CategoryChild)
+        {
 
-        <li class="card">
+            <li class="cardCategori">
 
-            <a class="card-description" asp-action="showByCategori" id="navbarDropdown_2" asp-controller="Product" asp-route-Input="@item.CategoryName"
-               asp-route-pn="1"> @item.CategoryName</a>
+                <a class="cardCategori-description" asp-action="showByCategori" id="navbarDropdown_2" asp-controller="Product" asp-route-Input="@item.CategoryName"
+                   asp-route-pn="1"> @item.CategoryName</a>
 
-        </li>
+            </li>
 
-    }
+        }
 
-
-</ul>
-
+    </ul>
+}
 
 
 
 <section class="product_list section_padding">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="product_list">
-                    <div class="row">
+                    <div class="row" style="vertical-align: middle;align-items:center">
 
 
                         @foreach (var item in Model.Products)
                         {
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="single_product_item">
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="cardGRN card-1GRN single_product_item">
 
                                     <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.id">
                                         <img src=@item.ImageFuckin.image alt="#" class="img-fluid">
                                     </a>
-                                    <h3> <a href="single-product.html">@item.Name</a> </h3>
+                                    <h3 style="text-align:center"> <a asp-action="showSingle" asp-controller="Product"
+                                            asp-route-ProductID="@item.id" >@item.Name</a> </h3>
 
                                 </div>
                             </div>
                         }
 
+                         
 
 
-                    </div>
+
+
+                        </div>
                     <div class="load_more_btn text-center" style="align-items:center">
                         @for (int gopagei = 1; gopagei <= Model.PagingInfo.TotalPages; gopagei++)
                         {
@@ -74,6 +79,22 @@
                             <a asp-action="@Model.fromContoller" asp-controller="Product" asp-route-pn="@gopagei" asp-route-Input="@Model.Current" class="btn @classname"> @gopagei </a>
                         }
                     </div>
+
+
+                    @*<nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    @for (int gopagei = 1; gopagei <= Model.PagingInfo.TotalPages; gopagei++)
+                                    {
+
+                                        var classname = gopagei == Model.PagingInfo.CurrentPage ? "btn-primary" : "page-link";
+                                        <a asp-action="@Model.fromContoller" asp-controller="Product" asp-route-pn="@gopagei" asp-route-Input="@Model.Current" class="btn @classname"> @gopagei </a>
+                                    }
+                                </li>
+                            </ul>
+                        </nav>*@
+
+
 
 
 
@@ -92,7 +113,7 @@
 <style>
 
     /* Lazy Load Styles */
-    .card-image {
+    .cardCategori-image {
         display: block;
         min-height: 20rem; /* layout hack */
         background: #fff center center no-repeat;
@@ -100,13 +121,13 @@
         filter: blur(3px); /* blur the lowres image */
     }
 
-        .card-image > img {
+        .cardCategori-image > img {
             display: block;
             width: 100%;
             opacity: 0; /* visually hide the img element */
         }
 
-        .card-image.is-loaded {
+        .cardCategori-image.is-loaded {
             filter: none; /* remove the blur on fullres image */
             transition: filter 1s;
         }
@@ -123,7 +144,7 @@
         font-family: sans-serif;
     }
 
-    .card-list {
+    .cardCategori-list {
         display: block;
         margin: 1rem auto;
         padding: 0;
@@ -132,7 +153,7 @@
         list-style: none;
     }
 
-    .card {
+    .cardCategori {
         display: inline-block;
         width: 90%;
         /*background-color:rebeccapurple;*/
@@ -145,25 +166,71 @@
         transition: transform 0.1s ease-in-out, box-shadow 0.1s;
     }
 
-        .card:hover {
+        .cardCategori:hover {
             transform: translateY(-0.5rem) scale(1.0125);
             box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
         }
 
-    .card-description {
+    .cardCategori-description {
         display: block;
         padding: 1em 0.5em;
         color: #515151;
         text-decoration: none;
     }
 
-        .card-description > h2 {
+        .cardCategori-description > h2 {
             margin: 0 0 0.5em;
         }
 
-        .card-description > p {
+        .cardCategori-description > p {
             margin: 0;
         }
+
+
+
+
+    /*////////////*/ /*////////////*/
+    .cardGRN {
+        background: #fff;
+        border-radius: 2px;
+        display: inline-block;
+        /*width:33%;*/
+        margin: 1rem;
+        position: relative;
+        
+    }
+    .card-1GRN:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+
+    .wrapper {
+        width: 100%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+
+        .wrapper .card {
+            background-color: #fff;
+        }
+
+            .wrapper .card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                object-position: 0 center;
+            }
+
+            .wrapper .card h3 {
+                padding: 10px 0;
+                font-size: 1.8em;
+                font-weight: 600;
+            }
+
+            .wrapper .card p {
+                color: #555;
+            }
 </style>
 
 
@@ -187,9 +254,9 @@
         });
 
         function lazyLoad() {
-            var card_images = document.querySelectorAll('.card-image');
+            var card_images = document.querySelectorAll('.cardCategori-image');
 
-            // loop over each card image
+            // loop over each cardCategori image
             card_images.forEach(function (card_image) {
                 var image_url = card_image.getAttribute('data-image-full');
                 var content_image = card_image.querySelector('img');
@@ -213,3 +280,6 @@
 
     </script>
 }
+
+
+ 

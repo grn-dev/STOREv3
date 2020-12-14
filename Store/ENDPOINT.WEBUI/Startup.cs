@@ -1,3 +1,4 @@
+ 
 using Core.Contract;
 using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
@@ -34,7 +35,10 @@ namespace ENDPOINT.WEBUI
 
             services.AddSession();
             services.AddMemoryCache();
-              
+
+             
+
+
             services.AddControllersWithViews();
             services.AddDbContext<ContextMed>(options => options.UseSqlServer
             (Configuration.GetConnectionString("storeDb")));

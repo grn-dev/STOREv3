@@ -17,6 +17,10 @@ namespace EndPoint.UI.panelAdmin.Models
         [Required(ErrorMessage = "لطفا Description را وارد نمایید")]
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "لطفا MainImages را وارد نمایید")]
+        public IFormFile MainImages { get; set; }
+
+
         [Required(ErrorMessage = "لطفا Images را وارد نمایید")]
         public List<IFormFile> Images { get; set; }
 

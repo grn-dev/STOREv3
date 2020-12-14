@@ -16,7 +16,7 @@ namespace Core.Contract
         List<Product> GetProductsSearch(int pageSize = 4, int pageNumber = 1, string name = null);//string category,
 
         ////
-        List<Product> GetReletionPruduct(Product prcID);
+        List<Product> GetReletionPruduct(int prcID);
         List<Product> GetProductByGategoriMainPage(string categoriName);
 
         List<Product> imgeForsingle();

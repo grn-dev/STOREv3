@@ -162,3 +162,4 @@ D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\View
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\NavigationMenu\Default.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Search\Default.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Product\showListproduct.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\AutoMapper.dll

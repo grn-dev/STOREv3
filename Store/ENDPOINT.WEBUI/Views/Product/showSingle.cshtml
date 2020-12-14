@@ -1,8 +1,6 @@
 ﻿
 @model productMultiImage
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 
 <!-- breadcrumb part start-->
@@ -26,10 +24,9 @@
                 <div class="product_img_slide owl-carousel" dir="ltr">
                     @foreach (var item in Model.AllImages)
                     {
-                        <div class="single_product_img">
-                            <img src=@item.image alt="#" class="img-fluid">
-                        </div>
-                    }
+        <div class="single_product_img">
+            <img src=@item.image alt="#" class="img-responsive center-block" style="width:44%;height:64%">
+        </div>}
 
 
                 </div>
@@ -42,21 +39,23 @@
                     </p>
                     <div class="card_area">
                         <div class="product_count_area">
-                            <p>تعداد</p>
+
                             <div class="product_count d-inline-block">
                                 @*<span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
-                                <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
-                                <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>*@
+                                    <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
+                                    <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>*@
                             </div>
-                            @Model.Name
-                             
+
+
                         </div>
                         <div>
-                            <h5>دسته بندی</h5>
-                            <h6>@Model.Category</h6>
-                            
-                            
-                        </div> 
+
+                            @foreach (var item in Model.Tags)
+                            {
+                            <span class="badge badge-pill badge-dark">@item</span>
+                            <span class="post-tag js-gps-track">@item</span>
+                            }
+                        </div>
 
                     </div>
                 </div>
@@ -65,3 +64,9 @@
     </div>
 </div>
 <!--================End Single Product Area =================-->
+
+
+
+<style>
+</style>
+

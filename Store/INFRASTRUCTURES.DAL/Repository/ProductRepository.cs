@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using AutoMapper;
 //using System.Data.Common.;//.Core.Objects;
 
 namespace Infrastructures.Dal.Repository
@@ -13,9 +14,11 @@ namespace Infrastructures.Dal.Repository
     public class ProductRepository : BaseRepository<Product>, IPruductRepo
     {
         private readonly ContextMed ctx;
-        public ProductRepository(ContextMed dbContext_) : base(dbContext_)
+        private readonly IMapper _mapper;
+        public ProductRepository(ContextMed dbContext_, IMapper _mapper) : base(dbContext_)
         {
             ctx = dbContext_;
+            this._mapper = _mapper;
         }
 
         public override IQueryable<Product> GetAll()
@@ -58,11 +61,22 @@ namespace Infrastructures.Dal.Repository
                 Take(pageSize).ToList();
         }
 
-        public List<Product> GetReletionPruduct(Product prc)
+        public List<Product> GetReletionPruduct(int prc)
         {
             //return ctx.Products.ToList();
+
+
+            var query =
+                     (from INFO in ctx.ProductInfo
+                      join PR in ctx.Products on INFO.productID equals PR.ProductID
+                      where INFO.key == "RelatedProduct" && INFO.productID == prc
+
+                      select (PR)).ToList();
+
+            //var dfd = _mapper.Map<List<Product>>(query);
+            //List<string> relerted = ProductInfoREPO.GetMoreInfo(ProductID, "RelatedProduct");
             //return ctx.Products.Where(c=> c.CategoryId == prc.ProductID).ToList();
-            return ctx.Products.Take(6).ToList();
+            return query;
         }
 
         public List<Product> GetProductByGategoriMainPage(string categoriName)
