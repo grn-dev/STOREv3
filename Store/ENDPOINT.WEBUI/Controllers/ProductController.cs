@@ -38,7 +38,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 id = res.ProductID,
                 Name = res.Name,
                 Tags= TAGS,
-                RelatedProduct= relerted
+                //RelatedProduct= relerted
 
             };
 
@@ -58,7 +58,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 singleImagesList.Add(
                     new productSingleImage()
                     {
-                        ImageFuckin = item.Images[0],
+                        MainImage = item.mainImages,
                         Category = item.Category,
                         Description = item.Description,
                         Name = item.Name,
@@ -101,7 +101,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 singleImagesList.Add(
                     new productSingleImage()
                     {
-                        ImageFuckin = item.Images[0],
+                        MainImage = item.mainImages,
                         Category = item.Category,
                         Description = item.Description,
                         Name = item.Name,

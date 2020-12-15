@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using AutoMapper;
+
 //using System.Data.Common.;//.Core.Objects;
 
 namespace Infrastructures.Dal.Repository
@@ -14,11 +14,10 @@ namespace Infrastructures.Dal.Repository
     public class ProductRepository : BaseRepository<Product>, IPruductRepo
     {
         private readonly ContextMed ctx;
-        private readonly IMapper _mapper;
-        public ProductRepository(ContextMed dbContext_, IMapper _mapper) : base(dbContext_)
+
+        public ProductRepository(ContextMed dbContext_) : base(dbContext_)
         {
             ctx = dbContext_;
-            this._mapper = _mapper;
         }
 
         public override IQueryable<Product> GetAll()

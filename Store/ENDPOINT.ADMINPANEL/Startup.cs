@@ -46,7 +46,7 @@ namespace EndPoint.UI.panelAdmin
             
             services.AddScoped<IPruductRepo, ProductRepository>();
             services.AddScoped<ICategoriRepo, CategoriRepo>();
-            services.AddScoped<IimgeProduct, imgeProductRepository>();
+            services.AddScoped<IImageValue, IImageValueRepository>();
             services.AddScoped<IProductInfo, ProductInfoRepository>();
 
 

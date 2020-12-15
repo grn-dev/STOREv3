@@ -1,0 +1,111 @@
+﻿@model List<productSingleImage>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!--<section class="banner_part">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5">
+                <div class="banner_text">
+                    <div class="banner_text_iner">
+                        <h1>
+                            تخت ماساژ پرتابل اسپرتک YM-1320E
+                        </h1>
+                        <p>
+
+                            تخت ماساژ پرتابل اسپرتک YM-1320E ، تخت ماساژ تاشو و قابل حمل که دارای قابلیت تنظیم ارتفاع است و تا وزن 120 کیلوگرم را به راحتی تحمل می کند.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner_img">
+        <img src="~/img/banner.jpg" alt="#" class="img-fluid">-->
+@*<img src="img/banner_pattern.png " alt="#" class="pattern_img img-fluid">*@
+<!--</div>
+</section>-->
+ 
+<div id="slider">
+    <figure>
+
+        <img src="~/img/arrivel_6.png" />
+        <img src="~/img/banner.jpg" />
+        <img src="~/img/feature_2.png" />
+        <img src="~/img/arrivel_3.png" />
+    </figure>
+</div>
+
+
+
+
+@section scripts
+{
+
+}
+
+
+
+
+<style>
+
+    @@keyframes slidy {
+        0% {
+            left: 0%;
+        }
+
+        20% {
+            left: 0%;
+        }
+
+        25% {
+            left: -100%;
+        }
+
+        45% {
+            left: -100%;
+        }
+
+        50% {
+            left: -200%;
+        }
+
+        70% {
+            left: -200%;
+        }
+
+        75% {
+            left: -300%;
+        }
+
+        95% {
+            left: -300%;
+        }
+
+        100% {
+            left: -400%;
+        }
+    }
+     
+
+    div#slider {
+        overflow: hidden;
+    }
+
+        div#slider figure img {
+            width: 20%;
+            float: left;
+        }
+
+        div#slider figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            text-align: left;
+            font-size: 0;
+            animation: 30s slidy infinite;
+        }
+</style>

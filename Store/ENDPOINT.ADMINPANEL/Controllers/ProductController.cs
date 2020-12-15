@@ -19,17 +19,17 @@ using Newtonsoft.Json;
 
 namespace EndPoint.UI.panelAdmin.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ProductController : Controller
     {
 
 
         private readonly ICategoriRepo categoryRepository;
         private readonly IPruductRepo productRepository;
-        private readonly IimgeProduct iimgeProduct;
+        private readonly IImageValue iimgeProduct;
         private readonly IProductInfo ProductInfoRepository;
 
-        public ProductController(ICategoriRepo categoryRepository, IPruductRepo productRepository, IimgeProduct iimgeProduct_, IProductInfo ProductInfo_)
+        public ProductController(ICategoriRepo categoryRepository, IPruductRepo productRepository, IImageValue iimgeProduct_, IProductInfo ProductInfo_)
         {
             this.categoryRepository = categoryRepository;
             this.productRepository = productRepository;
@@ -114,10 +114,18 @@ namespace EndPoint.UI.panelAdmin.Controllers
                     count = 0,
                     Price = 0,
 
+
                 };
+                string MainImages_;
+                using (var ms = new MemoryStream())
+                {
+                    model.MainImages.CopyTo(ms);
+                    var fileBytes = ms.ToArray();
+                    MainImages_ = "data:image/jpeg;base64," + Convert.ToBase64String(fileBytes);
 
-
-                List<imgeProduct> imgeProductsList = new List<imgeProduct>();
+                }
+                product.mainImages = MainImages_;
+                List<ImageValue> imgeProductsList = new List<ImageValue>();
                 string image_strine = "";
                 if (model?.Images?.Count > 0)
                 {
@@ -128,28 +136,27 @@ namespace EndPoint.UI.panelAdmin.Controllers
                             item.CopyTo(ms);
                             var fileBytes = ms.ToArray();
                             image_strine = "data:image/jpeg;base64," + Convert.ToBase64String(fileBytes);
-
+                            ImageValue imageValue = new ImageValue()
+                            {
+                                image = image_strine
+                            };
+                            imgeProductsList.Add(imageValue);
                         }
-                        imgeProduct imgeProduct = new imgeProduct
-                        {
-                            Product = product,
-                            image = image_strine,
-
-                        };
-                        imgeProductsList.Add(imgeProduct);
 
                     }
 
                 }
 
-
+                product.Images = imgeProductsList;
                 productRepository.Add(product);
-                iimgeProduct.AddList(imgeProductsList);
+                //iimgeProduct.AddList(imgeProductsList);
                 return RedirectToAction("Index");
             }
             model.CategoryForDisplay = categoryRepository.GetAll().ToList();
             return View(model);
         }
+
+
 
 
 

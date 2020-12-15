@@ -10,8 +10,8 @@ namespace Core.Domian
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<imgeProduct> Images { get; set; }
-        //public string mainImages { get; set; }
+        public List<ImageValue> Images { get; set; }
+        public string mainImages { get; set; }
         public decimal Price { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
@@ -21,11 +21,11 @@ namespace Core.Domian
         public List<ProductInfo> ProductInfos { get; set; }
 
         //Dictionary<string, string> keyValues = new Dictionary<string, string>();
-         
+
 
         //public bool IsShow { get; set; }
         //public int Count { get; set; }
         //public string MoreDescription { get; set; }
     }
-    
+
 }

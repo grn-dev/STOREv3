@@ -43,7 +43,7 @@ namespace ENDPOINT.WEBUI
             services.AddDbContext<ContextMed>(options => options.UseSqlServer
             (Configuration.GetConnectionString("storeDb")));
             services.AddScoped<IPruductRepo, ProductRepository>();
-            services.AddScoped<IimgeProduct, imgeProductRepository>();
+            services.AddScoped<IImageValue, IImageValueRepository>();
             services.AddScoped<IProductInfo, ProductInfoRepository>();
 
             services.AddScoped<ICategoriRepo, CategoriRepo>();

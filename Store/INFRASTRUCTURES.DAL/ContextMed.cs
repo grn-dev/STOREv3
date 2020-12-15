@@ -13,7 +13,7 @@ namespace Infrastructures.Dal
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<imgeProduct> imgeProducts { get; set; }
+        public DbSet<ImageValue> imgeProducts { get; set; }
         public DbSet<ProductInfo> ProductInfo { get; set; }
 
 
@@ -25,15 +25,15 @@ namespace Infrastructures.Dal
             base.OnModelCreating(modelBuilder);
 
 
-            modelBuilder.Entity<Product>()
-        .HasMany(c => c.Images)
-        .WithOne(e => e.Product)
-        .IsRequired();
+        //    modelBuilder.Entity<Product>()
+        //.HasMany(c => c.Images)
+        //.WithOne(e => e.Product)
+        //.IsRequired();
 
 
-            modelBuilder.Entity<imgeProduct>()
-            .HasOne(e => e.Product)
-            .WithMany(c => c.Images);
+        //    modelBuilder.Entity<ImageValue>()
+        //    .HasOne(e => e.Product)
+        //    .WithMany(c => c.Images);
 
 
 

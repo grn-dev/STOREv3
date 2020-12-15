@@ -35,7 +35,7 @@ namespace ENDPOINT.WEBUI.Controllers
                     CategoryId = item.CategoryId,
                     Category = item.Category,
                     Description = item.Description,
-                    ImageFuckin = item.Images[0],
+                    MainImage = item.mainImages,
                     Name = item.Name,
                     id= item.ProductID
 

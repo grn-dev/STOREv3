@@ -6,8 +6,8 @@ using System.Text;
 
 namespace CORE.CONTRACT
 {
-    public interface IimgeProduct : IRepository<imgeProduct>
+    public interface IImageValue : IRepository<ImageValue>
     {
-        List<imgeProduct> AddList(List<imgeProduct> entity);
+        //List<ImageValue> AddList(List<ImageValue> entity);
     }
 }

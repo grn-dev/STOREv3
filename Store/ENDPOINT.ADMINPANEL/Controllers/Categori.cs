@@ -1,6 +1,7 @@
 ﻿using Core.Contract;
 using Core.Domian;
 using EndPoint.UI.panelAdmin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ENDPOINT.ADMINPANEL.Controllers
 {
+    [Authorize]
     public class Categori : Controller
     {
         private readonly ICategoriRepo categoryRepository;

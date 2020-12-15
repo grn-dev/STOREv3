@@ -2,3 +2,13 @@ D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFR
 D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFRASTRUCTURES.DAL.AssemblyInfoInputs.cache
 D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFRASTRUCTURES.DAL.AssemblyInfo.cs
 D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFRASTRUCTURES.DAL.csproj.CoreCompileInputs.cache
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\INFRASTRUCTURES.DAL.deps.json
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\INFRASTRUCTURES.DAL.dll
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\INFRASTRUCTURES.DAL.pdb
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\CORE.CONTRACT.dll
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\CORE.DOMAIN.dll
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\CORE.CONTRACT.pdb
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\bin\Debug\netstandard2.0\CORE.DOMAIN.pdb
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFRASTRUCTURES.DAL.csproj.CopyComplete
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFRASTRUCTURES.DAL.dll
+D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Debug\netstandard2.0\INFRASTRUCTURES.DAL.pdb
