@@ -49,14 +49,14 @@
                                     <a class="nav-link" asp-action="Index" asp-controller="Home">صفحه اصلی</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-action="Index" asp-controller="Home">درباره ما</a>
+                                    <a class="nav-link" asp-action="Index" asp-controller="AboutUs">درباره ما</a>
                                 </li>
 
 
                                 @await Component.InvokeAsync("NavigationMenu")
 
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-action="Index" asp-controller="Home">تماس با ما</a>
+                                    <a class="nav-link" asp-action="Index" asp-controller="AboutUs">تماس با ما</a>
                                 </li>
                             </ul>
                         </div>
@@ -89,8 +89,9 @@
                             <div class="footer_menu_item">
                                 <a asp-action="Index" asp-controller="Home">صفحه اصلی</a>
 
-                                <a href="contact.html">تماس با ما</a>
-                                <a href="contact.html">درباره ما</a>
+                                <a class="nav-link" asp-action="Index" asp-controller="AboutUs">تماس با ما</a>
+
+                                <a class="nav-link" asp-action="Index" asp-controller="AboutUs">درباره ما</a>
                             </div>
                         </div>
 
@@ -101,10 +102,9 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="social_icon">
-                            <a href="#"><i class="fab email"></i></a>
+                            <a href="#"><i class="ti-email"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-telegram"></i></a>
-
+                            
                         </div>
                     </div>
                 </div>

@@ -171,3 +171,4 @@ D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\View
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Partial6.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialCard.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialCard2.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\AboutUs\Index.cshtml.g.cs

@@ -1,6 +1,9 @@
-﻿using Core.Contract;
+﻿using AutoMapper;
+using Core.Contract;
+using Core.Domian;
 using CORE.CONTRACT;
 using ENDPOINT.WEBUI.Models;
+using ENDPOINT.WEBUI.Models.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,44 +15,38 @@ using System.Threading.Tasks;
 namespace ENDPOINT.WEBUI.Controllers
 {
     public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-        private readonly IPruductRepo RepoPrc;
-        private readonly IProductInfo ProductInfoREPO;
-        public HomeController(IPruductRepo pruduct, IProductInfo ProductInfoREPO_)
+    {  
+        private readonly IPruductRepo RepoPrc; 
+        private readonly IMapper _mapper;
+        public HomeController(IPruductRepo pruduct, IMapper _mapper1)
         {
             RepoPrc = pruduct;
-            ProductInfoREPO = ProductInfoREPO_;
+            _mapper = _mapper1;
         }
 
         public IActionResult Index()
         {
+            //var _PartialCard23 = RepoPrc.GetProductmainPage("_PartialCard2");
+            //var _Partial13 = RepoPrc.GetProductmainPage("_Partial1");
+            //var _Partial23 = RepoPrc.GetProductmainPage("_Partial2");
+            //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
 
-            //List<string> TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
-            //var relerted = RepoPrc.GetReletionPruduct(ProductID);
 
-            var allp = RepoPrc.imgeForsingle();
-            List<productSingleImage> singleList = new List<productSingleImage>();
-            foreach (var item in allp)
+            var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
+            var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial1"));
+            var _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial2"));
+            var _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial3"));
+            MainPage mainPage = new MainPage()
             {
-                productSingleImage singleImage = new productSingleImage
-                {
-                    CategoryId = item.CategoryId,
-                    Category = item.Category,
-                    Description = item.Description,
-                    mainImages = item.mainImages,
-                    Name = item.Name,
-                    ProductID = item.ProductID
+                _Partial1= _Partial1,
+                _Partial2= _Partial2,
+                _Partial3= _Partial3,
+                _PartialCard2= _PartialCard2,
+                
+            };
 
-                };
-                singleList.Add(singleImage);
-            }
-            return View(singleList);
+
+            return View(mainPage);
         }
         //public void Base64ToImage(string source)
         //{

@@ -1,4 +1,5 @@
-﻿using CORE.CONTRACT;
+﻿using Core.Domian;
+using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
 using Infrastructures.Dal;
 using Infrastructures.Dal.Repository;
@@ -32,5 +33,7 @@ namespace INFRASTRUCTURES.DAL.Repository
 
 
         }
+
+         
     }
 }

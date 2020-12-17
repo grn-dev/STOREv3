@@ -28,27 +28,34 @@ using EndPoints.WebUI.Models.Categories;
 #nullable disable
 #nullable restore
 #line 3 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
-using ENDPOINT.WEBUI;
+using ENDPOINT.WEBUI.Models.Product;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
-using ENDPOINT.WEBUI.Models;
+using ENDPOINT.WEBUI;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
+using ENDPOINT.WEBUI.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
 using CORE.DOMAIN;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1b4037131c9ed0aded6b986775d9fc8bbcde774c", @"/Views/Product/showListproduct.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4002dd5f0308a86c1c2ea0c865d330f682eea768", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab4473eb2866f6eacb87777551142e9c29502a3d", @"/Views/_ViewImports.cshtml")]
     public class Views_Product_showListproduct : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ENDPOINT.WEBUI.Models.Product.ProductsListViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("cardCategori-description"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -128,7 +135,7 @@ using CORE.DOMAIN;
 #line hidden
 #nullable disable
             WriteLiteral("            <li class=\"cardCategori\">\r\n\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c6912", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c7102", async() => {
                 WriteLiteral(" ");
 #nullable restore
 #line 34 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\Product\showListproduct.cshtml"
@@ -213,7 +220,7 @@ using CORE.DOMAIN;
 #line hidden
 #nullable disable
             WriteLiteral("                            <div class=\"col-lg-4 col-sm-4\">\r\n                                <div class=\"cardGRN card-1GRN single_product_item\">\r\n\r\n                                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c11505", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c11695", async() => {
                 WriteLiteral("\r\n                                        <img");
                 BeginWriteAttribute("src", " src=", 1676, "", 1697, 1);
 #nullable restore
@@ -256,7 +263,7 @@ WriteAttributeValue("", 1681, item.mainImages, 1681, 16, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                    <h3 style=\"text-align:center\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c14515", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c14705", async() => {
 #nullable restore
 #line 62 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\Product\showListproduct.cshtml"
                                                                               Write(item.Name);
@@ -314,7 +321,7 @@ WriteAttributeValue("", 1681, item.mainImages, 1681, 16, false);
 #line hidden
 #nullable disable
             WriteLiteral("                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c18103", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b4037131c9ed0aded6b986775d9fc8bbcde774c18293", async() => {
                 WriteLiteral(" ");
 #nullable restore
 #line 79 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\Product\showListproduct.cshtml"

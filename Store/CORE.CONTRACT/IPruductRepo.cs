@@ -22,6 +22,8 @@ namespace Core.Contract
         List<Product> imgeForsingle();
         Product GetSingleProduct(int ProductID);
 
+        List<Product> GetProductmainPage(string place);
+
 
     }
 }

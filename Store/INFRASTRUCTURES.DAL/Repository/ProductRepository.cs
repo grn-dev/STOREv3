@@ -83,22 +83,7 @@ namespace Infrastructures.Dal.Repository
 
 
             var query = ctx.Products.Where(c => c.Category.CategoryName == categoriName).Take(6).ToList();
-
-            //var query2 = ctx.Products.SingleOrDefault(c => c.Category.CategoryName == categoriName);
-
-            //var sql = ((System.Data.Objects.ObjectQuery)query).ToTraceString();
-
-            //string sql = ((System.Data.Objects
-            //    .ObjectQuery)query).ToTraceString();
-            //ctx.SaveChangesAsync().Wait();
-            //using (ctx)
-            //{
-            //    ctx.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
-            //    // query the database using EF here.
-            //}
-
-
-            //var sql = query.ToString();
+             
 
             return query;
 
@@ -118,10 +103,21 @@ namespace Infrastructures.Dal.Repository
             return ctx.Products.Where(c => c.ProductID == ProductID).Include(c => c.Images).FirstOrDefault();
         }
 
-        //public int TotalCount(string category)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<Product> GetProductmainPage(string place)
+        {
+            var query =
+                     (from INFO in ctx.ProductInfo
+                      join PR in ctx.Products on INFO.productID equals PR.ProductID
+                      where INFO.key == "placeProduct" && INFO.Value == place.Trim()
+
+                      select (PR)).ToList();
+
+            //var dfd = _mapper.Map<List<Product>>(query);
+            //List<string> relerted = ProductInfoREPO.GetMoreInfo(ProductID, "RelatedProduct");
+            //return ctx.Products.Where(c=> c.CategoryId == prc.ProductID).ToList();
+            return query;
+        }
+         
     }
 
 }
