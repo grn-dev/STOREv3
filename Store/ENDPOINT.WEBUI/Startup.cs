@@ -1,4 +1,4 @@
- 
+
 using Core.Contract;
 using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
@@ -16,6 +16,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using ENDPOINT.WEBUI.Models;
+using Core.Domian;
 
 namespace ENDPOINT.WEBUI
 {
@@ -36,7 +39,19 @@ namespace ENDPOINT.WEBUI
             services.AddSession();
             services.AddMemoryCache();
 
-             
+            var configuration = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Product, productSingleImage>();
+                //cfg.CreateMap<Bar, BarDto>();
+            });
+
+            IMapper mapper = configuration.CreateMapper();
+            services.AddSingleton(mapper);
+
+
+            //configuration.AssertConfigurationIsValid();
+            //// use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
+            //var mapper1 = configuration.CreateMapper();
 
 
             services.AddControllersWithViews();
@@ -47,7 +62,7 @@ namespace ENDPOINT.WEBUI
             services.AddScoped<IProductInfo, ProductInfoRepository>();
 
             services.AddScoped<ICategoriRepo, CategoriRepo>();
-             
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

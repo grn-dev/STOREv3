@@ -21,11 +21,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
-                <div class="product_img_slide owl-carousel" dir="ltr">
+                <div class="img-responsive center-block product_img_slide owl-carousel"  style="margin:auto" dir="ltr">
                     @foreach (var item in Model.AllImages)
                     {
-        <div class="single_product_img">
-            <img src=@item.image alt="#" class="img-responsive center-block" style="width:44%;height:64%">
+        <div >
+            <img src=@item.image alt="#"  style="width:55%;height:88%">
         </div>}
 
 
@@ -47,13 +47,13 @@
                             </div>
 
 
-                            <h4>قیمت : جهت اطلاع از تماس بگیرید</h4>
+                            <h4>قیمت : جهت اطلاع تماس بگیرید</h4>
 
 
                         </div>
                         <div class="add_to_cart">
                             <a href="#" class="btn_3">09121112233 شماره تماس </a>
-                        
+
                         </div>
 
                         <br>
@@ -65,9 +65,7 @@
 
                             @foreach (var item in Model.Tags)
                             {
-                <h4> <span class="badge badge-pill badge-dark"> @item</span></h4>
-                
-                }
+                <span class="badge badge-pill badge-dark" style="font-size:large"> @item</span>}
 
 
                         </div>
@@ -79,6 +77,38 @@
     </div>
 </div>
 <!--================End Single Product Area =================-->
+
+
+<section class="client_review " style="direction: ltr">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="client_review_slider owl-carousel ">
+
+
+
+                    @foreach (var item in Model.RelatedProduct)
+                    {
+        <div class="single_client_review" dir="rtl">
+            <div class="mx-auto d-block">
+
+                <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
+                    <img src=@item.mainImages class="img-rounded"   style="height:33%;width:33%" alt="#">
+                </a>
+
+            </div>
+            <h5>@item.Name</h5>
+            <p>@item.Description</p>
+
+        </div>}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 

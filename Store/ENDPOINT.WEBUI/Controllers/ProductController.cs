@@ -1,4 +1,6 @@
-﻿using Core.Contract;
+﻿using AutoMapper;
+using Core.Contract;
+using Core.Domian;
 using CORE.CONTRACT;
 using ENDPOINT.WEBUI.Models;
 using ENDPOINT.WEBUI.Models.Product;
@@ -16,12 +18,14 @@ namespace ENDPOINT.WEBUI.Controllers
         private readonly IPruductRepo RepoPrc;
         private readonly ICategoriRepo categoriRepo;
         private readonly IProductInfo ProductInfoREPO;
-        
-        public ProductController(IPruductRepo RepoPrc_, ICategoriRepo categoriRepo_, IProductInfo ProductInfoREPO_)
+        private readonly IMapper _mapper;
+
+        public ProductController(IPruductRepo RepoPrc_, IMapper mapper, ICategoriRepo categoriRepo_, IProductInfo ProductInfoREPO_)
         {
             RepoPrc = RepoPrc_;
             categoriRepo = categoriRepo_;
             ProductInfoREPO = ProductInfoREPO_;
+            _mapper = mapper;
         }
 
         public IActionResult showSingle(int ProductID)
@@ -30,6 +34,9 @@ namespace ENDPOINT.WEBUI.Controllers
             var res = RepoPrc.GetSingleProduct(ProductID);
             List<string> TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
             var relerted = RepoPrc.GetReletionPruduct(ProductID);
+            //UserViewModel userViewModel = _mapper.Map<UserViewModel>(user);
+            //var relertedmap = _mapper.Map<productSingleImage>(relerted);
+            var relertedmaps = _mapper.Map<List<Product>, List<productSingleImage>>(relerted);
             productMultiImage image = new productMultiImage()
             {
                 AllImages = res.Images,
@@ -37,8 +44,8 @@ namespace ENDPOINT.WEBUI.Controllers
                 Description = res.Description,
                 id = res.ProductID,
                 Name = res.Name,
-                Tags= TAGS,
-                //RelatedProduct= relerted
+                Tags = TAGS,
+                RelatedProduct = relertedmaps
 
             };
 
@@ -58,11 +65,11 @@ namespace ENDPOINT.WEBUI.Controllers
                 singleImagesList.Add(
                     new productSingleImage()
                     {
-                        MainImage = item.mainImages,
+                        mainImages = item.mainImages,
                         Category = item.Category,
                         Description = item.Description,
                         Name = item.Name,
-                        id = item.ProductID
+                        ProductID = item.ProductID
 
                     }
                      );
@@ -80,14 +87,14 @@ namespace ENDPOINT.WEBUI.Controllers
                 Products = singleImagesList,
                 Current = Input,
                 PagingInfo = pagin,
-                fromContoller= "showByCategori",
-                CategoryChild= level2
+                fromContoller = "showByCategori",
+                CategoryChild = level2
 
             };
 
-            
+
             return View("showListproduct", productsListViewModel);
-              
+
         }
 
 
@@ -101,11 +108,11 @@ namespace ENDPOINT.WEBUI.Controllers
                 singleImagesList.Add(
                     new productSingleImage()
                     {
-                        MainImage = item.mainImages,
+                        mainImages = item.mainImages,
                         Category = item.Category,
                         Description = item.Description,
                         Name = item.Name,
-                        id = item.ProductID
+                        ProductID = item.ProductID
 
                     }
                      );
@@ -137,7 +144,7 @@ namespace ENDPOINT.WEBUI.Controllers
         {
 
             var productsListViewModel = JsonConvert.DeserializeObject<ProductsListViewModel>((string)TempData["productsListViewModel"]);
-            ProductsListViewModel listViewModel= (ProductsListViewModel)TempData["productsListViewModel"];
+            ProductsListViewModel listViewModel = (ProductsListViewModel)TempData["productsListViewModel"];
 
             return View(listViewModel);
         }

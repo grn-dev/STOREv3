@@ -1,4 +1,5 @@
 ﻿using Core.Contract;
+using CORE.CONTRACT;
 using ENDPOINT.WEBUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -19,13 +20,19 @@ namespace ENDPOINT.WEBUI.Controllers
         //    _logger = logger;
         //}
         private readonly IPruductRepo RepoPrc;
-        public HomeController(IPruductRepo pruduct)
+        private readonly IProductInfo ProductInfoREPO;
+        public HomeController(IPruductRepo pruduct, IProductInfo ProductInfoREPO_)
         {
             RepoPrc = pruduct;
+            ProductInfoREPO = ProductInfoREPO_;
         }
 
         public IActionResult Index()
         {
+
+            //List<string> TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
+            //var relerted = RepoPrc.GetReletionPruduct(ProductID);
+
             var allp = RepoPrc.imgeForsingle();
             List<productSingleImage> singleList = new List<productSingleImage>();
             foreach (var item in allp)
@@ -35,9 +42,9 @@ namespace ENDPOINT.WEBUI.Controllers
                     CategoryId = item.CategoryId,
                     Category = item.Category,
                     Description = item.Description,
-                    MainImage = item.mainImages,
+                    mainImages = item.mainImages,
                     Name = item.Name,
-                    id= item.ProductID
+                    ProductID = item.ProductID
 
                 };
                 singleList.Add(singleImage);

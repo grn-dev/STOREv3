@@ -55,11 +55,11 @@
                             <div class="col-lg-4 col-sm-4">
                                 <div class="cardGRN card-1GRN single_product_item">
 
-                                    <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.id">
-                                        <img src=@item.MainImage alt="#" class="img-fluid">
+                                    <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
+                                        <img src=@item.mainImages alt="#" class="img-fluid">
                                     </a>
                                     <h3 style="text-align:center"> <a asp-action="showSingle" asp-controller="Product"
-                                            asp-route-ProductID="@item.id" >@item.Name</a> </h3>
+                                            asp-route-ProductID="@item.ProductID" >@item.Name</a> </h3>
 
                                 </div>
                             </div>

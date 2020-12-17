@@ -17,10 +17,10 @@
                     @foreach (var item in Model)
                     {
                         <div class="single_client_review" dir="rtl">
-                            <div class="client_img">
+                            <div class="mx-auto d-block">
 
-                                <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.id">
-                                    <img src=@item.MainImage alt="#">
+                                <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
+                                    <img src=@item.mainImages  class="img-rounded"   style="height:33%;width:33%" alt="#">
                                 </a>
 
                             </div>

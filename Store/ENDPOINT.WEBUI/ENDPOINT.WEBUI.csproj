@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +20,11 @@
     <ProjectReference Include="..\CORE.DOMAIN\CORE.DOMAIN.csproj" />
     <ProjectReference Include="..\INFRASTRUCTURES.DAL\INFRASTRUCTURES.DAL.csproj" />
     <ProjectReference Include="..\SERCIVE.SERVICE\SERCIVE.APPSERVICE.csproj" />
+  </ItemGroup>
+   
+
+  <ItemGroup>
+    <Folder Include="AutoMapper\" />
   </ItemGroup>
 
 </Project>

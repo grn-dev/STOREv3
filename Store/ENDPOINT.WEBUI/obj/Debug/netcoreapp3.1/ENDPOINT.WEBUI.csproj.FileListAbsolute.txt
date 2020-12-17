@@ -22,7 +22,6 @@ D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.W
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.WEBUI.TagHelpers.output.cache
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.WEBUI.RazorCoreGenerate.cache
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -164,4 +163,11 @@ D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\View
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Product\showListproduct.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\SliderMain.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_SliderMain.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_SliderMain2.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Partial4.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Partial5.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_Partial6.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialCard.cshtml.g.cs
+D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\_PartialCard2.cshtml.g.cs
