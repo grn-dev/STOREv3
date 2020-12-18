@@ -24,8 +24,7 @@ namespace Infrastructures.Dal.Repository
             }
             catch (Exception ex)
             {
-
-                throw;
+                return entity;
             }
             
         }

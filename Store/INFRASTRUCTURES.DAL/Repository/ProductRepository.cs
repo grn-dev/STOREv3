@@ -117,7 +117,19 @@ namespace Infrastructures.Dal.Repository
             //return ctx.Products.Where(c=> c.CategoryId == prc.ProductID).ToList();
             return query;
         }
-         
+
+        public List<Product> GetProductsbyParentcategori(int pageSize = 4, int pageNumber = 1, string category = null)
+        {
+
+            var dfdfdf = ctx.Categories.Where(x => x.CategoryName == category).Include(x => x.Childeren).ToList().Select(c => c.CategoryName);
+             
+            return ctx.Products.
+                Where(c => string.IsNullOrWhiteSpace(category) || dfdfdf.Contains(c.Category.CategoryName)).
+                Include(c => c.Category).
+                Include(c => c.Images).
+                Skip(pageSize * (pageNumber - 1)).
+                Take(pageSize).ToList();
+        }
     }
 
 }

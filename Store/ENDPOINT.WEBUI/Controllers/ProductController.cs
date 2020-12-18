@@ -57,24 +57,21 @@ namespace ENDPOINT.WEBUI.Controllers
             int showpage = 6;
             var pr = RepoPrc.GetProducts(showpage, pn, Input).ToList();
             var level2 = categoriRepo.GetCategorylevel2(Input).ToList();
-
-
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
-            foreach (var item in pr)
+
+            if (pr.Count > 0)
             {
-                singleImagesList.Add(
-                    new productSingleImage()
-                    {
-                        mainImages = item.mainImages,
-                        Category = item.Category,
-                        Description = item.Description,
-                        Name = item.Name,
-                        ProductID = item.ProductID
-
-                    }
-                     );
-
+                singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr);
             }
+            else {
+                //if (level2 != null && pr.Count <= 0)
+                //{
+                //    var pr23 = RepoPrc.GetProducts(showpage, pn, Input).ToList();
+                //}
+                //var pr2 = RepoPrc.GetProductsbyParentcategori(showpage, pn, Input).ToList();
+                //singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr2);
+            }
+
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,

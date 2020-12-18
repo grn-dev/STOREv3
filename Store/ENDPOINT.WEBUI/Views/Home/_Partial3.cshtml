@@ -18,9 +18,19 @@
                     {
                         <div class="single_client_review" dir="rtl">
                             <div class="mx-auto d-block">
-
+                                 
+                                 
                                 <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
-                                    <img src=@item.mainImages  class="img-rounded"   style="height:33%;width:33%" alt="#">
+                                     
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-4"></div>
+                                            <div class="col-4">
+                                                <img src=@item.mainImages class="img-rounded" alt="#">
+                                            </div>
+                                            <div class="col-4"></div>
+                                        </div>
+                                    </div>  
                                 </a>
 
                             </div>
