@@ -9,13 +9,22 @@
     <div class="form-group">
 
         <div class="form-group">
-            <label>دسته بندی</label>
+            <label>دسته بندی1</label>
             <select class="form-control" name="ParentId"
-                    asp-items="@(new SelectList(Model.categories,"ID","Categori"))">
+                    asp-items="@(new SelectList(Model.categorieslvl1,"CategoryId","CategoryName"))">
                 <option value="0">اصلی</option>
 
             </select>
         </div>
+        @*<div class="form-group">
+            <label>دسته بندی2</label>
+            <select class="form-control" name="ParentId2"
+                    asp-items="@(new SelectList(Model.categorieslvl2,"ID","Categori")),new  ">
+                <option value="0">اصلی</option>
+
+            </select>
+        </div>*@
+
 
         <div class="form-group">
             <label> دسته بندی جدید</label>

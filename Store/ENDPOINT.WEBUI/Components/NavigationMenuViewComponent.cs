@@ -22,7 +22,7 @@ namespace EndPoints.WebUI.Components
             var model = new NavigationMenuViewModel
             {
                 Categorieslevel1 = _categoryRepository.GetCategorylevel1().ToList(),
-                //Categorieslevel2 = _categoryRepository.GetCategorylevel2().ToList(),
+                Categorieslevel2 = _categoryRepository.GetCategorylevel2().ToList(),
 
 
             };

@@ -55,7 +55,7 @@ using CORE.DOMAIN;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"47d5be15a1f6f09766c33364c581bd1a7eb414d6", @"/Views/Home/_Partial2.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab4473eb2866f6eacb87777551142e9c29502a3d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8e247071f7f4ac46aca1b1065e3ee2aaf92b4f6f", @"/Views/_ViewImports.cshtml")]
     public class Views_Home__Partial2 : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MainPage>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "showSingle", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

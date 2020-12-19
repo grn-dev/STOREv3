@@ -1,5 +1,9 @@
 ﻿@model NavigationMenuViewModel
-<li class="nav-item dropdown">
+
+
+
+
+@*<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown_1"
            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             دسته‌بندی کالا
@@ -16,43 +20,133 @@
 
         </div>
 
-    </li>
+    </li>*@
 
 
 
-@*<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" id="navbarDropdown_1"
-       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        دسته‌بندی کالا
-    </a>
 
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-        <li><a tabindex="-1" href="#">HTML</a></li>
-        <li><a tabindex="-1" href="#">CSS</a></li>
-        <li class="dropdown-submenu">
-            <a class="test" tabindex="-1" href="#">New dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-                <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-                <li class="dropdown-submenu">
-                    <a class="test" href="#">Another dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">3rd level dropdown</a></li>
-                        <li><a href="#">3rd level dropdown</a></li>
+<div>
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">دسته‌بندی کالا</a>
+                    <ul class="dropdown-menu megamenu">
+                        <div class="row">
+
+                            @for (int i = 0; i < 6; i++)
+                            {
+                                <li class="col-md-2">
+                                    <ul>
+                                        <h6 class="list-header">@Model.Categorieslevel1[i].CategoryName </h6>
+                                        <hr>
+                                        @{
+
+                                            var CategorieslShow = Model.Categorieslevel2.Where(c => c.parentId == @Model.Categorieslevel1[i].CategoryId);
+                                        }
+                                        @foreach (var item in CategorieslShow)
+                                        {
+                                            <li>
+                                                <a href="#">@item.CategoryName</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                        </div>
                     </ul>
                 </li>
+
             </ul>
-        </li>
-    </ul>
-
-</li>*@
-
+        </div>
+    </div>
+</div>
 
 
 
-<script>
 
 
 
-</script>
 
+
+<style>
+    @@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800|Roboto:300,400,400i,500,500i,700");
+
+    body {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    header .container-fluid {
+        max-width: 1500px;
+        width: 100%;
+    }
+
+    /* Navigation Sub
+    ------------------------------------- */
+    nav.sub {
+        border-bottom: 1px solid #ebebeb;
+        padding: 10px 0;
+    }
+
+    /* Navigation Main
+    ------------------------------------- */
+    nav.main {
+    }
+
+        nav.main .nav-logo {
+            max-width: 200px;
+            width: 100%;
+        }
+
+        nav.main ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+        /* ------ Mega Menu ------ */
+        nav.main .megamenu {
+            padding: 20px 20px;
+            position: absolute;
+            top: auto;
+            left: 0;
+            right: 0;
+            max-width: 1500px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* ------ Mid Menu ------ */
+        nav.main .midmenu {
+            position: absolute;
+            padding: 20px 20px;
+            float: left;
+            top: auto;
+            left: auto;
+            right: auto;
+            max-width: 650px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    .dropdown-menu.megamenu.midmenu.show {
+        right: 0;
+    }
+
+    .dropdown-menu.show {
+        right: 0;
+    }
+</style>
+
+
+@section scripts
+{
+
+    <script>
+
+    </script>
+}

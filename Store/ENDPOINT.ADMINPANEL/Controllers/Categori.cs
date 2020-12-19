@@ -23,15 +23,24 @@ namespace ENDPOINT.ADMINPANEL.Controllers
 
         public IActionResult Index()
         {
-            var res = categoryRepository.GetAll().Select(s => new CategoriShowViewModel
-            {
-                Categori = s.CategoryName,
-                ID = s.CategoryId
-            }).ToList();
+            //var res = categoryRepository.GetAll().Select(s => new CategoriShowViewModel
+            //{
+            //    Categori = s.CategoryName,
+            //    ID = s.CategoryId
+            //}).ToList().OrderBy(x=> x.);
+
+            var res = categoryRepository.GetAll().OrderBy(x => x.parentId == null).ToList();
+
+            //var res2 = categoryRepository.GetCategorylevel2().Select(s => new CategoriShowViewModel
+            //{
+            //    Categori = s.CategoryName,
+            //    ID = s.CategoryId
+            //}).ToList();
             //var res=categoryRepository.GetAll().Select(c=> c.CategoryId );
             CategoriViewModel resCategoriViewModel = new CategoriViewModel()
             {
-                categories = res
+                categorieslvl1 = res,
+                //categorieslvl2= res2
             };
 
             return View(resCategoriViewModel);
@@ -66,12 +75,8 @@ namespace ENDPOINT.ADMINPANEL.Controllers
 
             }
 
-            var res = categoryRepository.GetAll().Select(s => new CategoriShowViewModel
-            {
-                Categori = s.CategoryName,
-                ID = s.CategoryId
-            }).ToList();
-            categoriViewModel.categories = res;
+            var res = categoryRepository.GetAll().OrderBy(x => x.parentId == null).ToList();
+            categoriViewModel.categorieslvl1 = res;
             return View(categoriViewModel);
         }
     }

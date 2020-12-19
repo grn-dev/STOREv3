@@ -7,7 +7,8 @@ namespace EndPoint.UI.panelAdmin.Models
 {
     public class CategoriViewModel
     {
-        public List<CategoriShowViewModel> categories { get; set; }
+        public List<Category> categorieslvl1 { get; set; }
+        //public List<CategoriShowViewModel> categorieslvl2 { get; set; }
 
         public int ParentId { get; set; }
 
