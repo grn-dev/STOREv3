@@ -1,8 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <ProjectReference Include="..\CORE.CONTRACT\CORE.CONTRACT.csproj" />
+    <ProjectReference Include="..\CORE.DOMAIN\CORE.DOMAIN.csproj" />
+    <ProjectReference Include="..\INFRASTRUCTURES.DAL\INFRASTRUCTURES.DAL.csproj" />
+    <ProjectReference Include="..\SERCIVE.SERVICE\SERCIVE.APPSERVICE.csproj" />
+  </ItemGroup>
 
 
 </Project>
