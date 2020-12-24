@@ -26,31 +26,31 @@ namespace ENDPOIN.API.Controllers
         }
 
 
-        [Route("api/[controller]")]
-        [HttpGet]
-        public async Task<ActionResult<Product>> Product(int ProductID)
-        {
+        //[Route("api/[controller]")]
+        //[HttpGet]
+        //public async Task<ActionResult<Product>> Products(int ProductID)
+        //{
 
-            var res = RepoPrc.GetSingleProduct(ProductID);
-            //List<string> TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
-            //var relerted = RepoPrc.GetReletionPruduct(ProductID);
-            //UserViewModel userViewModel = _mapper.Map<UserViewModel>(user);
-            //var relertedmap = _mapper.Map<productSingleImage>(relerted);
-            //var relertedmaps = _mapper.Map<List<Product>, List<productSingleImage>>(relerted);
-            //productMultiImage image = new productMultiImage()
-            //{
-            //    AllImages = res.Images,
-            //    Category = res.Category,
-            //    Description = res.Description,
-            //    id = res.ProductID,
-            //    Name = res.Name,
-            //    Tags = TAGS,
-            //    RelatedProduct = relertedmaps
+        //    var res = RepoPrc.GetSingleProduct(ProductID);
+        //    //List<string> TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
+        //    //var relerted = RepoPrc.GetReletionPruduct(ProductID);
+        //    //UserViewModel userViewModel = _mapper.Map<UserViewModel>(user);
+        //    //var relertedmap = _mapper.Map<productSingleImage>(relerted);
+        //    //var relertedmaps = _mapper.Map<List<Product>, List<productSingleImage>>(relerted);
+        //    //productMultiImage image = new productMultiImage()
+        //    //{
+        //    //    AllImages = res.Images,
+        //    //    Category = res.Category,
+        //    //    Description = res.Description,
+        //    //    id = res.ProductID,
+        //    //    Name = res.Name,
+        //    //    Tags = TAGS,
+        //    //    RelatedProduct = relertedmaps
 
-            //};
-            return await View(res);
+        //    //};
+        //    return await View(res);
              
-        }
+        //}
 
     }
 }
