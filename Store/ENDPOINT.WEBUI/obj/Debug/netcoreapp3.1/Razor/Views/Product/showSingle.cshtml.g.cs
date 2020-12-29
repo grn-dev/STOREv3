@@ -35,27 +35,20 @@ using ENDPOINT.WEBUI.Models.Product;
 #nullable disable
 #nullable restore
 #line 4 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
-using ENDPOINT.WEBUI;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
 using ENDPOINT.WEBUI.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
+#line 5 "D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\Views\_ViewImports.cshtml"
 using CORE.DOMAIN;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fa4452049b306c9553bc082e4faffbe4bfad874e", @"/Views/Product/showSingle.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8e247071f7f4ac46aca1b1065e3ee2aaf92b4f6f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"23f9886b3988667da271d279d1d523a114672cda", @"/Views/_ViewImports.cshtml")]
     public class Views_Product_showSingle : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<productMultiImage>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Index", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -161,7 +154,7 @@ WriteAttributeValue("", 869, item.image, 869, 11, false);
 #nullable disable
             WriteLiteral("\n                    </p>\n                    <div class=\"card_area\">\n                        <div class=\"product_count_area\">\n\n                            <div class=\"product_count d-inline-block\">\n");
             WriteLiteral("                            </div>\n\n\n                            <h4>قیمت : جهت اطلاع تماس بگیرید</h4>\n\n\n                        </div>\n                        <div class=\"add_to_cart\">\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa4452049b306c9553bc082e4faffbe4bfad874e8431", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa4452049b306c9553bc082e4faffbe4bfad874e8256", async() => {
                 WriteLiteral("09120170473 شماره تماس ");
             }
             );
@@ -235,7 +228,7 @@ WriteAttributeValue("", 869, item.image, 869, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("        <div class=\"single_client_review\" dir=\"rtl\">\n            <div class=\"mx-auto d-block\">\n\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa4452049b306c9553bc082e4faffbe4bfad874e11903", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa4452049b306c9553bc082e4faffbe4bfad874e11728", async() => {
                 WriteLiteral("\n                    <img");
                 BeginWriteAttribute("src", " src=", 3210, "", 3231, 1);
 #nullable restore

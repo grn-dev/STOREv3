@@ -28,4 +28,15 @@ namespace Core.Domian
         //public string MoreDescription { get; set; }
     }
 
+    public class productSingleImageCore
+    {
+        public int ProductID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string mainImages { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public string Place { get; set; }
+    }
+
 }

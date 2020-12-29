@@ -149,13 +149,8 @@ D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Vi
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_Partial1.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_Partial2.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_Partial3.cshtml.g.cs
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_Partial4.cshtml.g.cs
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_Partial5.cshtml.g.cs
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_Partial6.cshtml.g.cs
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_PartialCard.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_PartialCard2.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_SliderMain.cshtml.g.cs
-D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Home\_SliderMain2.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Product\showListproduct.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Product\showSingle.cshtml.g.cs
 D:\Git myproject\STOREv3\Store\ENDPOINT.WEBUI\obj\Release\netcoreapp3.1\Razor\Views\Shared\Components\NavigationMenu\Default.cshtml.g.cs

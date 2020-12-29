@@ -83,7 +83,7 @@ namespace Infrastructures.Dal.Repository
 
 
             var query = ctx.Products.Where(c => c.Category.CategoryName == categoriName).Take(6).ToList();
-             
+
 
             return query;
 
@@ -103,14 +103,24 @@ namespace Infrastructures.Dal.Repository
             return ctx.Products.Where(c => c.ProductID == ProductID).Include(c => c.Images).FirstOrDefault();
         }
 
-        public List<Product> GetProductmainPage(string place)
+        public List<productSingleImageCore> GetProductmainPage()
         {
             var query =
                      (from INFO in ctx.ProductInfo
                       join PR in ctx.Products on INFO.productID equals PR.ProductID
-                      where INFO.key == "placeProduct" && INFO.Value == place.Trim()
+                      where INFO.key == "placeProduct"
 
-                      select (PR)).ToList();
+                      select new productSingleImageCore()
+                      { 
+                        Category= PR.Category,
+                        CategoryId= PR.CategoryId,
+                        Description= PR.Description,
+                        mainImages= PR.mainImages,
+                        Name= PR.Name,
+                        ProductID= PR.ProductID,
+                        Place= INFO.Value
+
+                      }).ToList();
 
             //var dfd = _mapper.Map<List<Product>>(query);
             //List<string> relerted = ProductInfoREPO.GetMoreInfo(ProductID, "RelatedProduct");
@@ -122,7 +132,7 @@ namespace Infrastructures.Dal.Repository
         {
 
             var dfdfdf = ctx.Categories.Where(x => x.CategoryName == category).Include(x => x.Childeren).ToList().Select(c => c.CategoryName);
-             
+
             return ctx.Products.
                 Where(c => string.IsNullOrWhiteSpace(category) || dfdfdf.Contains(c.Category.CategoryName)).
                 Include(c => c.Category).
