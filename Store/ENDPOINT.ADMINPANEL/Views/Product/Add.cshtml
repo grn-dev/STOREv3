@@ -34,7 +34,8 @@
     <div class="form-group">
 
         <label asp-for="Description"></label>
-        <input type="text" asp-for="Description" class="form-control" />
+        <textarea asp-for="Description" cols="40" class="form-control" rows="5"></textarea>
+        
         <span asp-validation-for="Description"></span>
 
     </div>
