@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Contract
 {
     public interface ICategoriRepo:IRepository<Category>
     {
-        Category GetByName(String catname);
+        Task<Category> GetByName(String catname);
 
         List<Category>GetCategorylevel1();
         List<Category> GetCategorylevel2();

@@ -45,6 +45,10 @@ namespace Infrastructures.Dal.Repository
 
             return query;
         }
+        public List<Category> GetCategoryByparent(int ParentID)
+        {
+            return ctx.Categories.Where(x => x.parentId == ParentID).ToList();
+        }
 
         public List<Category> GetCategorylevel2(string parentName)
         {
