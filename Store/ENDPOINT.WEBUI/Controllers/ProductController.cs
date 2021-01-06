@@ -2,9 +2,11 @@
 using Core.Contract;
 using Core.Domian;
 using CORE.CONTRACT;
+using CORE.DOMAIN.Entities;
 using ENDPOINT.WEBUI.Models;
 using ENDPOINT.WEBUI.Models.Product;
 using EndPoints.WebUI.Models.Commons;
+using Infrastructures.Dal;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -26,6 +28,7 @@ namespace ENDPOINT.WEBUI.Controllers
             categoriRepo = categoriRepo_;
             ProductInfoREPO = ProductInfoREPO_;
             _mapper = mapper;
+            
         }
 
         public IActionResult showSingle(int ProductID)
@@ -36,10 +39,11 @@ namespace ENDPOINT.WEBUI.Controllers
             var relerted = RepoPrc.GetReletionPruduct(ProductID);
             //UserViewModel userViewModel = _mapper.Map<UserViewModel>(user);
             //var relertedmap = _mapper.Map<productSingleImage>(relerted);
+
             var relertedmaps = _mapper.Map<List<Product>, List<productSingleImage>>(relerted);
             productMultiImage image = new productMultiImage()
             {
-                AllImages = res.Images,
+                AllImages = res.Images.Select(x => x.image).ToList(),// [0].image,
                 Category = res.Category,
                 Description = res.Description,
                 id = res.ProductID,
@@ -48,7 +52,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 RelatedProduct = relertedmaps
 
             };
-
+            image.AllImages.Add(res.mainImages);
             return View(image);
         }
 
@@ -63,7 +67,8 @@ namespace ENDPOINT.WEBUI.Controllers
             {
                 singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr);
             }
-            else {
+            else
+            {
                 //if (level2 != null && pr.Count <= 0)
                 //{
                 //    var pr23 = RepoPrc.GetProducts(showpage, pn, Input).ToList();
@@ -97,8 +102,24 @@ namespace ENDPOINT.WEBUI.Controllers
 
         public IActionResult showBySeach(string Input, int pn = 1)
         {
+
+
+
+
             int showpage = 6;
-            var pr = RepoPrc.GetProductsSearch(showpage, pn, Input).ToList();
+            List<GetProductByTag> ProductTAGS = new List<GetProductByTag>();
+            List<Product> pr = RepoPrc.GetProductsSearch(showpage, pn, Input).ToList();
+            if (pr.Count < 6)
+            {
+                int Tagpnfirst = pn;
+                int Tagpn = 1;
+                //int TafazolPage = pn;
+                //ProductTAGS = ProductInfoREPO.GetProductByTag(showpage, Tagpn, Input);
+                ProductTAGS = ProductInfoREPO.GetProductByTag(showpage, Tagpn, Input);
+                //ProductTAGS= _mapper.Map<Product, GetProductByTag>(resProductTAGS);
+                /// this.Database.SqlQuery<YourEntityType>("storedProcedureName",params);
+            }
+
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
             foreach (var item in pr)
             {
@@ -107,6 +128,21 @@ namespace ENDPOINT.WEBUI.Controllers
                     {
                         mainImages = item.mainImages,
                         Category = item.Category,
+                        Description = item.Description,
+                        Name = item.Name,
+                        ProductID = item.ProductID
+
+                    }
+                     );
+
+            }
+            foreach (var item in ProductTAGS)
+            {
+                singleImagesList.Add(
+                    new productSingleImage()
+                    {
+                        mainImages = item.mainImages,
+                        //Category = item.Category,
                         Description = item.Description,
                         Name = item.Name,
                         ProductID = item.ProductID

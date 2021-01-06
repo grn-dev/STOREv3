@@ -18,10 +18,13 @@ namespace ENDPOINT.WEBUI.Controllers
     {  
         private readonly IPruductRepo RepoPrc; 
         private readonly IMapper _mapper;
-        public HomeController(IPruductRepo pruduct, IMapper _mapper1)
+        private readonly IProductInfo ProductInfoREPO;
+        public HomeController(IProductInfo ProductInfoREPO_, IPruductRepo pruduct, IMapper _mapper1)
         {
             RepoPrc = pruduct;
             _mapper = _mapper1;
+            ProductInfoREPO = ProductInfoREPO_;
+            //ProductInfoREPO.GetProductByTag(1, 1, "");
         }
 
         public IActionResult Index()

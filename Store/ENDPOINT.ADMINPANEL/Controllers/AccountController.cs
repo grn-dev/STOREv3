@@ -52,7 +52,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         public IActionResult Login(string returnUrl)
         {
             //ctx.Database.EnsureCreated();
-            ctxIdentity.Database.EnsureCreated();
+            //ctxIdentity.Database.EnsureCreated();
             var d = Request.Headers;
             var d21 = Response.Headers;
             var dgdf=5; //Response.Redirect=;

@@ -23,7 +23,7 @@ namespace Core.Contract
         List<Product> imgeForsingle();
         Product GetSingleProduct(int ProductID);
 
-        List<productSingleImageCore> GetProductmainPage();
+         List<productSingleImageCore> GetProductmainPage();
 
 
     }

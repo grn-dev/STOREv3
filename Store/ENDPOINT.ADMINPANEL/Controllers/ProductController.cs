@@ -68,10 +68,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public HttpResponseMessage DeleteProduct(int ProuductID)
         {
-            var dlpr = productRepository.Get(ProuductID);
-            dlpr.isShow = false;
-            productRepository.Update(dlpr);
-            //RedirectToAction("Index");
+            productRepository.Delete(ProuductID);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 

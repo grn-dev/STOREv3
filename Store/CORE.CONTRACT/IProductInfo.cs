@@ -10,7 +10,9 @@ namespace CORE.CONTRACT
     public interface IProductInfo: IRepository<ProductInfo>
     {
         List<string> GetMoreInfo(int ProductID,string keyname);
-        //void AddTagProuduct(int ProductID,string TagName);
+
+        List<GetProductByTag> GetProductByTag(int pageSize = 4, int pageNumber = 1, string ProductName = null);
+        
         bool CheckExist(int ProductID, string keyname,string Value);
 
 

@@ -7213,6 +7213,7 @@
       "CORE.CONTRACT >= 1.0.0",
       "CORE.DOMAIN >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.0",
+      "Microsoft.EntityFrameworkCore.Relational >= 5.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0"
     ]
@@ -7268,6 +7269,10 @@
         "targetAlias": "netstandard2.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[5.0.0, )"
           },

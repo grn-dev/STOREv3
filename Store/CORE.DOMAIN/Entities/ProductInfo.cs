@@ -18,4 +18,14 @@ namespace CORE.DOMAIN.Entities
 
 
     }
+
+    public class GetProductByTag
+    {
+        public int ProductID { get; set; }
+        public string Name { get; set; }
+        public string mainImages { get; set; }
+        public int CategoryId { get; set; }
+        public string Description { get; set; }
+
+    }
 }
