@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.UI.panelAdmin.Controllers
 {
-    //[Authorize()]
+    [Authorize()]
     public class AccountController : Controller
     {
         private UserManager<Appuser> userManager;
@@ -37,8 +37,8 @@ namespace EndPoint.UI.panelAdmin.Controllers
         public IActionResult AddUser(string userName, string password)//view result
         {
             
-            userName = "sabzali";
-            password = "123456aA";
+            userName = "mrafshani";
+            password = "3SzafnmZQ7kf";
             var user = new Appuser
             {
                 UserName = userName
@@ -52,7 +52,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         public IActionResult Login(string returnUrl)
         {
             //ctx.Database.EnsureCreated();
-            ctxIdentity.Database.EnsureCreated();
+            //ctxIdentity.Database.EnsureCreated();
             var d = Request.Headers;
             var d21 = Response.Headers;
             var dgdf=5; //Response.Redirect=;

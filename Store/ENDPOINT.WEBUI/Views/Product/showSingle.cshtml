@@ -25,7 +25,7 @@
                     @foreach (var item in Model.AllImages)
                     {
         <div>
-            <img src=@item.image alt="#" style="width:55%;height:88%;margin:0 auto">
+            <img src=@item alt="#" style="width:55%;height:88%;margin:0 auto">
         </div>}
 
 
@@ -65,7 +65,12 @@
 
                             @foreach (var item in Model.Tags)
                             {
-                <span class="badge badge-pill badge-dark" style="font-size:large"> @item</span>}
+                                <span class="badge badge-pill badge-dark" style="font-size:large">
+                                    <a asp-action="showBySeach" 
+                                       asp-controller="Product" 
+                                       asp-route-Input="@item" class="btn_3"> @item </a>
+                                </span>
+                              }
 
 
                         </div>

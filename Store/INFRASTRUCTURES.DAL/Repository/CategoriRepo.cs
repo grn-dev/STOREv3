@@ -46,6 +46,10 @@ namespace Infrastructures.Dal.Repository
 
             return await query;
         }
+        public List<Category> GetCategoryByparent(int ParentID)
+        {
+            return ctx.Categories.Where(x => x.parentId == ParentID).ToList();
+        }
 
         public async Task<IEnumerable<Category>> GetCategorylevel2Async(string parentName)
         {

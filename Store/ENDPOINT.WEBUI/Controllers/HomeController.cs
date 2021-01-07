@@ -18,10 +18,13 @@ namespace ENDPOINT.WEBUI.Controllers
     {
         private readonly IAsyncPruductRepo RepoPrc;
         private readonly IMapper _mapper;
-        public HomeController(IAsyncPruductRepo pruduct, IMapper _mapper1)
+        private readonly IProductInfo ProductInfoREPO;
+        public HomeController(IProductInfo ProductInfoREPO_, IPruductRepo pruduct, IMapper _mapper1)
         {
             RepoPrc = pruduct;
             _mapper = _mapper1;
+            ProductInfoREPO = ProductInfoREPO_;
+            //ProductInfoREPO.GetProductByTag(1, 1, "");
         }
 
         public IActionResult Index()
@@ -31,18 +34,19 @@ namespace ENDPOINT.WEBUI.Controllers
             //var _Partial23 = RepoPrc.GetProductmainPage("_Partial2");
             //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
 
+            List<productSingleImageCore> Allmain = RepoPrc.GetProductmainPage();
 
-            //var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_PartialCard2").Result.ToList());
-            var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_Partial1").Result.ToList());
-            var _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_Partial2").Result.ToList());
-            var _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_Partial3").Result.ToList());
+            var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
+            var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial1"));
+            var _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial2"));
+            var _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial3"));
             MainPage mainPage = new MainPage()
             {
-                _Partial1 = _Partial1,
-                _Partial2 = _Partial2,
-                _Partial3 = _Partial3,
-                //_PartialCard2 = _PartialCard2,
-
+                _Partial1= _Partial1,
+                _Partial2= _Partial2,
+                _Partial3= _Partial3,
+                _PartialCard2= _PartialCard2,
+                
             };
 
 

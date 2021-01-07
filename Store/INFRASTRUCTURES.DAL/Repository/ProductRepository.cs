@@ -95,9 +95,19 @@ namespace Infrastructures.Dal.Repository
             return await ctx.Products.Include(c => c.Images).Take(3).OrderByDescending(c => c.ProductID).ToListAsync();
         }
 
-        public async Task<IEnumerable<Product>> searchBynameAsync(string name)
+        public List<Product> GetProductmainPage(string place)
         {
-            return await ctx.Products.Where(c => c.Name.Contains(name)).ToListAsync();
+            var query =
+                     (from INFO in ctx.ProductInfo
+                      join PR in ctx.Products on INFO.productID equals PR.ProductID
+                      where INFO.key == "placeProduct" && INFO.Value == place.Trim()
+
+                      select (PR)).ToList();
+
+            //var dfd = _mapper.Map<List<Product>>(query);
+            //List<string> relerted = ProductInfoREPO.GetMoreInfo(ProductID, "RelatedProduct");
+            //return ctx.Products.Where(c=> c.CategoryId == prc.ProductID).ToList();
+            return query;
         }
 
         public async Task<int> TotalCountAsyn(string category = null)
@@ -105,9 +115,14 @@ namespace Infrastructures.Dal.Repository
             return await ctx.Products.Where(c => string.IsNullOrWhiteSpace(category) || c.Category.CategoryName == category).CountAsync();
         }
 
-        public async Task<int> TotalCountSearchAsync(string name)
-        {
-            return await ctx.Products.Where(c => string.IsNullOrWhiteSpace(name) || c.Name.Contains(name)).CountAsync();
+            var dfdfdf = ctx.Categories.Where(x => x.CategoryName == category).Include(x => x.Childeren).ToList().Select(c => c.CategoryName);
+             
+            return ctx.Products.
+                Where(c => string.IsNullOrWhiteSpace(category) || dfdfdf.Contains(c.Category.CategoryName)).
+                Include(c => c.Category).
+                Include(c => c.Images).
+                Skip(pageSize * (pageNumber - 1)).
+                Take(pageSize).ToList();
         }
     }
 
