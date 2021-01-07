@@ -17,6 +17,7 @@ namespace Infrastructures.Dal
         public DbSet<ImageValue> imgeProducts { get; set; }
         public DbSet<ProductInfo> ProductInfo { get; set; }
         public DbSet<GetProductByTag> GetProductByTags { get; set; }
+        public DbSet<productSingleImageCore> productSingleImageCores { get; set; }
 
  
          
@@ -29,6 +30,7 @@ namespace Infrastructures.Dal
 
 
             modelBuilder.Entity<GetProductByTag>().HasNoKey();
+            modelBuilder.Entity<productSingleImageCore>().HasNoKey();
 
             //modelBuilder.GetType().(t => t.MapToStoredProcedures());
 

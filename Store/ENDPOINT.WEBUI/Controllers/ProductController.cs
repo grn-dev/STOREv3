@@ -102,29 +102,25 @@ namespace ENDPOINT.WEBUI.Controllers
 
 
         public IActionResult showBySeach(string Input, int pn = 1)
-        {
-
-
-
-
+        { 
             int showpage = 6;
-<<<<<<<
-            var pr = RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
-=======
+ 
+            //var pr = RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
+ 
             List<GetProductByTag> ProductTAGS = new List<GetProductByTag>();
-            List<Product> pr = RepoPrc.GetProductsSearch(showpage, pn, Input).ToList();
-            if (pr.Count < 6)
+            var pr = RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
+            if (pr.Result.ToList().Count < 6)
             {
                 int Tagpnfirst = pn;
                 int Tagpn = 1;
                 //int TafazolPage = pn;
                 //ProductTAGS = ProductInfoREPO.GetProductByTag(showpage, Tagpn, Input);
-                ProductTAGS = ProductInfoREPO.GetProductByTag(showpage, Tagpn, Input);
+                ProductTAGS = ProductInfoREPO.GetProductByTagAsync(showpage, Tagpn, Input).Result.ToList();
                 //ProductTAGS= _mapper.Map<Product, GetProductByTag>(resProductTAGS);
                 /// this.Database.SqlQuery<YourEntityType>("storedProcedureName",params);
             }
 
->>>>>>>
+ 
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
             foreach (var item in pr.Result.ToList())
             {

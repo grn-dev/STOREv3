@@ -26,19 +26,29 @@ namespace Infrastructures.Dal.Repository
         //    throw new NotImplementedException();
         //}
 
-        public async Task<IEnumerable<Product>> GetProductmainPageAsync(string place)
+        public async Task<IEnumerable<productSingleImageCore>> GetProductmainPageAsync()
         {
-            var query =
-             (from INFO in ctx.ProductInfo
-              join PR in ctx.Products on INFO.productID equals PR.ProductID
-              where INFO.key == "placeProduct" && INFO.Value == place.Trim()
+            //var query =
+            // (from INFO in ctx.ProductInfo
+            //  join PR in ctx.Products on INFO.productID equals PR.ProductID
+            //  where INFO.key == "placeProduct" && INFO.Value == place.Trim()
 
-              select (PR)).ToListAsync();
+            //  select (PR)).ToListAsync();
+
+            ////var dfd = _mapper.Map<List<Product>>(query);
+            ////List<string> relerted = ProductInfoREPO.GetMoreInfo(ProductID, "RelatedProduct");
+            ////return ctx.Products.Where(c=> c.CategoryId == prc.ProductID).ToList();
+            //return await query;
+
+
+            var results = ctx.Set<productSingleImageCore>().FromSqlRaw("exec SP_GetMainPage").ToListAsync();
+            return await results;
 
             //var dfd = _mapper.Map<List<Product>>(query);
             //List<string> relerted = ProductInfoREPO.GetMoreInfo(ProductID, "RelatedProduct");
             //return ctx.Products.Where(c=> c.CategoryId == prc.ProductID).ToList();
-            return await query;
+            //return await query;
+
         }
 
         public async Task<IEnumerable<Product>> GetProductsAsync(int pageSize = 4, int pageNumber = 1, string category = null)
@@ -81,7 +91,7 @@ namespace Infrastructures.Dal.Repository
               where INFO.key == "RelatedProduct" && INFO.productID == prcID
 
               select (PR)).ToListAsync();
-             
+
             return await query;
         }
 
@@ -90,7 +100,7 @@ namespace Infrastructures.Dal.Repository
             return await ctx.Products.Where(c => c.ProductID == ProductID).Include(c => c.Images).FirstOrDefaultAsync();
         }
 
-        public async  Task<IEnumerable<Product>> imgeForsingleAsync()
+        public async Task<IEnumerable<Product>> imgeForsingleAsync()
         {
             return await ctx.Products.Include(c => c.Images).Take(3).OrderByDescending(c => c.ProductID).ToListAsync();
         }
@@ -115,15 +125,18 @@ namespace Infrastructures.Dal.Repository
             return await ctx.Products.Where(c => string.IsNullOrWhiteSpace(category) || c.Category.CategoryName == category).CountAsync();
         }
 
-            var dfdfdf = ctx.Categories.Where(x => x.CategoryName == category).Include(x => x.Childeren).ToList().Select(c => c.CategoryName);
-             
-            return ctx.Products.
-                Where(c => string.IsNullOrWhiteSpace(category) || dfdfdf.Contains(c.Category.CategoryName)).
-                Include(c => c.Category).
-                Include(c => c.Images).
-                Skip(pageSize * (pageNumber - 1)).
-                Take(pageSize).ToList();
+        public async Task<IEnumerable<Product>> searchBynameAsync(string name)
+        {
+            return await ctx.Products.Where(c => c.Name.Contains(name)).ToListAsync();
         }
+
+        public async Task<int> TotalCountSearchAsync(string name)
+        {
+            return await ctx.Products.Where(c => string.IsNullOrWhiteSpace(name) || c.Name.Contains(name)).CountAsync();
+        }
+
+
+
     }
 
 }

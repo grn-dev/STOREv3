@@ -36,6 +36,45 @@ namespace INFRASTRUCTURES.DAL.Repository
                 Select(c => c.Value).
                 ToListAsync();
         }
+        public List<GetProductByTag> GetProductByTag(int pageSize = 4, int pageNumber = 1, string ProductName = null)
+        {
+
+            var results = ctx.Set<GetProductByTag>().FromSqlRaw("exec SP_GetProductByTag '',1,1").ToList();
+            return results;
+
+            //var userType = ctx.Set().FromSql("dbo.SomeSproc @Id = {0}, @Name = {1}", 45, "Ada");
+            //ctx.Database.ExecuteSqlCommand()
+            //ctx.Products.FromSql("GetStudents 'Bill'").ToList();
+            //IList<TEntity> ts = new List<GetProductByTag>();
+            //IList<TEntity> ts = new List<TEntity>();
+            //var user = new SqlParameter("user", "johndoe");
+
+            // var userTypeProductsoaramslissdst = ctx.Set<GetProductByTag>().FromSqlRaw("exec SP_testCategories").ToList();
+
+
+            //var userTypeProductsoaramslisttestresult = ctx.testresult.FromSqlRaw("exec SP_testCategories").ToList();
+            //var userTypeProductsoaramslist = ctx.Products.FromSqlRaw("exec SP_testCategories").ToList();
+
+            //var userTypeProductsoaramslissdstsds = ctx.Set<testresult>().FromSqlRaw("exec SP_testCategories")
+            //    .Select(e => (object)e)
+            //    .ToList();
+            //var userTypeProductsoarams = ctx.Products.FromSqlRaw("exec SP_testCategories");
+            //var u85 = ctx.Products.FromSqlRaw("select 85 where 1=1").ToList();
+            //var sdfsd = ctx.Database.ExecuteSqlRaw("exec SP_testCategories");
+            //var sdfssdd = ctx.Database.ExecuteSqlRaw(@"select 85 where 1=1");
+            //var userType = ctx.Set().FromSql("dbo.SomeSproc @Id = {0}, @Name = {1}", 45, "Ada");
+            //var userTypeProducts = ctx.Products.FromSqlRaw("exec SP_GetProductByTag '',1,1");
+            //var userTypeProductsoarams2 = ctx.Products.FromSqlRaw("exec SP_GetProductByTag", "", 1, 1);
+            //ctx.Products.FromSqlRaw("GetStudents 'Bill'").ToList();
+            //ctx.Database.FromSqlRaw("GetStudents 'Bill'").ToList();
+        }
+
+        public async Task<IEnumerable<GetProductByTag>> GetProductByTagAsync(int pageSize = 4, int pageNumber = 1, string ProductName = null)
+        {
+            var spParams = new object[] { "bla", "1","1" };
+            var results = ctx.Set<GetProductByTag>().FromSqlRaw("exec SP_GetProductByTag {0}, {1},{2}", ProductName,1,1).ToListAsync();
+            return await results;
+        }
     }
 }
 

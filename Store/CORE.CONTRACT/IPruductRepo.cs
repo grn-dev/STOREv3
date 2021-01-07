@@ -25,7 +25,7 @@ namespace Core.Contract
         Task<IEnumerable<Product>> imgeForsingleAsync();
         Task<Product> GetSingleProductAsync(int ProductID);
 
-        Task<IEnumerable<Product>> GetProductmainPageAsync(string place);
+        Task<IEnumerable<productSingleImageCore>> GetProductmainPageAsync();
 
 
     }

@@ -14,6 +14,7 @@ namespace CORE.CONTRACT
         Task<ICollection<string>> GetMoreInfoAsync(int ProductID,string keyname);
         //void AddTagProuduct(int ProductID,string TagName);
         bool CheckExistAsync(int ProductID, string keyname,string Value);
+        Task<IEnumerable<GetProductByTag>> GetProductByTagAsync(int pageSize = 4, int pageNumber = 1, string ProductName = null);
 
 
 

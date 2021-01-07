@@ -18,8 +18,8 @@ namespace ENDPOINT.WEBUI.Controllers
     {
         private readonly IAsyncPruductRepo RepoPrc;
         private readonly IMapper _mapper;
-        private readonly IProductInfo ProductInfoREPO;
-        public HomeController(IProductInfo ProductInfoREPO_, IPruductRepo pruduct, IMapper _mapper1)
+        private readonly IAsyncProductInfo ProductInfoREPO;
+        public HomeController(IAsyncProductInfo ProductInfoREPO_, IAsyncPruductRepo pruduct, IMapper _mapper1)
         {
             RepoPrc = pruduct;
             _mapper = _mapper1;
@@ -34,18 +34,20 @@ namespace ENDPOINT.WEBUI.Controllers
             //var _Partial23 = RepoPrc.GetProductmainPage("_Partial2");
             //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
 
-            List<productSingleImageCore> Allmain = RepoPrc.GetProductmainPage();
+            var AllmainPage = RepoPrc.GetProductmainPageAsync().Result.ToList();
 
-            var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
-            var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial1"));
-            var _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial2"));
-            var _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial3"));
+            ////var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
+            var _Partial1 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial1").ToList());
+            var _Partial2 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial2").ToList());
+            var _Partial3 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial3").ToList());
+
+            //AllmainPage.Result.Where(x=> x.Place== "_Partial1").ToList(),
             MainPage mainPage = new MainPage()
             {
                 _Partial1= _Partial1,
                 _Partial2= _Partial2,
                 _Partial3= _Partial3,
-                _PartialCard2= _PartialCard2,
+                //_PartialCard2= _PartialCard2,
                 
             };
 

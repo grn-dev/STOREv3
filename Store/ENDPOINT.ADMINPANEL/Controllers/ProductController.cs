@@ -68,7 +68,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public HttpResponseMessage DeleteProduct(int ProuductID)
         {
-            productRepository.Delete(ProuductID);
+            productRepository.DeleteAsync(ProuductID);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
