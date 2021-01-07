@@ -15,10 +15,10 @@ using System.Threading.Tasks;
 namespace ENDPOINT.WEBUI.Controllers
 {
     public class HomeController : Controller
-    {  
-        private readonly IPruductRepo RepoPrc; 
+    {
+        private readonly IAsyncPruductRepo RepoPrc;
         private readonly IMapper _mapper;
-        public HomeController(IPruductRepo pruduct, IMapper _mapper1)
+        public HomeController(IAsyncPruductRepo pruduct, IMapper _mapper1)
         {
             RepoPrc = pruduct;
             _mapper = _mapper1;
@@ -32,17 +32,17 @@ namespace ENDPOINT.WEBUI.Controllers
             //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
 
 
-            var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
-            var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial1"));
-            var _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial2"));
-            var _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_Partial3"));
+            //var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_PartialCard2").Result.ToList());
+            var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_Partial1").Result.ToList());
+            var _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_Partial2").Result.ToList());
+            var _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPageAsync("_Partial3").Result.ToList());
             MainPage mainPage = new MainPage()
             {
-                _Partial1= _Partial1,
-                _Partial2= _Partial2,
-                _Partial3= _Partial3,
-                _PartialCard2= _PartialCard2,
-                
+                _Partial1 = _Partial1,
+                _Partial2 = _Partial2,
+                _Partial3 = _Partial3,
+                //_PartialCard2 = _PartialCard2,
+
             };
 
 

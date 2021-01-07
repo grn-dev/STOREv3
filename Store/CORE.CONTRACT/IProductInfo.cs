@@ -3,15 +3,17 @@ using Core.Domian;
 using CORE.DOMAIN.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CORE.CONTRACT
 {
-    public interface IProductInfo: IRepository<ProductInfo>
+    public interface IAsyncProductInfo : IAsyncRepository<ProductInfo>
     {
-        List<string> GetMoreInfo(int ProductID,string keyname);
+        Task<ICollection<string>> GetMoreInfoAsync(int ProductID,string keyname);
         //void AddTagProuduct(int ProductID,string TagName);
-        bool CheckExist(int ProductID, string keyname,string Value);
+        bool CheckExistAsync(int ProductID, string keyname,string Value);
 
 
 

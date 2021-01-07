@@ -57,11 +57,11 @@ namespace ENDPOINT.WEBUI
             services.AddControllersWithViews();
             services.AddDbContext<ContextMed>(options => options.UseSqlServer
             (Configuration.GetConnectionString("storeDb")));
-            services.AddScoped<IPruductRepo, ProductRepository>();
-            services.AddScoped<IImageValue, IImageValueRepository>();
-            services.AddScoped<IProductInfo, ProductInfoRepository>();
+            services.AddScoped<IAsyncPruductRepo, ProductRepository>();
+            services.AddScoped<IAsyncImageValue, IImageValueRepository>();
+            services.AddScoped<IAsyncProductInfo, ProductInfoRepository>();
 
-            services.AddScoped<ICategoriRepo, CategoriRepo>();
+            services.AddScoped<IAsyncCategoriRepo, CategoriRepo>();
 
         }
 

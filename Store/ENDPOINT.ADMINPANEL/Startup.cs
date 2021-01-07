@@ -44,10 +44,10 @@ namespace EndPoint.UI.panelAdmin
             services.AddDbContext<ContextMed>(options => options.UseSqlServer
             (Configuration.GetConnectionString("storeDb")));
             
-            services.AddScoped<IPruductRepo, ProductRepository>();
-            services.AddScoped<ICategoriRepo, CategoriRepo>();
-            services.AddScoped<IImageValue, IImageValueRepository>();
-            services.AddScoped<IProductInfo, ProductInfoRepository>();
+            services.AddScoped<IAsyncPruductRepo, ProductRepository>();
+            services.AddScoped<IAsyncCategoriRepo, CategoriRepo>();
+            services.AddScoped<IAsyncImageValue, IImageValueRepository>();
+            services.AddScoped<IAsyncProductInfo, ProductInfoRepository>();
 
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("storeUserDb")));

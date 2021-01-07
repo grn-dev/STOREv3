@@ -9,8 +9,8 @@ namespace ENDPOINT.WEBUI.Controllers
 {
     public class Categorie : Controller
     {
-        private readonly IPruductRepo RepoPrc;
-        public Categorie(IPruductRepo RepoPrc_)
+        private readonly IAsyncPruductRepo RepoPrc;
+        public Categorie(IAsyncPruductRepo RepoPrc_)
         {
             RepoPrc = RepoPrc_;
         }

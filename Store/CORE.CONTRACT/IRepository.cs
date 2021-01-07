@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Contract
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IAsyncRepository<TEntity> where TEntity : class
     {
 
-        TEntity Get(int id);
+        Task<TEntity> GetAsync(int id);
         //List<TEntity> GetAll();
-        IQueryable<TEntity> GetAll();
+        Task<ICollection<TEntity>> GetAllAsync();
 
-        TEntity Add(TEntity entity);
-        void Delete(int id);
-        void Update(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
+        Task DeleteAsync(int id);
+        Task UpdateAsync(TEntity entity);
 
     }
 }

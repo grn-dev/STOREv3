@@ -1,13 +1,15 @@
 ﻿using Core.Contract;
 using Core.Domian;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Infrastructures.Dal.Repository
 {
-    public class CategoriRepo : BaseRepository<Category>, ICategoriRepo
+    public class CategoriRepo : BaseRepository<Category>, IAsyncCategoriRepo
     {
         private readonly ContextMed ctx;
         public CategoriRepo(ContextMed dbContext_) : base(dbContext_)
@@ -15,41 +17,40 @@ namespace Infrastructures.Dal.Repository
             ctx = dbContext_;
         }
 
-        public Category GetByName(string catname)
+        public async Task<Category> GetByNameAsync(string catname)
         {
-            return ctx.Categories.FirstOrDefault(c => c.CategoryName == catname);
-
+             
+            return await ctx.Categories.FirstOrDefaultAsync(c => c.CategoryName == catname);
+            
         }
 
-        public List<Category> GetCategorylevel1()
+        public async Task<ICollection<Category>> GetCategorylevel1Async()
         {
-            return ctx.Categories.Where(x => x.parentId == null).ToList();
+            return await ctx.Categories.Where(x => x.parentId == null).ToListAsync();
         }
 
-        public List<Category> GetCategorylevel2()
+        public async Task<IEnumerable<Category>> GetCategorylevel2Async()
         {
-            //return ctx.Categories.Where(x => x.parentId == null).ToList().Select(x => x.Childeren);
-
-
             var query =
                      (from lvl1 in ctx.Categories
                       join lvl2 in ctx.Categories on lvl1.CategoryId equals lvl2.parentId
 
-                      select new Category { 
-                      CategoryId=lvl2.CategoryId,
-                      CategoryName=lvl2.CategoryName,
-                      parentId=lvl2.parentId,
-                      
-                      }).ToList();
+                      select new Category
+                      {
+                          CategoryId = lvl2.CategoryId,
+                          CategoryName = lvl2.CategoryName,
+                          parentId = lvl2.parentId,
+
+                      }).ToListAsync();
 
 
-            return query;
+            return await query;
         }
 
-        public List<Category> GetCategorylevel2(string parentName)
+        public async Task<IEnumerable<Category>> GetCategorylevel2Async(string parentName)
         {
             var sdsd = ctx.Categories.FirstOrDefault(c => c.CategoryName == parentName);
-            return ctx.Categories.Where(x => x.parentId == sdsd.CategoryId).ToList();
+            return await ctx.Categories.Where(x => x.parentId == sdsd.CategoryId).ToListAsync();
         }
     }
 }

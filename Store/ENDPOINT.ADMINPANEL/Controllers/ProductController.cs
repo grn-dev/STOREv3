@@ -24,12 +24,12 @@ namespace EndPoint.UI.panelAdmin.Controllers
     {
 
 
-        private readonly ICategoriRepo categoryRepository;
-        private readonly IPruductRepo productRepository;
-        private readonly IImageValue iimgeProduct;
-        private readonly IProductInfo ProductInfoRepository;
+        private readonly IAsyncCategoriRepo categoryRepository;
+        private readonly IAsyncPruductRepo productRepository;
+        private readonly IAsyncImageValue iimgeProduct;
+        private readonly IAsyncProductInfo ProductInfoRepository;
 
-        public ProductController(ICategoriRepo categoryRepository, IPruductRepo productRepository, IImageValue iimgeProduct_, IProductInfo ProductInfo_)
+        public ProductController(IAsyncCategoriRepo categoryRepository, IAsyncPruductRepo productRepository, IAsyncImageValue iimgeProduct_, IAsyncProductInfo ProductInfo_)
         {
             this.categoryRepository = categoryRepository;
             this.productRepository = productRepository;
@@ -39,7 +39,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public IActionResult Index()
         {
-            var products = productRepository.GetAll().OrderByDescending(c => c.ProductID).ToList();
+            var products = productRepository.GetAllAsync().Result.OrderByDescending(c => c.ProductID).ToList();
 
             foreach (var item in products)
             {
@@ -57,7 +57,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public string GetTag(int ProuductID)
         {
-            var reds = ProductInfoRepository.GetMoreInfo(ProuductID, "tag");
+            var reds = ProductInfoRepository.GetMoreInfoAsync(ProuductID, "tag");
 
             var jsonR = Newtonsoft.Json.JsonConvert.SerializeObject(reds);
 
@@ -68,9 +68,9 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public HttpResponseMessage DeleteProduct(int ProuductID)
         {
-            var dlpr = productRepository.Get(ProuductID);
-            dlpr.isShow = false;
-            productRepository.Update(dlpr);
+            var dlpr = productRepository.GetAsync(ProuductID).Result;
+            //dlpr.isShow = false;
+            productRepository.UpdateAsync(dlpr);
             //RedirectToAction("Index");
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
@@ -87,7 +87,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
             };
 
-            ProductInfoRepository.Add(productInfo);
+            ProductInfoRepository.AddAsync(productInfo);
             return new HttpResponseMessage(HttpStatusCode.OK);
 
         }
@@ -96,7 +96,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         {
             AddProductViewModel model = new AddProductViewModel
             {
-                CategoryForDisplay = categoryRepository.GetAll().ToList()
+                CategoryForDisplay = categoryRepository.GetAllAsync().Result.ToList()
             };
             return View(model);
         }
@@ -148,11 +148,11 @@ namespace EndPoint.UI.panelAdmin.Controllers
                 }
 
                 product.Images = imgeProductsList;
-                productRepository.Add(product);
+                productRepository.AddAsync(product);
                 //iimgeProduct.AddList(imgeProductsList);
                 return RedirectToAction("Index");
             }
-            model.CategoryForDisplay = categoryRepository.GetAll().ToList();
+            model.CategoryForDisplay = categoryRepository.GetAllAsync().Result.ToList();
             return View(model);
         }
 
@@ -162,7 +162,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public IActionResult relatedproducts()
         {
-            var allprd = productRepository.GetAll().Select(c => new ProductReleted()
+            var allprd = productRepository.GetAllAsync().Result.Select(c => new ProductReleted()
             {
                 ProductID = c.ProductID,
                 ProductName = c.Name
@@ -185,7 +185,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
                     if (model.MainProductID == model.RelatedProductID)
                         throw new Exception("محصولات انتخاب شده یکی میباشد");
 
-                    if (ProductInfoRepository.CheckExist(model.MainProductID, "RelatedProduct", model.RelatedProductID.ToString()))
+                    if (ProductInfoRepository.CheckExistAsync(model.MainProductID, "RelatedProduct", model.RelatedProductID.ToString()))
                         throw new Exception("قبلا ثبت شده است");
 
 
@@ -199,7 +199,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
                     };
 
-                    ProductInfoRepository.Add(productInfo);
+                    ProductInfoRepository.AddAsync(productInfo);
 
                 }
                 else
@@ -218,7 +218,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
             }
 
-            var allprd = productRepository.GetAll().Select(c => new ProductReleted()
+            var allprd = productRepository.GetAllAsync().Result.Select(c => new ProductReleted()
             {
                 ProductID = c.ProductID,
                 ProductName = c.Name

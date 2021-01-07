@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CORE.CONTRACT
 {
-    public interface IImageValue : IRepository<ImageValue>
+    public interface IAsyncImageValue : IAsyncRepository<ImageValue>
     {
         //List<ImageValue> AddList(List<ImageValue> entity);
     }

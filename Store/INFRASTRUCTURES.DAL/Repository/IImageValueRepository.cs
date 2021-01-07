@@ -8,7 +8,7 @@ using System.Text;
 
 namespace INFRASTRUCTURES.DAL.Repository
 {
-    public class IImageValueRepository: BaseRepository<ImageValue>, IImageValue
+    public class IImageValueRepository: BaseRepository<ImageValue>, IAsyncImageValue
     {
         private readonly ContextMed ctx;
         public IImageValueRepository(ContextMed dbContext_) : base(dbContext_)

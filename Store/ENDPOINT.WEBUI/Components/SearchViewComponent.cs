@@ -9,9 +9,9 @@ namespace EndPoints.WebUI.Components
 {
     public class SearchViewComponent : ViewComponent
     {
-        private readonly IPruductRepo _prcRepo;
+        private readonly IAsyncPruductRepo _prcRepo;
 
-        public SearchViewComponent(IPruductRepo repo)
+        public SearchViewComponent(IAsyncPruductRepo repo)
         {
             _prcRepo = repo;
         }

@@ -1,29 +1,31 @@
 ﻿using Core.Domian;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Contract
 {
-    public interface IPruductRepo : IRepository<Product>
+    public interface IAsyncPruductRepo : IAsyncRepository<Product>
     {
-        int TotalCount(string category = null);
-        List<Product> GetProducts(int pageSize = 4, int pageNumber = 1, string category = null);//string category,
-        List<Product> GetProductsbyParentcategori(int pageSize = 4, int pageNumber = 1, string category = null);//string category,
+        Task<int> TotalCountAsyn(string category = null);
+        Task<IEnumerable<Product>> GetProductsAsync(int pageSize = 4, int pageNumber = 1, string category = null);//string category,
+        Task<IEnumerable<Product>> GetProductsbyParentcategoriAsync(int pageSize = 4, int pageNumber = 1, string category = null);//string category,
 
-        List<Product> searchByname(string name);
+        Task<IEnumerable<Product>> searchBynameAsync(string name);
         
-        int TotalCountSearch(string name);
-        List<Product> GetProductsSearch(int pageSize = 4, int pageNumber = 1, string name = null);//string category,
+        Task<int> TotalCountSearchAsync(string name);
+        Task<IEnumerable<Product>> GetProductsSearchAsync(int pageSize = 4, int pageNumber = 1, string name = null);//string category,
 
         ////
-        List<Product> GetReletionPruduct(int prcID);
-        List<Product> GetProductByGategoriMainPage(string categoriName);
+        Task<IEnumerable<Product>> GetReletionPruductAsync(int prcID);
+        //Task<IEnumerable<Product>> GetProductByGategoriMainPageAsync(string categoriName);
 
-        List<Product> imgeForsingle();
-        Product GetSingleProduct(int ProductID);
+        Task<IEnumerable<Product>> imgeForsingleAsync();
+        Task<Product> GetSingleProductAsync(int ProductID);
 
-        List<Product> GetProductmainPage(string place);
+        Task<IEnumerable<Product>> GetProductmainPageAsync(string place);
 
 
     }

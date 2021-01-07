@@ -13,9 +13,9 @@ namespace ENDPOINT.ADMINPANEL.Controllers
     [Authorize]
     public class Categori : Controller
     {
-        private readonly ICategoriRepo categoryRepository;
+        private readonly IAsyncCategoriRepo categoryRepository;
 
-        public Categori(ICategoriRepo categoryRepository)
+        public Categori(IAsyncCategoriRepo categoryRepository)
         {
             this.categoryRepository = categoryRepository;
         }
@@ -29,7 +29,7 @@ namespace ENDPOINT.ADMINPANEL.Controllers
             //    ID = s.CategoryId
             //}).ToList().OrderBy(x=> x.);
 
-            var res = categoryRepository.GetAll().OrderBy(x => x.parentId == null).ToList();
+            var res = categoryRepository.GetAllAsync().Result.OrderBy(x => x.parentId == null).ToList();
 
             //var res2 = categoryRepository.GetCategorylevel2().Select(s => new CategoriShowViewModel
             //{
@@ -70,12 +70,12 @@ namespace ENDPOINT.ADMINPANEL.Controllers
                     Categori_.parentId = categoriViewModel.ParentId;
                 }
 
-                categoryRepository.Add(Categori_);
+                categoryRepository.AddAsync(Categori_);
                 RedirectToAction("Index");
 
             }
 
-            var res = categoryRepository.GetAll().OrderBy(x => x.parentId == null).ToList();
+            var res = categoryRepository.GetAllAsync().Result.OrderBy(x => x.parentId == null).ToList();
             categoriViewModel.categorieslvl1 = res;
             return View(categoriViewModel);
         }

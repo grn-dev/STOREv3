@@ -1,18 +1,20 @@
 ﻿using Core.Domian;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Contract
 {
-    public interface ICategoriRepo:IRepository<Category>
+    public interface IAsyncCategoriRepo : IAsyncRepository<Category>
     {
-        Category GetByName(String catname);
+         Task<Category>  GetByNameAsync(String catname);
 
-        List<Category>GetCategorylevel1();
-        List<Category> GetCategorylevel2();
+        Task<ICollection<Category>> GetCategorylevel1Async();
+        Task<IEnumerable<Category>> GetCategorylevel2Async();
 
-        List<Category> GetCategorylevel2(string parentName);
+        Task<IEnumerable<Category>> GetCategorylevel2Async(string parentName);
 
     }
 }

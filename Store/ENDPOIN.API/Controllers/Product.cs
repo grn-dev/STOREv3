@@ -12,12 +12,12 @@ namespace ENDPOIN.API.Controllers
     public class Product : Controller
     {
 
-        private readonly IPruductRepo RepoPrc;
-        private readonly ICategoriRepo categoriRepo;
-        private readonly IProductInfo ProductInfoREPO;
+        private readonly IAsyncPruductRepo RepoPrc;
+        private readonly IAsyncCategoriRepo categoriRepo;
+        private readonly IAsyncProductInfo ProductInfoREPO;
         private readonly IMapper _mapper;
 
-        public Product(IPruductRepo RepoPrc_, IMapper mapper, ICategoriRepo categoriRepo_, IProductInfo ProductInfoREPO_)
+        public Product(IAsyncPruductRepo RepoPrc_, IMapper mapper, IAsyncCategoriRepo categoriRepo_, IAsyncProductInfo ProductInfoREPO_)
         {
             RepoPrc = RepoPrc_;
             categoriRepo = categoriRepo_;
