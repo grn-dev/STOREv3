@@ -3,9 +3,33 @@
 <div class="search_input" id="search_input_box">
     <div class="container ">
         <form class="d-flex justify-content-between search-inner" asp-action="showBySeach" asp-controller="Product">
+
+            @*<i  type="submit" id="submitsearch" onclick="myfunc()" style="align-items:center"></i>*@
+            <button type="submit">
+            </button>
             <input type="text" class="form-control" id="search_input" name="Input" placeholder="جست و جو">
-            <button type="submit" class="btn"></button>
+
             <span class="ti-close" id="close_search" title="Close Search"></span>
-        </form></div>
+        </form>
+    </div>
 </div>
+
+
+@section scripts
+{
+
+    <script language="javascript">
+        $(document).ready(function () {
+            alert("omad");
+            console.log("++++mfjmdfmn");
+            function myfunc() {
+                debugger
+                alert("omad submitsearch");
+                $("#submitsearch").submit()
+            }
+        });
+    </script>
+
+}
+
 
