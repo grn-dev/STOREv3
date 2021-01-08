@@ -44,11 +44,11 @@ namespace ENDPOINT.WEBUI
                 cfg.CreateMap<Product, productSingleImage>();
                 cfg.CreateMap<productSingleImageCore, productSingleImage>();
                 
-                cfg.CreateMap<Product, GetProductByTag>();
-                cfg.CreateMap<GetProductByTag, Product>();
+                //cfg.CreateMap<Product, GetProductByTag>();
+                //cfg.CreateMap<GetProductByTag, Product>();
 
-                cfg.CreateMap<GetProductByTag, productSingleImage>();
-                cfg.CreateMap<productSingleImage, GetProductByTag>();
+                //cfg.CreateMap<GetProductByTag, productSingleImage>();
+                //cfg.CreateMap<productSingleImage, GetProductByTag>();
                 //cfg.CreateMap<productSingleImage, productSingleImageCore>();
                 //cfg.CreateMap<Bar, BarDto>();
             });

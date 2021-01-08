@@ -22,6 +22,8 @@ namespace ENDPOINT.WEBUI.Controllers
         private readonly IAsyncCategoriRepo categoriRepo;
         private readonly IAsyncProductInfo ProductInfoREPO;
         private readonly IMapper _mapper;
+        int TafazolReleted = 0;
+        bool FirstReleted = false;
 
         public ProductController(IAsyncPruductRepo RepoPrc_, IMapper mapper, IAsyncCategoriRepo categoriRepo_, IAsyncProductInfo ProductInfoREPO_)
         {
@@ -29,27 +31,27 @@ namespace ENDPOINT.WEBUI.Controllers
             categoriRepo = categoriRepo_;
             ProductInfoREPO = ProductInfoREPO_;
             _mapper = mapper;
-            
-        }
 
+        }
+        //https://stackoverflow.com/questions/30566848/when-should-i-use-async-controllers-in-asp-net-mvc
         public IActionResult showSingle(int ProductID)
         {
 
-            var restask = RepoPrc.GetSingleProductAsync(ProductID);
-            Task<ICollection<string>> TAGS = ProductInfoREPO.GetMoreInfoAsync(ProductID, "TAG");
-            var relerted = RepoPrc.GetReletionPruductAsync(ProductID);
+            Product res = RepoPrc.GetSingleProduct(ProductID);
+            var TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
+            var relerted = RepoPrc.GetReletionPruduct(ProductID);
             //UserViewModel userViewModel = _mapper.Map<UserViewModel>(user);
             //var relertedmap = _mapper.Map<productSingleImage>(relerted);
-            var relertedmaps = _mapper.Map<List<Product>, List<productSingleImage>>(relerted.Result.ToList());
-            var res = restask.Result;
+            var relertedmaps = _mapper.Map<List<Product>, List<productSingleImage>>(relerted.ToList());
+            //Product res =await restask;
             productMultiImage image = new productMultiImage()
             {
-                AllImages = res.Images.Select(x => x.image).ToList(),// [0].image,
+                AllImages = res.Images.Select(x => x.image).ToList(),
                 Category = res.Category,
                 Description = res.Description,
                 id = res.ProductID,
                 Name = res.Name,
-                Tags = TAGS.Result.ToList(),
+                Tags = TAGS,
                 RelatedProduct = relertedmaps
 
             };
@@ -57,16 +59,16 @@ namespace ENDPOINT.WEBUI.Controllers
             return View(image);
         }
 
-        public IActionResult showByCategori(string Input, int pn = 1)
+        public async Task<IActionResult> showByCategori(string Input, int pn = 1)
         {
             int showpage = 6;
-            var pr = RepoPrc.GetProductsAsync(showpage, pn, Input);
-            var level2 = categoriRepo.GetCategorylevel2Async(Input);
+            var pr = await RepoPrc.GetProductsAsync(showpage, pn, Input);
+            var level2 = categoriRepo.GetCategorylevel2Async(Input).ToList();
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
-
-            if (pr.Result.ToList().Count > 0)
+            // pr;
+            if (pr.ToList().Count > 0)
             {
-                singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr.Result.ToList());
+                singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr.ToList());
             }
             else
             {
@@ -81,7 +83,7 @@ namespace ENDPOINT.WEBUI.Controllers
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCountSearchAsync(Input).Result,
+                TotalItems = RepoPrc.TotalCountSearch(Input),
                 ItemsPerPage = showpage
 
             };
@@ -91,7 +93,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 Current = Input,
                 PagingInfo = pagin,
                 fromContoller = "showByCategori",
-                CategoryChild = level2.Result.ToList()
+                CategoryChild = level2,
 
             };
 
@@ -101,28 +103,36 @@ namespace ENDPOINT.WEBUI.Controllers
         }
 
 
-        public IActionResult showBySeach(string Input, int pn = 1)
-        { 
+        public async Task<IActionResult> showBySeach(string Input, int pn = 1)
+        {
             int showpage = 6;
- 
-            //var pr = RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
- 
-            List<GetProductByTag> ProductTAGS = new List<GetProductByTag>();
-            var pr = RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
-            if (pr.Result.ToList().Count < 6)
+            
+            
+
+            IEnumerable<Product> ProductTAGS = new List<Product>();
+            IEnumerable<Product> pr = await RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
+            //List<Product> prlis = await RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
+            if (RepoPrc.TotalCountSearch(Input)/ showpage < pn)
             {
-                int Tagpnfirst = pn;
-                int Tagpn = 1;
+                if (!FirstReleted)
+                {
+                    TafazolReleted = pn;
+                    FirstReleted = true;
+                }
+
+                 
                 //int TafazolPage = pn;
                 //ProductTAGS = ProductInfoREPO.GetProductByTag(showpage, Tagpn, Input);
-                ProductTAGS = ProductInfoREPO.GetProductByTagAsync(showpage, Tagpn, Input).Result.ToList();
+                ProductTAGS = await ProductInfoREPO.GetProductByTagAsync(showpage, pn- RepoPrc.TotalCountSearch(Input)/ showpage, Input);
+                //prlis.InsertRange()
+                //ProductTAGS = resr.ToList;
                 //ProductTAGS= _mapper.Map<Product, GetProductByTag>(resProductTAGS);
                 /// this.Database.SqlQuery<YourEntityType>("storedProcedureName",params);
             }
 
- 
+
             List<productSingleImage> singleImagesList = new List<productSingleImage>();
-            foreach (var item in pr.Result.ToList())
+            foreach (var item in pr)
             {
                 singleImagesList.Add(
                     new productSingleImage()
@@ -155,7 +165,7 @@ namespace ENDPOINT.WEBUI.Controllers
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCountSearchAsync(Input).Result,
+                TotalItems = RepoPrc.TotalCountSearch(Input)+ ProductInfoREPO.TotalCountSearchTag(Input),
                 ItemsPerPage = showpage
 
             };
@@ -174,7 +184,7 @@ namespace ENDPOINT.WEBUI.Controllers
             //return RedirectToAction("showListproduct", "Product", new { @pn = pn });
         }
 
-        public IActionResult showListproduct(int pn = 1)
+        public async Task<IActionResult> showListproduct(int pn = 1)
         {
 
             var productsListViewModel = JsonConvert.DeserializeObject<ProductsListViewModel>((string)TempData["productsListViewModel"]);

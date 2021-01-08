@@ -27,14 +27,14 @@ namespace ENDPOINT.WEBUI.Controllers
             //ProductInfoREPO.GetProductByTag(1, 1, "");
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //var _PartialCard23 = RepoPrc.GetProductmainPage("_PartialCard2");
             //var _Partial13 = RepoPrc.GetProductmainPage("_Partial1");
             //var _Partial23 = RepoPrc.GetProductmainPage("_Partial2");
             //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
 
-            var AllmainPage = RepoPrc.GetProductmainPageAsync().Result.ToList();
+            var AllmainPage =await RepoPrc.GetProductmainPageAsync();
 
             ////var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
             var _Partial1 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial1").ToList());

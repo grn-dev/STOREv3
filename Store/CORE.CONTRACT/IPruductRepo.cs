@@ -15,7 +15,7 @@ namespace Core.Contract
 
         Task<IEnumerable<Product>> searchBynameAsync(string name);
         
-        Task<int> TotalCountSearchAsync(string name);
+        int TotalCountSearch(string name);
         Task<IEnumerable<Product>> GetProductsSearchAsync(int pageSize = 4, int pageNumber = 1, string name = null);//string category,
 
         ////
@@ -24,6 +24,9 @@ namespace Core.Contract
 
         Task<IEnumerable<Product>> imgeForsingleAsync();
         Task<Product> GetSingleProductAsync(int ProductID);
+
+        Product GetSingleProduct(int ProductID);
+        IEnumerable<Product> GetReletionPruduct(int prcID);
 
         Task<IEnumerable<productSingleImageCore>> GetProductmainPageAsync();
 

@@ -16,7 +16,7 @@ namespace ENDPOINT.WEBUI.Models
         public List<productSingleImage> RelatedProduct { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public List<string> Tags { get; set; }
+        public IEnumerable<string> Tags { get; set; }
 
 
     }

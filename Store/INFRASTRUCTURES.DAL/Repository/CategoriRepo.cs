@@ -19,17 +19,17 @@ namespace Infrastructures.Dal.Repository
 
         public async Task<Category> GetByNameAsync(string catname)
         {
-             
+
             return await ctx.Categories.FirstOrDefaultAsync(c => c.CategoryName == catname);
-            
+
         }
 
-        public async Task<ICollection<Category>> GetCategorylevel1Async()
+        public IEnumerable<Category> GetCategorylevel1()
         {
-            return await ctx.Categories.Where(x => x.parentId == null).ToListAsync();
+            return ctx.Categories.Where(x => x.parentId == null).ToList();
         }
 
-        public async Task<IEnumerable<Category>> GetCategorylevel2Async()
+        public IEnumerable<Category> GetCategorylevel2()
         {
             var query =
                      (from lvl1 in ctx.Categories
@@ -41,20 +41,22 @@ namespace Infrastructures.Dal.Repository
                           CategoryName = lvl2.CategoryName,
                           parentId = lvl2.parentId,
 
-                      }).ToListAsync();
+                      }).ToList();
 
 
-            return await query;
+            return query;
         }
         public List<Category> GetCategoryByparent(int ParentID)
         {
             return ctx.Categories.Where(x => x.parentId == ParentID).ToList();
         }
 
-        public async Task<IEnumerable<Category>> GetCategorylevel2Async(string parentName)
+        public IEnumerable<Category> GetCategorylevel2Async(string parentName)
         {
             var sdsd = ctx.Categories.FirstOrDefault(c => c.CategoryName == parentName);
-            return await ctx.Categories.Where(x => x.parentId == sdsd.CategoryId).ToListAsync();
+            return ctx.Categories.Where(x => x.parentId == sdsd.CategoryId).ToList();
         }
+
+        
     }
 }

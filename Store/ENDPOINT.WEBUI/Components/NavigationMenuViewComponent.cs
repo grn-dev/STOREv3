@@ -21,8 +21,8 @@ namespace EndPoints.WebUI.Components
         {
             var model = new NavigationMenuViewModel
             {
-                Categorieslevel1 = _categoryRepository.GetCategorylevel1Async().Result.ToList(),
-                Categorieslevel2 = _categoryRepository.GetCategorylevel2Async().Result.ToList(),
+                Categorieslevel1 = _categoryRepository.GetCategorylevel1().ToList(),
+                //Categorieslevel2 = _categoryRepository.GetCategorylevel2().Result.ToList(),
 
 
             };

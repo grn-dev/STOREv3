@@ -1,16 +1,12 @@
-﻿using CORE.CONTRACT;
+﻿using Core.Domian;
+using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
 using Infrastructures.Dal;
 using Infrastructures.Dal.Repository;
 using Microsoft.EntityFrameworkCore;
-using INFRASTRUCTURES.DAL.ResultStoredProcedure;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 
@@ -29,17 +25,28 @@ namespace INFRASTRUCTURES.DAL.Repository
             return ctx.ProductInfo.Any(c => c.productID == ProductID && c.Value == Value && c.key == keyname);
         }
 
-        public async Task<ICollection<string>> GetMoreInfoAsync(int ProductID, string keyname)
+        public IEnumerable<string> GetMoreInfo(int ProductID, string keyname)
+        {
+            return ctx.ProductInfo.
+                Where(c => c.key == keyname && c.product.ProductID == ProductID).
+                Select(c => c.Value).
+                ToList();
+        }
+
+
+
+
+        public async Task<IEnumerable<string>> GetMoreInfoAsync(int ProductID, string keyname)
         {
             return await ctx.ProductInfo.
                 Where(c => c.key == keyname && c.product.ProductID == ProductID).
                 Select(c => c.Value).
                 ToListAsync();
         }
-        public List<GetProductByTag> GetProductByTag(int pageSize = 4, int pageNumber = 1, string ProductName = null)
+        public List<Product> GetProductByTag(int pageSize = 4, int pageNumber = 1, string ProductName = null)
         {
 
-            var results = ctx.Set<GetProductByTag>().FromSqlRaw("exec SP_GetProductByTag '',1,1").ToList();
+            var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetProductByTag '',1,1").ToList();
             return results;
 
             //var userType = ctx.Set().FromSql("dbo.SomeSproc @Id = {0}, @Name = {1}", 45, "Ada");
@@ -69,11 +76,18 @@ namespace INFRASTRUCTURES.DAL.Repository
             //ctx.Database.FromSqlRaw("GetStudents 'Bill'").ToList();
         }
 
-        public async Task<IEnumerable<GetProductByTag>> GetProductByTagAsync(int pageSize = 4, int pageNumber = 1, string ProductName = null)
+        public async Task<IEnumerable<Product>> GetProductByTagAsync(int pageSize = 4, int pageNumber = 1, string ProductName = null)
         {
-            var spParams = new object[] { "bla", "1","1" };
-            var results = ctx.Set<GetProductByTag>().FromSqlRaw("exec SP_GetProductByTag {0}, {1},{2}", ProductName,1,1).ToListAsync();
+            var spParams = new object[] { "bla", "1", "1" };
+            var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetProductByTag {0}, {1},{2}", ProductName, pageSize, pageNumber).ToListAsync();
             return await results;
+        }
+
+        public int TotalCountSearchTag(string name)
+        {
+            return ctx.ProductInfo.
+                Where(c => (string.IsNullOrWhiteSpace(name) || c.Value.Contains(name))
+                        && c.key == "TAG").GroupBy(z=> z.productID).Count();
         }
     }
 }
@@ -132,4 +146,3 @@ namespace INFRASTRUCTURES.DAL.Repository
 
 
 
- 

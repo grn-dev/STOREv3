@@ -40,11 +40,7 @@
                     <div class="card_area">
                         <div class="product_count_area">
 
-                            <div class="product_count d-inline-block">
-                                @*<span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
-                                    <input class="product_count_item input-number" type="text" value="1" min="0" max="10">
-                                    <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>*@
-                            </div>
+                             
 
 
                             <h4>قیمت : جهت اطلاع تماس بگیرید</h4>
@@ -65,7 +61,7 @@
 
                             @foreach (var item in Model.Tags)
                             {
-                                <span class="badge badge-pill badge-dark" style="font-size:large">
+                                <span class="btn btn-outline-light" style="font-size:large">
                                     <a asp-action="showBySeach" 
                                        asp-controller="Product" 
                                        asp-route-Input="@item" class="btn_3"> @item </a>
@@ -80,9 +76,7 @@
             </div>
         </div>
     </div>
-</div>
-<!--================End Single Product Area =================-->
-
+</div> 
 
 <section class="client_review " style="direction: ltr">
     <div class="container">

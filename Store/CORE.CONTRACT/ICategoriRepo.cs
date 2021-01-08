@@ -11,10 +11,10 @@ namespace Core.Contract
     {
          Task<Category>  GetByNameAsync(String catname);
 
-        Task<ICollection<Category>> GetCategorylevel1Async();
-        Task<IEnumerable<Category>> GetCategorylevel2Async();
+        IEnumerable<Category> GetCategorylevel1();
+        IEnumerable<Category> GetCategorylevel2();
 
-        Task<IEnumerable<Category>> GetCategorylevel2Async(string parentName);
+        IEnumerable<Category> GetCategorylevel2Async(string parentName);
 
     }
 }

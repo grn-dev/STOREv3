@@ -130,13 +130,22 @@ namespace Infrastructures.Dal.Repository
             return await ctx.Products.Where(c => c.Name.Contains(name)).ToListAsync();
         }
 
-        public async Task<int> TotalCountSearchAsync(string name)
+        public int TotalCountSearch(string name)
         {
-            return await ctx.Products.Where(c => string.IsNullOrWhiteSpace(name) || c.Name.Contains(name)).CountAsync();
+            return ctx.Products.Where(c => string.IsNullOrWhiteSpace(name) || c.Name.Contains(name)).Count();
         }
 
+        public Product GetSingleProduct(int ProductID)
+        {
+            return ctx.Products.Where(c => c.ProductID == ProductID).Include(c => c.Images).FirstOrDefault();
+        }
 
-
+        public IEnumerable<Product> GetReletionPruduct(int prcID)
+        {
+            var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetReletedPruduct {0}", prcID).ToList();
+            return results;
+             
+        }
     }
 
 }
