@@ -13,6 +13,7 @@ namespace ENDPOINT.WEBUI.Controllers
         public Categorie(IAsyncPruductRepo RepoPrc_)
         {
             RepoPrc = RepoPrc_;
+
         }
 
 

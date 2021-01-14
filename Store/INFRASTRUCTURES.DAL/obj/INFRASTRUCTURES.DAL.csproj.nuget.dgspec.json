@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {}
+    "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {}
   },
   "projects": {
-    "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj": {
+    "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj",
+        "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj",
         "projectName": "CORE.CONTRACT",
-        "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj",
+        "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj",
         "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
-        "outputPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\obj\\",
+        "outputPath": "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
-                "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj"
+              "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
+                "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
+    "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
+        "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
         "projectName": "CORE.DOMAIN",
-        "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
+        "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
         "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
-        "outputPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\obj\\",
+        "outputPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -132,14 +132,14 @@
         }
       }
     },
-    "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {
+    "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj",
+        "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj",
         "projectName": "INFRASTRUCTURES.DAL",
-        "projectPath": "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj",
+        "projectPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj",
         "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
-        "outputPath": "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\obj\\",
+        "outputPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -159,11 +159,11 @@
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
             "projectReferences": {
-              "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj": {
-                "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj"
+              "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj": {
+                "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj"
               },
-              "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
-                "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj"
+              "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
+                "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj"
               }
             }
           }

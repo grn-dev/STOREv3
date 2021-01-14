@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {}
+    "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {}
   },
   "projects": {
-    "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
+    "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
+        "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
         "projectName": "CORE.DOMAIN",
-        "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
+        "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
         "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
-        "outputPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\obj\\",
+        "outputPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

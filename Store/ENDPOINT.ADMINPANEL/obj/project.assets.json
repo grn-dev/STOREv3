@@ -8784,11 +8784,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Git myproject\\STOREv3\\Store\\ENDPOINT.ADMINPANEL\\ENDPOINT.ADMINPANEL.csproj",
+      "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\ENDPOINT.ADMINPANEL\\ENDPOINT.ADMINPANEL.csproj",
       "projectName": "ENDPOINT.ADMINPANEL",
-      "projectPath": "D:\\Git myproject\\STOREv3\\Store\\ENDPOINT.ADMINPANEL\\ENDPOINT.ADMINPANEL.csproj",
+      "projectPath": "D:\\Git myproject\\Medstore\\Store\\ENDPOINT.ADMINPANEL\\ENDPOINT.ADMINPANEL.csproj",
       "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
-      "outputPath": "D:\\Git myproject\\STOREv3\\Store\\ENDPOINT.ADMINPANEL\\obj\\",
+      "outputPath": "D:\\Git myproject\\Medstore\\Store\\ENDPOINT.ADMINPANEL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8808,17 +8808,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj": {
-              "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj"
+            "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj": {
+              "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.CONTRACT\\CORE.CONTRACT.csproj"
             },
-            "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
-              "projectPath": "D:\\Git myproject\\STOREv3\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj"
+            "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
+              "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj"
             },
-            "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {
-              "projectPath": "D:\\Git myproject\\STOREv3\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj"
+            "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {
+              "projectPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj"
             },
-            "D:\\Git myproject\\STOREv3\\Store\\SERCIVE.SERVICE\\SERCIVE.APPSERVICE.csproj": {
-              "projectPath": "D:\\Git myproject\\STOREv3\\Store\\SERCIVE.SERVICE\\SERCIVE.APPSERVICE.csproj"
+            "D:\\Git myproject\\Medstore\\Store\\SERCIVE.SERVICE\\SERCIVE.APPSERVICE.csproj": {
+              "projectPath": "D:\\Git myproject\\Medstore\\Store\\SERCIVE.SERVICE\\SERCIVE.APPSERVICE.csproj"
             }
           }
         }
