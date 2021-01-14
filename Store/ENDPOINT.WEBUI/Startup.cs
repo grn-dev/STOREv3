@@ -19,6 +19,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using ENDPOINT.WEBUI.Models;
 using Core.Domian;
+using INFRASTRUCTURES.NoSql;
+using Microsoft.Extensions.Options;
 
 namespace ENDPOINT.WEBUI
 {
@@ -56,6 +58,13 @@ namespace ENDPOINT.WEBUI
             IMapper mapper = configuration.CreateMapper();
             services.AddSingleton(mapper);
 
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<BookstoreDatabaseSettings>(
+                Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
+
+            services.AddSingleton<IBookstoreDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
 
             //configuration.AssertConfigurationIsValid();
             //// use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself

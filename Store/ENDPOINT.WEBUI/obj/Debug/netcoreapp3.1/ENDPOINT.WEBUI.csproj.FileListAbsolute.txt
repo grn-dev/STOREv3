@@ -336,3 +336,15 @@ D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.
 D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.WEBUI.dll
 D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.WEBUI.pdb
 D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\obj\Debug\netcoreapp3.1\ENDPOINT.WEBUI.genruntimeconfig.cache
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\DnsClient.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\MongoDB.Bson.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\MongoDB.LibMongocrypt.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\SharpCompress.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\runtimes\win\native\mongocrypt.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\INFRASTRUCTURES.NoSql.dll
+D:\Git myproject\Medstore\Store\ENDPOINT.WEBUI\bin\Debug\netcoreapp3.1\INFRASTRUCTURES.NoSql.pdb

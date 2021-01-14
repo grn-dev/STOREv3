@@ -28,6 +28,7 @@
     <ProjectReference Include="..\CORE.CONTRACT\CORE.CONTRACT.csproj" />
     <ProjectReference Include="..\CORE.DOMAIN\CORE.DOMAIN.csproj" />
     <ProjectReference Include="..\INFRASTRUCTURES.DAL\INFRASTRUCTURES.DAL.csproj" />
+    <ProjectReference Include="..\INFRASTRUCTURES.Loggin\INFRASTRUCTURES.NoSql.csproj" />
     <ProjectReference Include="..\SERCIVE.SERVICE\SERCIVE.APPSERVICE.csproj" />
   </ItemGroup>
 

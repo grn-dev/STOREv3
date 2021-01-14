@@ -443,6 +443,15 @@
           }
         }
       },
+      "MongoDB.Bson/2.11.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MongoDB.Bson.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MongoDB.Bson.dll": {}
+        }
+      },
       "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
@@ -1544,6 +1553,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MongoDB.Bson": "2.11.5",
           "System.ComponentModel.Annotations": "5.0.0"
         },
         "compile": {
@@ -2319,6 +2329,25 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MongoDB.Bson/2.11.5": {
+      "sha512": "OWsEN7ktxFKcynAMdv08TE5wkL1kkyWJUv+zhO3H3HcK+S4AU52AnxoyVmVSdPk5OWYoTtzbeCOIdmZV2dk5zg==",
+      "type": "package",
+      "path": "mongodb.bson/2.11.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net452/MongoDB.Bson.dll",
+        "lib/net452/MongoDB.Bson.xml",
+        "lib/netstandard1.5/MongoDB.Bson.dll",
+        "lib/netstandard1.5/MongoDB.Bson.xml",
+        "lib/netstandard2.0/MongoDB.Bson.dll",
+        "lib/netstandard2.0/MongoDB.Bson.xml",
+        "mongodb.bson.2.11.5.nupkg.sha512",
+        "mongodb.bson.nuspec",
+        "packageIcon.png"
       ]
     },
     "Newtonsoft.Json/10.0.1": {

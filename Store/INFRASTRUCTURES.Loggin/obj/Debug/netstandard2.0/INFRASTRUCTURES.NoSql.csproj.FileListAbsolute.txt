@@ -1,0 +1,9 @@
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\bin\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.deps.json
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\bin\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.dll
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\bin\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.pdb
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\obj\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.csprojAssemblyReference.cache
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\obj\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.AssemblyInfoInputs.cache
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\obj\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.AssemblyInfo.cs
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\obj\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.csproj.CoreCompileInputs.cache
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\obj\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.dll
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.Loggin\obj\Debug\netstandard2.0\INFRASTRUCTURES.NoSql.pdb

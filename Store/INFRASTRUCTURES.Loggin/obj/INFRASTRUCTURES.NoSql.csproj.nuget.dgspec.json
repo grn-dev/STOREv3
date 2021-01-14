@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {}
+    "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\INFRASTRUCTURES.NoSql.csproj": {}
   },
   "projects": {
-    "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj": {
+    "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\INFRASTRUCTURES.NoSql.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
-        "projectName": "CORE.DOMAIN",
-        "projectPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\CORE.DOMAIN.csproj",
+        "projectUniqueName": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\INFRASTRUCTURES.NoSql.csproj",
+        "projectName": "INFRASTRUCTURES.NoSql",
+        "projectPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\INFRASTRUCTURES.NoSql.csproj",
         "packagesPath": "C:\\Users\\Sabzali\\.nuget\\packages\\",
-        "outputPath": "D:\\Git myproject\\Medstore\\Store\\CORE.DOMAIN\\obj\\",
+        "outputPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,19 +43,15 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
-            "MongoDB.Bson": {
+            "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.11.5, )"
+              "version": "[2.12.0-beta1, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.3, )",
               "autoReferenced": true
-            },
-            "System.ComponentModel.Annotations": {
-              "target": "Package",
-              "version": "[5.0.0, )"
             }
           },
           "imports": [

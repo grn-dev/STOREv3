@@ -2,10 +2,13 @@
 using Core.Contract;
 using Core.Domian;
 using CORE.CONTRACT;
+using CORE.DOMAIN.Entities;
 using ENDPOINT.WEBUI.Models;
 using ENDPOINT.WEBUI.Models.Product;
+using INFRASTRUCTURES.NoSql;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,13 +24,32 @@ namespace ENDPOINT.WEBUI.Controllers
         private readonly IAsyncPruductRepo RepoPrc;
         private readonly IMapper _mapper;
         private readonly IAsyncProductInfo ProductInfoREPO;
-        public HomeController(IAsyncProductInfo ProductInfoREPO_, IAsyncPruductRepo pruduct, IMapper _mapper1)
+
+        private readonly IMongoCollection<Book> _books;
+        public HomeController(IAsyncProductInfo ProductInfoREPO_,
+            IAsyncPruductRepo pruduct, IMapper _mapper1, IBookstoreDatabaseSettings settings)
         {
             RepoPrc = pruduct;
             _mapper = _mapper1;
             ProductInfoREPO = ProductInfoREPO_;
             //ProductInfoREPO.GetProductByTag(1, 1, "");
+
+            var client = new MongoClient(settings.ConnectionString);
+            var database = client.GetDatabase(settings.DatabaseName);
+
+            _books = database.GetCollection<Book>(settings.BooksCollectionName);
         }
+
+
+        public Book Create(Book book)
+        {
+            _books.InsertOne(book);
+            return book;
+        }
+
+        public List<Book> Get() =>
+            _books.Find(book => true).ToList();
+
 
         public async Task<IActionResult> Index()
         {

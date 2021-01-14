@@ -15,6 +15,15 @@
           "lib/netstandard2.0/AutoMapper.dll": {}
         }
       },
+      "DnsClient/1.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/DnsClient.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/DnsClient.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -847,6 +856,97 @@
           }
         }
       },
+      "MongoDB.Bson/2.12.0-beta1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MongoDB.Bson.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MongoDB.Bson.dll": {}
+        }
+      },
+      "MongoDB.Driver/2.12.0-beta1": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.12.0-beta1",
+          "MongoDB.Driver.Core": "2.12.0-beta1",
+          "MongoDB.Libmongocrypt": "1.1.0-beta02"
+        },
+        "compile": {
+          "lib/netstandard2.0/MongoDB.Driver.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MongoDB.Driver.dll": {}
+        }
+      },
+      "MongoDB.Driver.Core/2.12.0-beta1": {
+        "type": "package",
+        "dependencies": {
+          "DnsClient": "1.3.1",
+          "MongoDB.Bson": "2.12.0-beta1",
+          "MongoDB.Libmongocrypt": "1.1.0-beta02",
+          "SharpCompress": "0.23.0",
+          "System.Buffers": "4.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/MongoDB.Driver.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MongoDB.Driver.Core.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/native/libzstd.dll": {
+            "assetType": "native",
+            "rid": "win"
+          },
+          "runtimes/win/native/snappy32.dll": {
+            "assetType": "native",
+            "rid": "win"
+          },
+          "runtimes/win/native/snappy64.dll": {
+            "assetType": "native",
+            "rid": "win"
+          }
+        }
+      },
+      "MongoDB.LibMongocrypt/1.1.0-beta02": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.5/MongoDB.LibMongocrypt.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/MongoDB.LibMongocrypt.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/_._": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "build/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/native/mongocrypt.dll": {
+            "assetType": "native",
+            "rid": "win"
+          }
+        }
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -1088,6 +1188,18 @@
           }
         }
       },
+      "SharpCompress/0.23.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Encoding.CodePages": "4.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/SharpCompress.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SharpCompress.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1100,20 +1212,13 @@
           "lib/netstandard1.6/System.AppContext.dll": {}
         }
       },
-      "System.Buffers/4.3.0": {
+      "System.Buffers/4.4.0": {
         "type": "package",
-        "dependencies": {
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tracing": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading": "4.3.0"
-        },
         "compile": {
-          "lib/netstandard1.1/_._": {}
+          "ref/netcoreapp2.0/_._": {}
         },
         "runtime": {
-          "lib/netstandard1.1/System.Buffers.dll": {}
+          "lib/netcoreapp2.0/_._": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -2632,6 +2737,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MongoDB.Bson": "2.11.5",
           "System.ComponentModel.Annotations": "5.0.0"
         },
         "compile": {
@@ -2656,6 +2762,19 @@
         },
         "runtime": {
           "bin/placeholder/INFRASTRUCTURES.DAL.dll": {}
+        }
+      },
+      "INFRASTRUCTURES.NoSql/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MongoDB.Driver": "2.12.0-beta1"
+        },
+        "compile": {
+          "bin/placeholder/INFRASTRUCTURES.NoSql.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/INFRASTRUCTURES.NoSql.dll": {}
         }
       },
       "SERCIVE.APPSERVICE/1.0.0": {
@@ -2689,6 +2808,28 @@
         "lib/net461/AutoMapper.xml",
         "lib/netstandard2.0/AutoMapper.dll",
         "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "DnsClient/1.3.1": {
+      "sha512": "b9XczgqSjs3dd+OlV799jn+LXxdfirln1q36GKjs3QwWBhjhgIvgHLEG5s2VrBLcP4ogQjtA0PZ5+AmRJ35Vhg==",
+      "type": "package",
+      "path": "dnsclient/1.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dnsclient.1.3.1.nupkg.sha512",
+        "dnsclient.nuspec",
+        "icon.png",
+        "lib/net45/DnsClient.dll",
+        "lib/net45/DnsClient.xml",
+        "lib/net471/DnsClient.dll",
+        "lib/net471/DnsClient.xml",
+        "lib/netstandard1.3/DnsClient.dll",
+        "lib/netstandard1.3/DnsClient.xml",
+        "lib/netstandard2.0/DnsClient.dll",
+        "lib/netstandard2.0/DnsClient.xml",
+        "lib/netstandard2.1/DnsClient.dll",
+        "lib/netstandard2.1/DnsClient.xml"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -4105,6 +4246,99 @@
         "version.txt"
       ]
     },
+    "MongoDB.Bson/2.12.0-beta1": {
+      "sha512": "VUyqLg8XJRO7es9EYjx6EKZsSlhJeyjGH2EZ1GIgF9FWS1oNE8Td6ZrVnDXH0CuuWvThUqgW12xVg0emCCI77A==",
+      "type": "package",
+      "path": "mongodb.bson/2.12.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net452/MongoDB.Bson.dll",
+        "lib/net452/MongoDB.Bson.xml",
+        "lib/netstandard1.5/MongoDB.Bson.dll",
+        "lib/netstandard1.5/MongoDB.Bson.xml",
+        "lib/netstandard2.0/MongoDB.Bson.dll",
+        "lib/netstandard2.0/MongoDB.Bson.xml",
+        "mongodb.bson.2.12.0-beta1.nupkg.sha512",
+        "mongodb.bson.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "MongoDB.Driver/2.12.0-beta1": {
+      "sha512": "SFzlPVKWZ6379JcCE9symG0g7DJtajzahL0bYcSWjrSHtX0lfZesTUyRF9GnOWN0E1FoRGSFOp6iC/uE2mrsbw==",
+      "type": "package",
+      "path": "mongodb.driver/2.12.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net452/MongoDB.Driver.dll",
+        "lib/net452/MongoDB.Driver.xml",
+        "lib/netstandard1.5/MongoDB.Driver.dll",
+        "lib/netstandard1.5/MongoDB.Driver.xml",
+        "lib/netstandard2.0/MongoDB.Driver.dll",
+        "lib/netstandard2.0/MongoDB.Driver.xml",
+        "mongodb.driver.2.12.0-beta1.nupkg.sha512",
+        "mongodb.driver.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "MongoDB.Driver.Core/2.12.0-beta1": {
+      "sha512": "AMJsiZk0X1bgT64gD+5I1ubvWgmLP1C/8CJ68J4wAuADP/MePS5MUSvW5CBEowCjcH3VPDdXcl/iCfbrNHVGug==",
+      "type": "package",
+      "path": "mongodb.driver.core/2.12.0-beta1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "THIRD-PARTY-NOTICES",
+        "build/MongoDB.Driver.Core.targets",
+        "content/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "content/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "content/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "contentFiles/any/net452/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "contentFiles/any/net452/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "contentFiles/any/net452/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "contentFiles/any/netstandard1.5/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "contentFiles/any/netstandard1.5/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "contentFiles/any/netstandard1.5/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "contentFiles/any/netstandard2.0/Core/Compression/Snappy/lib/win/snappy32.dll",
+        "contentFiles/any/netstandard2.0/Core/Compression/Snappy/lib/win/snappy64.dll",
+        "contentFiles/any/netstandard2.0/Core/Compression/Zstandard/lib/win/libzstd.dll",
+        "lib/net452/MongoDB.Driver.Core.dll",
+        "lib/net452/MongoDB.Driver.Core.xml",
+        "lib/netstandard1.5/MongoDB.Driver.Core.dll",
+        "lib/netstandard1.5/MongoDB.Driver.Core.xml",
+        "lib/netstandard2.0/MongoDB.Driver.Core.dll",
+        "lib/netstandard2.0/MongoDB.Driver.Core.xml",
+        "mongodb.driver.core.2.12.0-beta1.nupkg.sha512",
+        "mongodb.driver.core.nuspec",
+        "packageIcon.png",
+        "runtimes/win/native/libzstd.dll",
+        "runtimes/win/native/snappy32.dll",
+        "runtimes/win/native/snappy64.dll"
+      ]
+    },
+    "MongoDB.LibMongocrypt/1.1.0-beta02": {
+      "sha512": "MaRO4xzAmOTM7rO1qoNSO0HRH7bz8IsxjXAkxhBw+UeYLBYHy1ISyuaPssoK8MAxCB2DXdHVyT5rppa54rp0DA==",
+      "type": "package",
+      "path": "mongodb.libmongocrypt/1.1.0-beta02",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/MongoDB.Libmongocrypt.targets",
+        "content/mongocrypt.dll",
+        "contentFiles/any/net452/mongocrypt.dll",
+        "contentFiles/any/netstandard1.5/mongocrypt.dll",
+        "lib/net452/MongoDB.LibMongocrypt.dll",
+        "lib/netstandard1.5/MongoDB.LibMongocrypt.dll",
+        "mongodb.libmongocrypt.1.1.0-beta02.nupkg.sha512",
+        "mongodb.libmongocrypt.nuspec",
+        "runtimes/win/native/mongocrypt.dll"
+      ]
+    },
     "NETStandard.Library/1.6.1": {
       "sha512": "WcSp3+vP+yHNgS8EV5J7pZ9IRpeDuARBPN28by8zqff1wJQXm26PVU8L3/fYLBJVU7BtDyqNVWq2KlCVvSSR4A==",
       "type": "package",
@@ -4381,6 +4615,22 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
+    "SharpCompress/0.23.0": {
+      "sha512": "HBbT47JHvNrsZX2dTBzUBOSzBt+EmIRGLIBkbxcP6Jef7DB4eFWQX5iHWV3Nj7hABFPCjISrZ8s0z72nF2zFHQ==",
+      "type": "package",
+      "path": "sharpcompress/0.23.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/SharpCompress.dll",
+        "lib/net45/SharpCompress.dll",
+        "lib/netstandard1.0/SharpCompress.dll",
+        "lib/netstandard1.3/SharpCompress.dll",
+        "lib/netstandard2.0/SharpCompress.dll",
+        "sharpcompress.0.23.0.nupkg.sha512",
+        "sharpcompress.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -4435,18 +4685,29 @@
         "system.appcontext.nuspec"
       ]
     },
-    "System.Buffers/4.3.0": {
-      "sha512": "ratu44uTIHgeBeI0dE8DWvmXVBSo4u7ozRZZHOMmK/JPpYyo0dAfgSiHlpiObMQ5lEtEyIXA40sKRYg5J6A8uQ==",
+    "System.Buffers/4.4.0": {
+      "sha512": "AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
       "type": "package",
-      "path": "system.buffers/4.3.0",
+      "path": "system.buffers/4.4.0",
       "files": [
         ".nupkg.metadata",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/netstandard1.1/.xml",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/_._",
         "lib/netstandard1.1/System.Buffers.dll",
-        "system.buffers.4.3.0.nupkg.sha512",
-        "system.buffers.nuspec"
+        "lib/netstandard1.1/System.Buffers.xml",
+        "lib/netstandard2.0/System.Buffers.dll",
+        "lib/netstandard2.0/System.Buffers.xml",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard1.1/System.Buffers.dll",
+        "ref/netstandard1.1/System.Buffers.xml",
+        "ref/netstandard2.0/System.Buffers.dll",
+        "ref/netstandard2.0/System.Buffers.xml",
+        "system.buffers.4.4.0.nupkg.sha512",
+        "system.buffers.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Collections/4.3.0": {
@@ -8641,6 +8902,11 @@
       "path": "../INFRASTRUCTURES.DAL/INFRASTRUCTURES.DAL.csproj",
       "msbuildProject": "../INFRASTRUCTURES.DAL/INFRASTRUCTURES.DAL.csproj"
     },
+    "INFRASTRUCTURES.NoSql/1.0.0": {
+      "type": "project",
+      "path": "../INFRASTRUCTURES.Loggin/INFRASTRUCTURES.NoSql.csproj",
+      "msbuildProject": "../INFRASTRUCTURES.Loggin/INFRASTRUCTURES.NoSql.csproj"
+    },
     "SERCIVE.APPSERVICE/1.0.0": {
       "type": "project",
       "path": "../SERCIVE.SERVICE/SERCIVE.APPSERVICE.csproj",
@@ -8653,6 +8919,7 @@
       "CORE.CONTRACT >= 1.0.0",
       "CORE.DOMAIN >= 1.0.0",
       "INFRASTRUCTURES.DAL >= 1.0.0",
+      "INFRASTRUCTURES.NoSql >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
@@ -8699,6 +8966,9 @@
             },
             "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj": {
               "projectPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.DAL\\INFRASTRUCTURES.DAL.csproj"
+            },
+            "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\INFRASTRUCTURES.NoSql.csproj": {
+              "projectPath": "D:\\Git myproject\\Medstore\\Store\\INFRASTRUCTURES.Loggin\\INFRASTRUCTURES.NoSql.csproj"
             },
             "D:\\Git myproject\\Medstore\\Store\\SERCIVE.SERVICE\\SERCIVE.APPSERVICE.csproj": {
               "projectPath": "D:\\Git myproject\\Medstore\\Store\\SERCIVE.SERVICE\\SERCIVE.APPSERVICE.csproj"
