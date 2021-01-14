@@ -28,7 +28,7 @@ namespace Core.Contract
         Product GetSingleProduct(int ProductID);
         IEnumerable<Product> GetReletionPruduct(int prcID);
 
-        Task<IEnumerable<productSingleImageCore>> GetProductmainPageAsync();
+        Task<IEnumerable<Product>> GetProductmainPageAsync(string place);
 
 
     }

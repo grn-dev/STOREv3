@@ -17,7 +17,7 @@ namespace Infrastructures.Dal
         public DbSet<ImageProduct> imgeProducts { get; set; }
         public DbSet<ProductInfo> ProductInfo { get; set; }
         //public DbSet<GetProductByTag> GetProductByTags { get; set; }
-        public DbSet<productSingleImageCore> productSingleImageCores { get; set; }
+        //public DbSet<productSingleImageCore> productSingleImageCores { get; set; }
 
 
 
@@ -29,8 +29,8 @@ namespace Infrastructures.Dal
             base.OnModelCreating(modelBuilder);
 
 
-            modelBuilder.Entity<productSingleImageCore>()
-        .HasNoKey();
+        //    modelBuilder.Entity<productSingleImageCore>()
+        //.HasNoKey();
             //modelBuilder.Entity<Product>()
             //            .HasOne<ImageProduct>(e => e.)
             //            .WithMany(e => e.)

@@ -42,7 +42,7 @@ namespace ENDPOINT.WEBUI
             var configuration = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Product, productSingleImage>();
-                cfg.CreateMap<productSingleImageCore, productSingleImage>();
+                //cfg.CreateMap<productSingleImageCore, productSingleImage>();
                 
                 //cfg.CreateMap<Product, GetProductByTag>();
                 //cfg.CreateMap<GetProductByTag, Product>();

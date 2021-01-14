@@ -36,20 +36,30 @@ namespace ENDPOINT.WEBUI.Controllers
             //var _Partial23 = RepoPrc.GetProductmainPage("_Partial2");
             //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
 
-            var AllmainPage = await RepoPrc.GetProductmainPageAsync();
+            var _Partial1 = await RepoPrc.GetProductmainPageAsync("_Partial1");
+            var _Partial2 = await RepoPrc.GetProductmainPageAsync("_Partial2");
+            var _Partial3 = await RepoPrc.GetProductmainPageAsync("_Partial3");
 
-            ////var _PartialCard2 = _mapper.Map<List<Product>, List<productSingleImage>>(RepoPrc.GetProductmainPage("_PartialCard2"));
-            var _Partial1 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial1").ToList());
-            var _Partial2 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial2").ToList());
-            var _Partial3 = _mapper.Map<List<productSingleImageCore>, List<productSingleImage>>(AllmainPage.Where(x => x.Place == "_Partial3").ToList());
+            var _Partial1temp = _mapper.Map<List<Product>, List<productSingleImage>>(_Partial1.ToList());
+            var _Partial2temp = _mapper.Map<List<Product>, List<productSingleImage>>(_Partial2.ToList());
+            var _Partial3temp = _mapper.Map<List<Product>, List<productSingleImage>>(_Partial3.ToList());
 
-            //AllmainPage.Result.Where(x=> x.Place== "_Partial1").ToList(),
-            //new List<productSingleImage> = new List<productSingleImage>
+
+
+            /*var _Partial1 =  RepoPrc.GetProductmainPageAsync("_Partial1");
+            var _Partial2 =  RepoPrc.GetProductmainPageAsync("_Partial2");
+            var _Partial3 =  RepoPrc.GetProductmainPageAsync("_Partial3");
+
+            var _Partial1temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial1.Result.ToList());
+            var _Partial2temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial2.ToList());
+            var _Partial3temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial3.ToList());*/
+
+
             MainPage mainPage = new MainPage()
             {
-                _Partial1 = _Partial1,//new List<productSingleImage>(),
-                _Partial2 = _Partial2,//new List<productSingleImage>(),
-                _Partial3 = _Partial3,//new List<productSingleImage>(),
+                _Partial1 = _Partial1temp,//new List<productSingleImage>(),
+                _Partial2 = _Partial2temp,//new List<productSingleImage>(),
+                _Partial3 = _Partial3temp,//new List<productSingleImage>(),
                 //_PartialCard2= _PartialCard2,
 
             };
@@ -99,9 +109,9 @@ namespace ENDPOINT.WEBUI.Controllers
 
 
 //< script >
-     
 
-     
+
+
 
 //    $(document).ready(function() {
 
