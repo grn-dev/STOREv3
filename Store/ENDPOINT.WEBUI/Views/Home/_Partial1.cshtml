@@ -2,13 +2,10 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<!-- product list start-->
 <section class="single_product_list">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-
                 @foreach (var item in Model._Partial1)
                 {
                     <div class="single_product_iner">
@@ -23,25 +20,17 @@
                             </div>
                             <div class="col-lg-5 col-sm-6">
                                 <div class="single_product_content">
-
                                     <h2>
                                         <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
                                             @item.Name
                                         </a>
-
                                     </h2>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 }
-
-
-
             </div>
         </div>
     </div>
 </section>
- 
- 

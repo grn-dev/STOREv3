@@ -2,18 +2,16 @@
 @{
     ViewData["Title"] = "Index";
 }
- 
-<section class="client_review " style="direction: ltr">
+<section class="client_review" style="direction:ltr">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="client_review_slider owl-carousel "> 
+                <div class="client_review_slider owl-carousel">
                     @foreach (var item in Model._Partial3)
                     {
                         <div class="single_client_review" dir="rtl">
-                            <div class="mx-auto d-block"> 
+                            <div class="mx-auto d-block">
                                 <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
-                                     
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4"></div>
@@ -22,18 +20,15 @@
                                             </div>
                                             <div class="col-4"></div>
                                         </div>
-                                    </div>  
+                                    </div>
                                 </a>
-
                             </div>
                             <h5>@item.Name</h5>
                             <p>@item.Description</p>
-
                         </div>
-                    } 
-
+                    }
                 </div>
             </div>
         </div>
     </div>
-</section> 
+</section>
