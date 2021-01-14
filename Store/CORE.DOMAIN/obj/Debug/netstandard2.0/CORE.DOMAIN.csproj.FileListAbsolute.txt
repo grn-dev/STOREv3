@@ -7,3 +7,12 @@ D:\Git myproject\STOREv3\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.
 D:\Git myproject\STOREv3\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.csproj.CoreCompileInputs.cache
 D:\Git myproject\STOREv3\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.dll
 D:\Git myproject\STOREv3\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.pdb
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\bin\Debug\netstandard2.0\CORE.DOMAIN.deps.json
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\bin\Debug\netstandard2.0\CORE.DOMAIN.dll
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\bin\Debug\netstandard2.0\CORE.DOMAIN.pdb
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.csprojAssemblyReference.cache
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.AssemblyInfoInputs.cache
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.AssemblyInfo.cs
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.csproj.CoreCompileInputs.cache
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.dll
+D:\Git myproject\Medstore\Store\CORE.DOMAIN\obj\Debug\netstandard2.0\CORE.DOMAIN.pdb

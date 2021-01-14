@@ -10,3 +10,15 @@ D:\Git myproject\STOREv3\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTR
 D:\Git myproject\STOREv3\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.csproj.CopyComplete
 D:\Git myproject\STOREv3\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.dll
 D:\Git myproject\STOREv3\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.pdb
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\bin\Debug\netstandard2.0\CORE.CONTRACT.deps.json
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\bin\Debug\netstandard2.0\CORE.CONTRACT.dll
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\bin\Debug\netstandard2.0\CORE.CONTRACT.pdb
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\bin\Debug\netstandard2.0\CORE.DOMAIN.dll
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\bin\Debug\netstandard2.0\CORE.DOMAIN.pdb
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.csprojAssemblyReference.cache
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.AssemblyInfoInputs.cache
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.AssemblyInfo.cs
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.csproj.CoreCompileInputs.cache
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.csproj.CopyComplete
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.dll
+D:\Git myproject\Medstore\Store\CORE.CONTRACT\obj\Debug\netstandard2.0\CORE.CONTRACT.pdb
