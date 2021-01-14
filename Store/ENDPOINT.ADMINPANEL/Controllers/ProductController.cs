@@ -37,19 +37,26 @@ namespace EndPoint.UI.panelAdmin.Controllers
             this.ProductInfoRepository = ProductInfo_;
         }
 
+        //public async Task<IActionResult> Index()
+        //{
+        //    var productsawait = await productRepository.GetAllAsync();
+        //    var products= productsawait.OrderByDescending(c => c.ProductID);
+
+        //    foreach (var item in products)
+        //    {
+        //        item.Description = (item.Description.Length > 10) ? item.Description.Substring(0, 10) : item.Description;
+        //    }
+
+        //    return View(products);
+        //}
+
         public IActionResult Index()
         {
-            var products = productRepository.GetAllAsync().Result.OrderByDescending(c => c.ProductID).ToList();
-
-            foreach (var item in products)
-            {
-                item.Description = (item.Description.Length > 10) ? item.Description.Substring(0, 10) : item.Description;
-            }
-
-            return View(products);
+            //var productsawaitsd = productRepository.GetAsync(102);
+            var productsawait = productRepository.GetAll();
+             
+            return View(productsawait.ToList());
         }
-
-        //[AllowAnonymous]
 
 
 
@@ -57,7 +64,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public string GetTag(int ProuductID)
         {
-            var reds = ProductInfoRepository.GetMoreInfoAsync(ProuductID, "tag");
+            var reds = ProductInfoRepository.GetMoreInfo(ProuductID, "tag");
 
             var jsonR = Newtonsoft.Json.JsonConvert.SerializeObject(reds);
 
@@ -68,7 +75,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public HttpResponseMessage DeleteProduct(int ProuductID)
         {
-            productRepository.DeleteAsync(ProuductID);
+            productRepository.Delete(ProuductID);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
@@ -93,7 +100,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         {
             AddProductViewModel model = new AddProductViewModel
             {
-                CategoryForDisplay = categoryRepository.GetAllAsync().Result.ToList()
+                CategoryForDisplay = categoryRepository.GetCategorylevel2().ToList(),
             };
             return View(model);
         }
@@ -122,7 +129,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
                 }
                 product.mainImages = MainImages_;
-                List<ImageValue> imgeProductsList = new List<ImageValue>();
+                List<ImageProduct> imgeProductsList = new List<ImageProduct>();
                 string image_strine = "";
                 if (model?.Images?.Count > 0)
                 {
@@ -133,7 +140,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
                             item.CopyTo(ms);
                             var fileBytes = ms.ToArray();
                             image_strine = "data:image/jpeg;base64," + Convert.ToBase64String(fileBytes);
-                            ImageValue imageValue = new ImageValue()
+                            ImageProduct imageValue = new ImageProduct()
                             {
                                 image = image_strine
                             };
@@ -144,12 +151,12 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
                 }
 
-                product.Images = imgeProductsList;
-                productRepository.AddAsync(product);
+                product.imageProducts = imgeProductsList;
+                productRepository.Add(product);
                 //iimgeProduct.AddList(imgeProductsList);
                 return RedirectToAction("Index");
             }
-            model.CategoryForDisplay = categoryRepository.GetAllAsync().Result.ToList();
+            model.CategoryForDisplay = categoryRepository.GetCategorylevel2().ToList();
             return View(model);
         }
 
@@ -159,7 +166,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
         public IActionResult relatedproducts()
         {
-            var allprd = productRepository.GetAllAsync().Result.Select(c => new ProductReleted()
+            var allprd = productRepository.GetAll().Select(c => new ProductReleted()
             {
                 ProductID = c.ProductID,
                 ProductName = c.Name
@@ -173,7 +180,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult relatedproducts(RelatedProductsViewModel model)
+        public async Task<IActionResult> relatedproducts(RelatedProductsViewModel model)
         {
             try
             {
@@ -182,7 +189,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
                     if (model.MainProductID == model.RelatedProductID)
                         throw new Exception("محصولات انتخاب شده یکی میباشد");
 
-                    if (ProductInfoRepository.CheckExistAsync(model.MainProductID, "RelatedProduct", model.RelatedProductID.ToString()))
+                    if (ProductInfoRepository.CheckExist(model.MainProductID, "RelatedProduct", model.RelatedProductID.ToString()))
                         throw new Exception("قبلا ثبت شده است");
 
 
@@ -196,7 +203,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
                     };
 
-                    ProductInfoRepository.AddAsync(productInfo);
+                    await ProductInfoRepository.AddAsync(productInfo);
 
                 }
                 else
@@ -215,7 +222,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
 
             }
 
-            var allprd = productRepository.GetAllAsync().Result.Select(c => new ProductReleted()
+            var allprd = productRepository.GetAll().Select(c => new ProductReleted()
             {
                 ProductID = c.ProductID,
                 ProductName = c.Name

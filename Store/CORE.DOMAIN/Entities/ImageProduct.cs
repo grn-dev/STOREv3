@@ -5,16 +5,14 @@ using System.Text;
 
 namespace CORE.DOMAIN.Entities
 {
-    public class ImageValue
+    public class ImageProduct
     {
 
-        public int ImageValueID { get; set; }
+        public int ID { get; set; }
         public string image { get; set; }
-        //public Product Product { get; set; }
+         
+        public int productID { get; set; }
+        public Product product { get; set; }
 
-    }
-
-
-
-
+    } 
 }

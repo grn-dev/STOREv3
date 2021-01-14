@@ -10,7 +10,7 @@ namespace Core.Domian
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<ImageValue> Images { get; set; }
+        public List<ImageProduct> imageProducts { get; set; }
         public string mainImages { get; set; }
         public decimal Price { get; set; }
         public int CategoryId { get; set; }
@@ -30,10 +30,11 @@ namespace Core.Domian
 
     public class productSingleImageCore
     {
+        //public int productSingleImageCoreID { get; set; }
         public int ProductID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string mainImages { get; set; }
+        //public string mainImages { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string Place { get; set; }

@@ -16,6 +16,22 @@ namespace Infrastructures.Dal.Repository
             ctx = biz;
         }
 
+        public TEntity Add(TEntity entity)
+        {
+            try
+            {
+                ctx.Set<TEntity>().Add(entity);
+                ctx.SaveChangesAsync();
+                return entity;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
+        }
+
         public async Task<TEntity> AddAsync(TEntity entity)
         {
             ctx.Set<TEntity>().Add(entity);
@@ -27,6 +43,18 @@ namespace Infrastructures.Dal.Repository
         {
             TEntity entityToDelete = ctx.Set<TEntity>().Find(id);
             ctx.Remove(entityToDelete);
+            ctx.SaveChanges();
+        }
+        public void Delete(int id)
+        {
+            TEntity entityToDelete = ctx.Set<TEntity>().Find(id);
+            ctx.Remove(entityToDelete);
+            ctx.SaveChanges();
+        }
+
+        public virtual IEnumerable<TEntity> GetAll()
+        {
+            return  ctx.Set<TEntity>().ToList();
         }
 
         public async Task<ICollection<TEntity>> GetAllAsync()

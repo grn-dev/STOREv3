@@ -3,7 +3,7 @@ using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
 using Infrastructures.Dal.Config;
 using INFRASTRUCTURES.DAL.ResultStoredProcedure;
-using Microsoft.EntityFrameworkCore; 
+using Microsoft.EntityFrameworkCore;
 namespace Infrastructures.Dal
 {
     public class ContextMed : DbContext
@@ -14,13 +14,13 @@ namespace Infrastructures.Dal
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<ImageValue> imgeProducts { get; set; }
+        public DbSet<ImageProduct> imgeProducts { get; set; }
         public DbSet<ProductInfo> ProductInfo { get; set; }
         //public DbSet<GetProductByTag> GetProductByTags { get; set; }
         public DbSet<productSingleImageCore> productSingleImageCores { get; set; }
 
- 
-         
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
@@ -29,24 +29,35 @@ namespace Infrastructures.Dal
             base.OnModelCreating(modelBuilder);
 
 
-            //modelBuilder.Entity<GetProductByTag>().HasNoKey();
-            modelBuilder.Entity<productSingleImageCore>().HasNoKey();
-
-            //modelBuilder.GetType().(t => t.MapToStoredProcedures());
-
+            modelBuilder.Entity<productSingleImageCore>()
+        .HasNoKey();
             //modelBuilder.Entity<Product>()
-            //       .ma
+            //            .HasOne<ImageProduct>(e => e.)
+            //            .WithMany(e => e.)
+            //            .HasForeignKey(e => e.AId)
+            //            .OnDelete(DeleteBehavior.Cascade); // <= This entity has cascading behaviour on deletion
+
+
+
 
             //    modelBuilder.Entity<Product>()
-            //.HasMany(c => c.Images)
+            //.HasMany(c => c.imageProducts)
             //.WithOne(e => e.Product)
             //.IsRequired();
 
 
-            //    modelBuilder.Entity<ImageValue>()
+            //    modelBuilder.Entity<ImageProduct>()
             //    .HasOne(e => e.Product)
-            //    .WithMany(c => c.Images);
+            //    .WithMany(c => c.imageProducts);
 
+
+            ///از پایین باید شروع کنیم
+
+            //modelBuilder.Entity<ImageProduct>()
+            //           .HasOne(e => e.product)
+            //           .WithMany(e => e.imageProducts)
+            //           .HasForeignKey(e => e.productID)
+            //           .OnDelete(DeleteBehavior.Restrict); // <=
 
 
 

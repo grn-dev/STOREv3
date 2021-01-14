@@ -21,7 +21,7 @@ namespace INFRASTRUCTURES.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageValue", b =>
+            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageProduct", b =>
                 {
                     b.Property<int>("ImageValueID")
                         .ValueGeneratedOnAdd()
@@ -133,10 +133,10 @@ namespace INFRASTRUCTURES.DAL.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageValue", b =>
+            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageProduct", b =>
                 {
                     b.HasOne("Core.Domian.Product", null)
-                        .WithMany("Images")
+                        .WithMany("imageProducts")
                         .HasForeignKey("ProductID");
                 });
 
@@ -178,7 +178,7 @@ namespace INFRASTRUCTURES.DAL.Migrations
 
             modelBuilder.Entity("Core.Domian.Product", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("imageProducts");
 
                     b.Navigation("ProductInfos");
                 });

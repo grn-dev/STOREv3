@@ -18,7 +18,7 @@
                     <div class="single_product_item">
 
                         <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="item.ProductID">
-                            <img src=@item.mainImages alt="#" class="img-fluid">
+                            <img src=@item.mainImages id=@item.ProductID alt="#" class="img-fluid">
                         </a>
                         <h3> <a>@item.Name</a> </h3> 
                     </div>

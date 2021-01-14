@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace INFRASTRUCTURES.DAL.Migrations
 {
     [DbContext(typeof(ContextMed))]
-    [Migration("20201215194719_MyFirstMigration1")]
-    partial class MyFirstMigration1
+    [Migration("20210113210949_MyFirstMigration3")]
+    partial class MyFirstMigration3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,20 +23,20 @@ namespace INFRASTRUCTURES.DAL.Migrations
 
             modelBuilder.Entity("CORE.DOMAIN.Entities.ImageProduct", b =>
                 {
-                    b.Property<int>("ImageValueID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("ProductID")
-                        .HasColumnType("int");
-
                     b.Property<string>("image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ImageValueID");
+                    b.Property<int>("productID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductID");
+                    b.HasKey("ID");
+
+                    b.HasIndex("productID");
 
                     b.ToTable("imgeProducts");
                 });
@@ -133,11 +133,48 @@ namespace INFRASTRUCTURES.DAL.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("Core.Domian.productSingleImageCore", b =>
+                {
+                    b.Property<int>("productSingleImageCoreID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Place")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("mainImages")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("productSingleImageCoreID");
+
+                    b.ToTable("productSingleImageCores");
+                });
+
             modelBuilder.Entity("CORE.DOMAIN.Entities.ImageProduct", b =>
                 {
-                    b.HasOne("Core.Domian.Product", null)
-                        .WithMany("Images")
-                        .HasForeignKey("ProductID");
+                    b.HasOne("Core.Domian.Product", "product")
+                        .WithMany("imageProducts")
+                        .HasForeignKey("productID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("product");
                 });
 
             modelBuilder.Entity("CORE.DOMAIN.Entities.ProductInfo", b =>
@@ -178,7 +215,7 @@ namespace INFRASTRUCTURES.DAL.Migrations
 
             modelBuilder.Entity("Core.Domian.Product", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("imageProducts");
 
                     b.Navigation("ProductInfos");
                 });

@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ENDPOINT.WEBUI.Controllers
@@ -46,7 +48,7 @@ namespace ENDPOINT.WEBUI.Controllers
             //Product res =await restask;
             productMultiImage image = new productMultiImage()
             {
-                AllImages = res.Images.Select(x => x.image).ToList(),
+                AllImages = res.imageProducts.Select(x => x.image).ToList(),
                 Category = res.Category,
                 Description = res.Description,
                 id = res.ProductID,
@@ -62,23 +64,16 @@ namespace ENDPOINT.WEBUI.Controllers
         public async Task<IActionResult> showByCategori(string Input, int pn = 1)
         {
             int showpage = 6;
-            var pr = await RepoPrc.GetProductsAsync(showpage, pn, Input);
+            IEnumerable<Product> pr;
+            pr = await RepoPrc.GetProductsAsync(showpage, pn, Input);
             var level2 = categoriRepo.GetCategorylevel2Async(Input).ToList();
-            List<productSingleImage> singleImagesList = new List<productSingleImage>();
+            //List<productSingleImage> singleImagesList = new List<productSingleImage>();
             // pr;
-            if (pr.ToList().Count > 0)
+            if (pr.Count() <= 0)
             {
-                singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr.ToList());
-            }
-            else
-            {
-                //if (level2 != null && pr.Count <= 0)
-                //{
-                //    var pr23 = RepoPrc.GetProducts(showpage, pn, Input).ToList();
-                //}
-                //var pr2 = RepoPrc.GetProductsbyParentcategori(showpage, pn, Input).ToList();
-                //singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr2);
-            }
+                pr = await RepoPrc.GetProductsbyParentcategoriAsync(showpage, pn, Input);
+                //singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr.ToList());
+            } 
 
             PagingInfo pagin = new PagingInfo
             {
@@ -89,7 +84,7 @@ namespace ENDPOINT.WEBUI.Controllers
             };
             ProductsListViewModel productsListViewModel = new ProductsListViewModel()
             {
-                Products = singleImagesList,
+                Products = _mapper.Map<List<Product>, List<productSingleImage>>(pr.ToList()),
                 Current = Input,
                 PagingInfo = pagin,
                 fromContoller = "showByCategori",
@@ -192,6 +187,8 @@ namespace ENDPOINT.WEBUI.Controllers
 
             return View(listViewModel);
         }
+
+        
 
     }
 }

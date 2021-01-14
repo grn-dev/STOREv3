@@ -19,22 +19,22 @@ namespace INFRASTRUCTURES.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageValue", b =>
+            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageProduct", b =>
                 {
-                    b.Property<int>("ImageValueID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("ProductID")
-                        .HasColumnType("int");
-
                     b.Property<string>("image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ImageValueID");
+                    b.Property<int>("productID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ProductID");
+                    b.HasKey("ID");
+
+                    b.HasIndex("productID");
 
                     b.ToTable("imgeProducts");
                 });
@@ -131,11 +131,48 @@ namespace INFRASTRUCTURES.DAL.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageValue", b =>
+            modelBuilder.Entity("Core.Domian.productSingleImageCore", b =>
                 {
-                    b.HasOne("Core.Domian.Product", null)
-                        .WithMany("Images")
-                        .HasForeignKey("ProductID");
+                    b.Property<int>("productSingleImageCoreID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Place")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("mainImages")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("productSingleImageCoreID");
+
+                    b.ToTable("productSingleImageCores");
+                });
+
+            modelBuilder.Entity("CORE.DOMAIN.Entities.ImageProduct", b =>
+                {
+                    b.HasOne("Core.Domian.Product", "product")
+                        .WithMany("imageProducts")
+                        .HasForeignKey("productID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("product");
                 });
 
             modelBuilder.Entity("CORE.DOMAIN.Entities.ProductInfo", b =>
@@ -176,7 +213,7 @@ namespace INFRASTRUCTURES.DAL.Migrations
 
             modelBuilder.Entity("Core.Domian.Product", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("imageProducts");
 
                     b.Navigation("ProductInfos");
                 });

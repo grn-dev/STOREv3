@@ -24,6 +24,10 @@ namespace INFRASTRUCTURES.DAL.Repository
         {
             return ctx.ProductInfo.Any(c => c.productID == ProductID && c.Value == Value && c.key == keyname);
         }
+        public bool CheckExist(int ProductID, string keyname, string Value)
+        {
+            return ctx.ProductInfo.Any(c => c.productID == ProductID && c.Value == Value && c.key == keyname);
+        }
 
         public IEnumerable<string> GetMoreInfo(int ProductID, string keyname)
         {
