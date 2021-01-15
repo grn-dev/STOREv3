@@ -59,12 +59,7 @@ namespace ENDPOINT.WEBUI
             services.AddSingleton(mapper);
 
 
-            // requires using Microsoft.Extensions.Options
-            services.Configure<BookstoreDatabaseSettings>(
-                Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
-
-            services.AddSingleton<IBookstoreDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
+            
 
             //configuration.AssertConfigurationIsValid();
             //// use DI (http://docs.automapper.org/en/latest/Dependency-injection.html) or create the mapper yourself
