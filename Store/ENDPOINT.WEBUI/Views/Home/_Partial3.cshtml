@@ -1,4 +1,4 @@
-﻿@model MainPage
+﻿@model List<productSingleImage>
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="client_review_slider owl-carousel">
-                    @foreach (var item in Model._Partial3)
+                    @foreach (var item in Model)
                     {
                         <div class="single_client_review" dir="rtl">
                             <div class="mx-auto d-block">

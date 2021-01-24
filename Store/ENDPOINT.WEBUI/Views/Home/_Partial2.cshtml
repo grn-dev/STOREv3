@@ -1,4 +1,4 @@
-﻿@model MainPage
+﻿@model List<productSingleImage>
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var item in Model._Partial2)
+            @foreach (var item in Model)
             {
                 <div class="col-lg-4 col-sm-6">
                     <div class="single_product_item">

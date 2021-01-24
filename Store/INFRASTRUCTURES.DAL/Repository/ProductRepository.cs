@@ -40,7 +40,7 @@ namespace Infrastructures.Dal.Repository
         //{ 
         //    var results = ctx.Set<productSingleImageCore>().FromSqlRaw("exec SP_GetMainPage").ToListAsync();
         //    return await results;
- 
+
         //}
 
         public async Task<IEnumerable<Product>> GetProductsAsync(int pageSize = 4, int pageNumber = 1, string category = null)
@@ -140,6 +140,20 @@ namespace Infrastructures.Dal.Repository
             var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetMainPage {0}", place).ToListAsync();
             return await results;
         }
-    }
+
+        public IEnumerable<Product> GetProductmainPagev2(string place)
+        {
+            var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetMainPage {0}", place).ToList();
+            return results;
+        }
+
+
+
+        //public IEnumerable<Product> GetProductmainPage(string place)
+        //{
+        //    var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetMainPage {0}", place).ToList();
+        //    return results;
+        //}
+    } 
 
 }

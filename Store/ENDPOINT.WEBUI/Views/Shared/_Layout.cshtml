@@ -112,7 +112,77 @@
 
         console.log("_____");
         alert("cash .....");
+        debugger;
+        callAjaxTag1();
+        //callAjaxTag2();
+        //callAjaxTag3();
 
     });
+
+    function callAjaxTag1() {
+        debugger;
+        alert("callAjaxTag1 .....");
+        console.log("call");
+        $.ajax(
+            {
+                type: 'POST',
+                dataType: 'JSON',
+                url: '/Home/Partial1',
+                //data: { ProuductID: productIDGlobal },
+                success:
+                    function (response) {
+                        console.log("callAjaxTag1 call" + response);
+                        alert("callAjaxTag1 success: " + response.data);
+                    },
+                error:
+                    function (response) {
+                        console.log("callAjaxTag1 call");
+                        alert("callAjaxTag1 Error: " + response.data);
+                    }
+            });
+    }
+    function callAjaxTag2() {
+        debugger;
+        //alert("callAjaxTag1 ....2.");
+        $.ajax(
+            {
+                type: 'POST',
+                dataType: 'JSON',
+                url: '/Home/Partial2',
+                //data: { ProuductID: productIDGlobal },
+                success:
+                    function (response) {
+                        console.log("callAjaxTag2 call" + response);
+                        alert("callAjaxTag2 success: " + response.data);
+                    },
+                error:
+                    function (response) {
+                        console.log("callAjaxTag2 call");
+                        alert("callAjaxTag2 Error: " + response.data);
+                    }
+            });
+    }
+    function callAjaxTag3() {
+        debugger;
+        //alert("callAjaxTag1 ...3..");
+        $.ajax(
+            {
+                type: 'POST',
+                dataType: 'JSON',
+                url: '/Home/Partial3',
+                //data: { ProuductID: productIDGlobal },
+                success:
+                    function (response) {
+                        console.log("callAjaxTag3 call" + response);
+                        alert("callAjaxTag3 success: " + response.data);
+                    },
+                error:
+                    function (response) {
+                        console.log("callAjaxTag3 call");
+                        alert("callAjaxTag3  Error: " + response.data);
+                    }
+            });
+    }
+
 
 </script>
