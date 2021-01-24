@@ -21,7 +21,7 @@ namespace Infrastructures.Dal.Repository
             try
             {
                 ctx.Set<TEntity>().Add(entity);
-                ctx.SaveChangesAsync();
+                ctx.SaveChanges();
                 return entity;
             }
             catch (Exception ex)

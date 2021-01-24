@@ -14,14 +14,14 @@ namespace Core.Domian
         public List<ImageProduct> imageProducts { get; set; }
         public string mainImages { get; set; }
 
-        [NotMapped]
-        public decimal Price { get; set; }
+        //[NotMapped]
+        //public decimal Price { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        [NotMapped]
-        public bool isShow { get; set; }
-        [NotMapped]
-        public int count { get; set; }
+        //[NotMapped]
+        //public bool isShow { get; set; }
+        //[NotMapped]
+        // public int count { get; set; }
 
         public List<ProductInfo> ProductInfos { get; set; }
 

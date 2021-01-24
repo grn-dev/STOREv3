@@ -114,9 +114,9 @@ namespace EndPoint.UI.panelAdmin.Controllers
                     CategoryId = model.CategoryId,
                     Description = model.Description,
                     Name = model.Name,
-                    isShow = true,
-                    count = 0,
-                    Price = 0,
+                    //isShow = true,
+                    //count = 0,
+                    //Price = 0,
 
 
                 };
