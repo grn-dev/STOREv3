@@ -4,7 +4,9 @@
     <meta charset=utf-8>
     <meta name=viewport content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name=google-site-verification content=nmlh9jQ8pCOm8s3xB2vfc2fkkLno-grsF1nPGBOPVf0 />
-    <meta property=og:site_name content=" طب یار مد | Tebyarmed" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property=og:site_name content="طب یارمد" />
+    <meta property="og:title" content="تجهیزات پزشکی | فروشگاه اینترنتی " />
     <link rel=icon href=~/img/logo.png>
     @*<link rel=icon href=~/img/favicon.png>*@
     <link rel=stylesheet href=~/css/bootstrap4-rtl.min.css>
@@ -102,87 +104,8 @@
     <script src=~/js/custom.js></script>
 </body>
 </html>
-
-
-
-
-<script>
-
-    $(document).ready(function () {
-
-        console.log("_____");
-        alert("cash .....");
-        debugger;
-        callAjaxTag1();
-        //callAjaxTag2();
-        //callAjaxTag3();
-
-    });
-
-    function callAjaxTag1() {
-        debugger;
-        alert("callAjaxTag1 .....");
-        console.log("call");
-        $.ajax(
-            {
-                type: 'POST',
-                dataType: 'JSON',
-                url: '/Home/Partial1',
-                //data: { ProuductID: productIDGlobal },
-                success:
-                    function (response) {
-                        console.log("callAjaxTag1 call" + response);
-                        alert("callAjaxTag1 success: " + response.data);
-                    },
-                error:
-                    function (response) {
-                        console.log("callAjaxTag1 call");
-                        alert("callAjaxTag1 Error: " + response.data);
-                    }
-            });
-    }
-    function callAjaxTag2() {
-        debugger;
-        //alert("callAjaxTag1 ....2.");
-        $.ajax(
-            {
-                type: 'POST',
-                dataType: 'JSON',
-                url: '/Home/Partial2',
-                //data: { ProuductID: productIDGlobal },
-                success:
-                    function (response) {
-                        console.log("callAjaxTag2 call" + response);
-                        alert("callAjaxTag2 success: " + response.data);
-                    },
-                error:
-                    function (response) {
-                        console.log("callAjaxTag2 call");
-                        alert("callAjaxTag2 Error: " + response.data);
-                    }
-            });
-    }
-    function callAjaxTag3() {
-        debugger;
-        //alert("callAjaxTag1 ...3..");
-        $.ajax(
-            {
-                type: 'POST',
-                dataType: 'JSON',
-                url: '/Home/Partial3',
-                //data: { ProuductID: productIDGlobal },
-                success:
-                    function (response) {
-                        console.log("callAjaxTag3 call" + response);
-                        alert("callAjaxTag3 success: " + response.data);
-                    },
-                error:
-                    function (response) {
-                        console.log("callAjaxTag3 call");
-                        alert("callAjaxTag3  Error: " + response.data);
-                    }
-            });
-    }
-
-
+ <script>
+$(document).ready(function () {
+    console.log("_____");
+});
 </script>

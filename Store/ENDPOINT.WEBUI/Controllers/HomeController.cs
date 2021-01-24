@@ -43,7 +43,7 @@ namespace ENDPOINT.WEBUI.Controllers
 
         public IActionResult Index()
         {
-            return View();
+
             //Partial1();
             //Partial2();
             //Partial3();
@@ -90,19 +90,19 @@ namespace ENDPOINT.WEBUI.Controllers
             var _Partial3temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial3.ToList());*/
 
 
-            /*MainPage mainPage = new MainPage()
+            MainPage mainPage = new MainPage()
             {
                 _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>
-                ((await RepoPrc.GetProductmainPageAsync("_Partial1")).ToList()),//new List<productSingleImage>(),
+                ((RepoPrc.GetProductmainPagev2("_Partial1")).ToList()),//new List<productSingleImage>(),
 
                 _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>
-                ((await RepoPrc.GetProductmainPageAsync("_Partial2")).ToList()),//new List<productSingleImage>(),
+                (( RepoPrc.GetProductmainPagev2("_Partial2")).ToList()),//new List<productSingleImage>(),
 
                 _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>
-                ((await RepoPrc.GetProductmainPageAsync("_Partial3")).ToList()),//new List<productSingleImage>(),
+                ((RepoPrc.GetProductmainPagev2("_Partial3")).ToList()),//new List<productSingleImage>(),
                 //_PartialCard2= _PartialCard2,
 
-            };*/
+            };
             /*
             stopWatch.Stop();
             // Get the elapsed time as a TimeSpan value.
@@ -116,7 +116,7 @@ namespace ENDPOINT.WEBUI.Controllers
             _logger.LogInformation(ts.TotalMilliseconds.ToString());
 
             _logger.LogInformation("____________________________________");*/
-
+            return View(mainPage);
 
 
         }
