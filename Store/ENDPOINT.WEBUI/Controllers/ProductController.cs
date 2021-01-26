@@ -40,6 +40,9 @@ namespace ENDPOINT.WEBUI.Controllers
         {
 
             Product res = RepoPrc.GetSingleProduct(ProductID);
+            if (res == null)
+                return NotFound();
+
             var TAGS = ProductInfoREPO.GetMoreInfo(ProductID, "TAG");
             var relerted = RepoPrc.GetReletionPruduct(ProductID);
             //UserViewModel userViewModel = _mapper.Map<UserViewModel>(user);
@@ -73,12 +76,12 @@ namespace ENDPOINT.WEBUI.Controllers
             {
                 pr = await RepoPrc.GetProductsbyParentcategoriAsync(showpage, pn, Input);
                 //singleImagesList = _mapper.Map<List<Product>, List<productSingleImage>>(pr.ToList());
-            } 
+            }
 
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCount(Input)+ RepoPrc.TotalCountlvl2(Input),
+                TotalItems = RepoPrc.TotalCount(Input) + RepoPrc.TotalCountlvl2(Input),
                 ItemsPerPage = showpage
 
             };
@@ -101,13 +104,13 @@ namespace ENDPOINT.WEBUI.Controllers
         public async Task<IActionResult> Seachq(string Input, int pn = 1)
         {
             int showpage = 6;
-            
-            
+
+
 
             IEnumerable<Product> ProductTAGS = new List<Product>();
             IEnumerable<Product> pr = await RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
             //List<Product> prlis = await RepoPrc.GetProductsSearchAsync(showpage, pn, Input);
-            if (RepoPrc.TotalCountSearch(Input)/ showpage < pn)
+            if (RepoPrc.TotalCountSearch(Input) / showpage < pn)
             {
                 if (!FirstReleted)
                 {
@@ -115,10 +118,10 @@ namespace ENDPOINT.WEBUI.Controllers
                     FirstReleted = true;
                 }
 
-                 
+
                 //int TafazolPage = pn;
                 //ProductTAGS = ProductInfoREPO.GetProductByTag(showpage, Tagpn, Input);
-                ProductTAGS = await ProductInfoREPO.GetProductByTagAsync(showpage, pn- RepoPrc.TotalCountSearch(Input)/ showpage, Input);
+                ProductTAGS = await ProductInfoREPO.GetProductByTagAsync(showpage, pn - RepoPrc.TotalCountSearch(Input) / showpage, Input);
                 //prlis.InsertRange()
                 //ProductTAGS = resr.ToList;
                 //ProductTAGS= _mapper.Map<Product, GetProductByTag>(resProductTAGS);
@@ -160,7 +163,7 @@ namespace ENDPOINT.WEBUI.Controllers
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCountSearch(Input)+ ProductInfoREPO.TotalCountSearchTag(Input),
+                TotalItems = RepoPrc.TotalCountSearch(Input) + ProductInfoREPO.TotalCountSearchTag(Input),
                 ItemsPerPage = showpage
 
             };
@@ -188,7 +191,7 @@ namespace ENDPOINT.WEBUI.Controllers
             return View(listViewModel);
         }
 
-        
+
 
     }
 }
