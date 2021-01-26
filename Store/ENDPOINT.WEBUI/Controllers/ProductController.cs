@@ -78,7 +78,7 @@ namespace ENDPOINT.WEBUI.Controllers
             PagingInfo pagin = new PagingInfo
             {
                 CurrentPage = pn,
-                TotalItems = RepoPrc.TotalCountSearch(Input),
+                TotalItems = RepoPrc.TotalCount(Input)+ RepoPrc.TotalCountlvl2(Input),
                 ItemsPerPage = showpage
 
             };

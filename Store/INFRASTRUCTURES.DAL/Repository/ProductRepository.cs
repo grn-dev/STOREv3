@@ -108,10 +108,7 @@ namespace Infrastructures.Dal.Repository
             return query;
         }
 
-        public async Task<int> TotalCountAsyn(string category = null)
-        {
-            return await ctx.Products.Where(c => string.IsNullOrWhiteSpace(category) || c.Category.CategoryName == category).CountAsync();
-        }
+        
 
         public async Task<IEnumerable<Product>> searchBynameAsync(string name)
         {
@@ -147,6 +144,26 @@ namespace Infrastructures.Dal.Repository
             return results;
         }
 
+        public int TotalCountlvl2(string category = null)
+        {
+            
+            var query =
+                     (from c1 in ctx.Categories 
+                      join c2 in ctx.Categories on c1.CategoryId equals c2.parentId
+                      join p in ctx.Products on c2.CategoryId equals p.CategoryId 
+                      where c1.CategoryName == category
+                      select p.ProductID
+                      ).Count();
+
+            return query;
+
+        }
+        public int TotalCount(string category = null)
+        {
+            return ctx.Products.Where(c => string.IsNullOrWhiteSpace(category) 
+            || c.Category.CategoryName == category).Count();
+        }
+
 
 
         //public IEnumerable<Product> GetProductmainPage(string place)
@@ -154,6 +171,6 @@ namespace Infrastructures.Dal.Repository
         //    var results = ctx.Set<Product>().FromSqlRaw("exec SP_GetMainPage {0}", place).ToList();
         //    return results;
         //}
-    } 
+    }
 
 }

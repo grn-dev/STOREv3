@@ -9,7 +9,8 @@ namespace Core.Contract
 {
     public interface IAsyncPruductRepo : IAsyncRepository<Product>
     {
-        Task<int> TotalCountAsyn(string category = null);
+        int TotalCount(string category = null);
+        int TotalCountlvl2(string category = null);
         Task<IEnumerable<Product>> GetProductsAsync(int pageSize = 4, int pageNumber = 1, string category = null);//string category,
         Task<IEnumerable<Product>> GetProductsbyParentcategoriAsync(int pageSize = 4, int pageNumber = 1, string category = null);//string category,
 
