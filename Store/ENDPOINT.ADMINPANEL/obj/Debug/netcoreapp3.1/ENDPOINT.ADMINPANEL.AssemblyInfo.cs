@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("006e35b7-73f7-40d5-b2d2-ffe36a8ec2f1")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ENDPOINT.ADMINPANEL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

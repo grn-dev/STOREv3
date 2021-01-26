@@ -2266,6 +2266,9 @@
         }
       },
       "CORE.DOMAIN/1.0.0": {
+        "dependencies": {
+          "System.ComponentModel.Annotations": "5.0.0"
+        },
         "runtime": {
           "CORE.DOMAIN.dll": {}
         },
@@ -2278,6 +2281,7 @@
           "CORE.CONTRACT": "1.0.0",
           "CORE.DOMAIN": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0"
         },
         "runtime": {

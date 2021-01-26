@@ -12,3 +12,17 @@ D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\IN
 D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.csproj.CopyComplete
 D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.dll
 D:\Git myproject\STOREv3\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.pdb
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\INFRASTRUCTURES.DAL.deps.json
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\INFRASTRUCTURES.DAL.dll
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\INFRASTRUCTURES.DAL.pdb
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\CORE.CONTRACT.dll
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\CORE.DOMAIN.dll
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\CORE.CONTRACT.pdb
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\bin\Release\netstandard2.1\CORE.DOMAIN.pdb
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.csprojAssemblyReference.cache
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.AssemblyInfoInputs.cache
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.AssemblyInfo.cs
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.csproj.CoreCompileInputs.cache
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.csproj.CopyComplete
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.dll
+D:\Git myproject\Medstore\Store\INFRASTRUCTURES.DAL\obj\Release\netstandard2.1\INFRASTRUCTURES.DAL.pdb
