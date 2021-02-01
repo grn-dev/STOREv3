@@ -15,7 +15,7 @@
                                     <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
                                         <img src=@item.mainImages id=@item.ProductID class="img-fluid" alt="#">
                                     </a>
-                                    <img loading="lazy" src="img/product_overlay.png" alt="#" class="product_overlay img-fluid">
+                                    <img loading="lazy" src="img/product_overlay.png" alt="@item.Name" class="product_overlay img-fluid">
                                 </div>
                             </div>
                             <div class="col-lg-5 col-sm-6">

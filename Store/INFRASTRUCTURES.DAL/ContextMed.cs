@@ -16,6 +16,8 @@ namespace Infrastructures.Dal
         public DbSet<Category> Categories { get; set; }
         public DbSet<ImageProduct> imgeProducts { get; set; }
         public DbSet<ProductInfo> ProductInfo { get; set; }
+        public DbSet<LogMaster> logMasters { get; set; }
+        public DbSet<LogDetails> logDetails { get; set; }
         //public DbSet<GetProductByTag> GetProductByTags { get; set; }
         //public DbSet<productSingleImageCore> productSingleImageCores { get; set; }
 

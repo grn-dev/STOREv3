@@ -31,7 +31,8 @@
             <li class="cardCategori">
 
                 <a class="cardCategori-description" asp-action="showByCategori" 
-                   id="navbarDropdown_2" asp-controller="Product" asp-route-Input="@item.CategoryName" style="font-weight:bold"
+                   id="navbarDropdown_2" asp-controller="Product" 
+                   asp-route-Input="@item.CategoryName" style="font-weight:bold"
                    asp-route-pn="1"> @item.CategoryName</a>
 
             </li>
@@ -56,8 +57,9 @@
                             <div class="col-lg-4 col-sm-4">
                                 <div class="cardGRN card-1GRN single_product_item">
 
-                                    <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
-                                        <img src=@item.mainImages alt="#" class="img-fluid">
+                                    <a asp-action="showSingle" asp-controller="Product" 
+                                       asp-route-ProductID="@item.ProductID">
+                                        <img src=@item.mainImages alt="@item.Name" class="img-fluid">
                                     </a>
                                     <h3 style="text-align:center"> <a asp-action="showSingle" asp-controller="Product"
                                             asp-route-ProductID="@item.ProductID" >@item.Name</a> </h3>

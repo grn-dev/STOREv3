@@ -1,9 +1,5 @@
-﻿
-@model productMultiImage
+﻿@model productMultiImage
 @{ ViewData["Title"] = "Index"; }
-
-
-<!-- breadcrumb part start-->
 <section class="breadcrumb_part single_product_breadcrumb">
     <div class="container">
         <div class="row">
@@ -15,8 +11,6 @@
         </div>
     </div>
 </section>
-<!-- breadcrumb part end-->
-<!--================Single Product Area =================-->
 <div class="product_image_area">
     <div class="container">
         <div class="row justify-content-center">
@@ -26,7 +20,8 @@
                     {
                         <div>
                             <img src=@item alt="#" style="width:55%;height:88%;margin:0 auto">
-                        </div>}
+                        </div>
+                     }
 
 
                 </div>
@@ -34,26 +29,20 @@
             <div class="col-lg-8">
                 <div class="single_product_text text-center">
                     <h3>@Model.Name</h3>
-                    <p>
-                        @Model.Description
-                    </p>
+                    <br>
+                    <br>
+                    <br>
+                    @Html.Raw(@Model.Description)
                     <div class="card_area">
                         <div class="product_count_area">
 
-
-
-
                             <h4>قیمت : جهت اطلاع تماس بگیرید</h4>
-
 
                         </div>
                         <div class="add_to_cart">
                             <a asp-action="Index" asp-controller="AboutUs" class="btn_3">09120170473 شماره تماس </a>
 
                         </div>
-
-                        <br>
-                        <br>
                         <br>
                         <br>
                         <br>
@@ -70,7 +59,6 @@
 
 
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -83,9 +71,6 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="client_review_slider owl-carousel ">
-
-
-
                     @foreach (var item in Model.RelatedProduct)
                     {
 
@@ -106,22 +91,12 @@
 
                             </div>
                             <h5>@item.Name</h5>
-                            <p>@item.Description</p>
-
                         </div>
 
                     }
-
-
-
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
-
-<style>
-</style>
 

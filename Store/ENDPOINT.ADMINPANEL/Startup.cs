@@ -48,6 +48,8 @@ namespace EndPoint.UI.panelAdmin
             services.AddScoped<IAsyncCategoriRepo, CategoriRepo>();
             services.AddScoped<IAsyncImageValue, IImageValueRepository>();
             services.AddScoped<IAsyncProductInfo, ProductInfoRepository>();
+            services.AddScoped<ILogDetails, LogDetailsRepositoty>();
+            services.AddScoped<ILogMaster, LogMasterRepository>();
 
 
             services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("storeUserDb")));

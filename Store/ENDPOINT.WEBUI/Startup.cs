@@ -68,6 +68,7 @@ namespace ENDPOINT.WEBUI
             services.AddScoped<IAsyncPruductRepo, ProductRepository>();
             services.AddScoped<IAsyncImageValue, IImageValueRepository>();
             services.AddScoped<IAsyncProductInfo, ProductInfoRepository>();
+            services.AddScoped<ILogDetails, LogDetailsRepositoty>();
 
             services.AddScoped<IAsyncCategoriRepo, CategoriRepo>();
 

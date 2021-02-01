@@ -4,14 +4,16 @@ using Infrastructures.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace INFRASTRUCTURES.DAL.Migrations
 {
     [DbContext(typeof(ContextMed))]
-    partial class ContextMedModelSnapshot : ModelSnapshot
+    [Migration("20210201182608_MyFirstMigrationlog")]
+    partial class MyFirstMigrationlog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

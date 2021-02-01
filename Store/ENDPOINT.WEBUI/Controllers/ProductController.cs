@@ -24,22 +24,32 @@ namespace ENDPOINT.WEBUI.Controllers
         private readonly IAsyncCategoriRepo categoriRepo;
         private readonly IAsyncProductInfo ProductInfoREPO;
         private readonly IMapper _mapper;
+        private readonly ILogDetails _LogDetails;
+        
         int TafazolReleted = 0;
         bool FirstReleted = false;
 
-        public ProductController(IAsyncPruductRepo RepoPrc_, IMapper mapper, IAsyncCategoriRepo categoriRepo_, IAsyncProductInfo ProductInfoREPO_)
+        public ProductController(IAsyncPruductRepo RepoPrc_, IMapper mapper,
+            IAsyncCategoriRepo categoriRepo_, IAsyncProductInfo ProductInfoREPO_,
+            ILogDetails LogDetails)
         {
             RepoPrc = RepoPrc_;
             categoriRepo = categoriRepo_;
             ProductInfoREPO = ProductInfoREPO_;
             _mapper = mapper;
+            _LogDetails = LogDetails;
 
         }
         //https://stackoverflow.com/questions/30566848/when-should-i-use-async-controllers-in-asp-net-mvc
         public IActionResult showSingle(int ProductID)
         {
-
-            Product res = RepoPrc.GetSingleProduct(ProductID);
+            LogDetails log = new LogDetails()
+            {
+                productID = ProductID,
+                VisitTime = DateTime.Now 
+            };
+            _LogDetails.Add(log);
+             Product res = RepoPrc.GetSingleProduct(ProductID);
             if (res == null)
                 return NotFound();
 
