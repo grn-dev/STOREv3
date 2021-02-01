@@ -18,7 +18,8 @@ namespace Core.Contract
         TEntity Add(TEntity entity);
         Task DeleteAsync(int id);
         void Delete(int id);
-        Task UpdateAsync(TEntity entity);
+        //Task UpdateAsync(TEntity entity);
+        void Update(TEntity entity);
 
     }
 }

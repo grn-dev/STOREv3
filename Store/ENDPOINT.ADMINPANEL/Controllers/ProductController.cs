@@ -95,6 +95,17 @@ namespace EndPoint.UI.panelAdmin.Controllers
             return new HttpResponseMessage(HttpStatusCode.OK);
 
         }
+        [HttpPost]
+        public async Task<HttpResponseMessage> EditDescripon(int ProuductID, string Descripon = "")
+        {
+            var res=await productRepository.GetAsync(ProuductID);
+            var Length = Descripon.Length;
+            res.Description = Descripon;
+
+            productRepository.Update(res);
+            return new HttpResponseMessage(HttpStatusCode.OK);
+
+        }
 
         public IActionResult Add()
         {
@@ -106,7 +117,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         }
         [HttpPost]
         public IActionResult Add(AddProductViewModel model)
-        {
+        {  
             if (ModelState.IsValid)
             {
                 Product product = new Product
@@ -161,9 +172,7 @@ namespace EndPoint.UI.panelAdmin.Controllers
         }
 
 
-
-
-
+        
         public IActionResult relatedproducts()
         {
             var allprd = productRepository.GetAll().Select(c => new ProductReleted()

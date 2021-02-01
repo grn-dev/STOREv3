@@ -70,9 +70,12 @@ namespace Infrastructures.Dal.Repository
             return await resutl;
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        
+
+        public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            ctx.Entry(entity).State = EntityState.Modified;
+            ctx.SaveChanges();
         }
     }
 }

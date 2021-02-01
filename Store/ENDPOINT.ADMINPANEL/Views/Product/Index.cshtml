@@ -3,7 +3,8 @@
     <tr>
         <th>#</th>
         <th>نام</th>
-        <th>توضیحات</th>
+        <th>ویرایش توضیحات</th>
+        <th>تگ</th>
         <th>عملیات</th>
     </tr>
 
@@ -12,14 +13,19 @@
         <tr>
             <td>@item.ProductID</td>
             <td>@item.Name</td>
-            <td>@item.Description</td>
+            <td>
+                <button type="button" class="btn btn-warning" data-toggle="modal" onclick="EditDesc(@item.ProductID)" data-target="#exampleModaledit">
+                    ویرایش توضیحات
+                </button>
+
+            </td>
             <td>
                 <button type="button" class="btn btn-primary" data-toggle="modal" onclick="gettagberbyID(@item.ProductID)" data-target="#exampleModal">
                     افزودن تگ
                 </button>
 
             </td>
-             
+
             <td>
                 <button type="button" class="btn btn-danger" onclick="deleteproduct(@item.ProductID)">
                     حذف
@@ -48,7 +54,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">افزودن تگ</h5>
+                <h5 class="modal-title" id="exampleModal">افزودن تگ</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -65,6 +71,32 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
                 <button type="button" onclick="TegisterTag()" class="btn btn-success">ثبت</button>
+            </div>
+            @*<p hidden id="productID"></p>*@
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModaledit" tabindex="-1" role="dialog" aria-labelledby="exampleModaledit" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ویرایش توضیحات</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="recipient-name" class="col-form-label" dir="rtl">توضیحات:</label>
+                <textarea cols="40" class="form-control" rows="12" id="editDesctxt"></textarea>
+
+            </div>
+            <hr>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                <button type="button" onclick="EditDescprouduct()" class="btn btn-success">ثبت</button>
             </div>
             @*<p hidden id="productID"></p>*@
         </div>
@@ -110,18 +142,21 @@
         }
 
 
-        function gettagberbyID(id) {
+        function EditDesc(id) {
 
             productIDGlobal = id;
-            callAjaxTag();
+            //$('#editDesctxt').val() = "";
+            $("#editDesctxt").val("");
+            $('#editDesctxt').val('');
         }
+
 
         function deleteproduct(id) {
 
             debugger
             productIDGlobal = id;
             ConfirmDialog();
-            
+
         }
 
         function ConfirmDialog() {
@@ -188,6 +223,40 @@
         }
 
 
+        function EditDescprouduct() {
+
+            var tagneme_ = $('#editDesctxt').val();
+
+            var dfd = { ProuductID: productIDGlobal, "Descripon": tagneme_ };
+            console.log("dfd=>  " + dfd);
+            var dashagh = JSON.stringify(dfd);
+            console.log("dashagh=>  " + dashagh);
+
+
+            $.ajax(
+                {
+                    type: 'POST',
+                    dataType: 'JSON',
+                    url: '/Product/EditDescripon',
+                    data: dfd,
+                    success:
+                        function (response) {
+
+                            if (response.statusCode == 200) {
+                                alert("ثبت شد");
+                                $('#exampleModal').modal().hide();
+                                $('#exampleModal').modal('toggle');
+
+                            }
+
+                        },
+                    error:
+                        function (response) {
+                            console.log("call");
+                            alert("Error: " + response.data);
+                        }
+                });
+        }
         function TegisterTag() {
 
             var tagneme_ = $('#Tagname').val();
