@@ -36,7 +36,7 @@ namespace ENDPOINT.WEBUI.Controllers
 
         }
         //https://stackoverflow.com/questions/30566848/when-should-i-use-async-controllers-in-asp-net-mvc
-        public IActionResult shows(int ProductID)
+        public IActionResult showSingle(int ProductID)
         {
 
             Product res = RepoPrc.GetSingleProduct(ProductID);
@@ -61,10 +61,10 @@ namespace ENDPOINT.WEBUI.Controllers
 
             };
             image.AllImages.Add(res.mainImages);
-            return View("showSingle", image);
+            return View(image);
         }
 
-        public async Task<IActionResult> sc(string Input, int pn = 1)
+        public async Task<IActionResult> showByCategori(string Input, int pn = 1)
         {
             int showpage = 6;
             IEnumerable<Product> pr;
@@ -90,7 +90,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 Products = _mapper.Map<List<Product>, List<productSingleImage>>(pr.ToList()),
                 Current = Input,
                 PagingInfo = pagin,
-                fromContoller = "sc",
+                fromContoller = "showByCategori",
                 CategoryChild = level2,
 
             };
@@ -101,7 +101,7 @@ namespace ENDPOINT.WEBUI.Controllers
         }
 
 
-        public async Task<IActionResult> Seachq(string Input, int pn = 1)
+        public async Task<IActionResult> showBySeach(string Input, int pn = 1)
         {
             int showpage = 6;
 
@@ -172,7 +172,7 @@ namespace ENDPOINT.WEBUI.Controllers
                 Products = singleImagesList,
                 Current = Input,
                 PagingInfo = pagin,
-                fromContoller = "Seachq"
+                fromContoller = "showBySeach"
 
             };
             return View("showListproduct", productsListViewModel);

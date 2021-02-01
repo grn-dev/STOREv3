@@ -34,12 +34,9 @@
             <div class="col-lg-8">
                 <div class="single_product_text text-center">
                     <h3>@Model.Name</h3>
-                    <br>
-                    <br>
-                    <br>
-                    @Html.Raw(@Model.Description)
-
-                    @*@Html.Raw(HttpUtility.HtmlDecode(blog.Body));*@
+                    <p>
+                        @Model.Description
+                    </p>
                     <div class="card_area">
                         <div class="product_count_area">
 
@@ -65,7 +62,7 @@
                             @foreach (var item in Model.Tags)
                             {
                                 <span class="btn btn-outline-dark" style="font-size:large">
-                                    <a asp-action="Seachq"
+                                    <a asp-action="showBySeach"
                                        asp-controller="Product"
                                        asp-route-Input="@item"> @item </a>
                                 </span>
@@ -94,7 +91,7 @@
 
                         <div class="single_client_review" dir="rtl">
                             <div class="mx-auto d-block">
-                                <a asp-action="shows" asp-controller="Product" asp-route-ProductID="@item.ProductID">
+                                <a asp-action="showSingle" asp-controller="Product" asp-route-ProductID="@item.ProductID">
 
                                     <div class="container">
                                         <div class="row">
@@ -108,7 +105,9 @@
                                 </a>
 
                             </div>
-                            <h5>@item.Name</h5> 
+                            <h5>@item.Name</h5>
+                            <p>@item.Description</p>
+
                         </div>
 
                     }

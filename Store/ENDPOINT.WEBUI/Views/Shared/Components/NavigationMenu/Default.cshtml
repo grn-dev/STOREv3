@@ -8,7 +8,7 @@
 
             @foreach (var item in Model.Categorieslevel1)
             {
-                <a class="dropdown-item" asp-action="sc" id="navbarDropdown_2" asp-controller="Product" asp-route-Input="@item.CategoryName"
+                <a class="dropdown-item" asp-action="showByCategori" id="navbarDropdown_2" asp-controller="Product" asp-route-Input="@item.CategoryName"
                    asp-route-pn="1"> @item.CategoryName</a>
             }
 
