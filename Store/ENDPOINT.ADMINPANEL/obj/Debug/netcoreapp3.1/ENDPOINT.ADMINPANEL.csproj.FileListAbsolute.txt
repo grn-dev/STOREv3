@@ -337,3 +337,4 @@ D:\Git myproject\Medstore\Store\ENDPOINT.ADMINPANEL\obj\Debug\netcoreapp3.1\ENDP
 D:\Git myproject\Medstore\Store\ENDPOINT.ADMINPANEL\obj\Debug\netcoreapp3.1\ENDPOINT.ADMINPANEL.pdb
 D:\Git myproject\Medstore\Store\ENDPOINT.ADMINPANEL\obj\Debug\netcoreapp3.1\ENDPOINT.ADMINPANEL.genruntimeconfig.cache
 D:\Git myproject\Medstore\Store\ENDPOINT.ADMINPANEL\obj\Debug\netcoreapp3.1\Razor\Views\Review\Index.cshtml.g.cs
+D:\Git myproject\Medstore\Store\ENDPOINT.ADMINPANEL\obj\Debug\netcoreapp3.1\Razor\Views\Review\ReviewAll.cshtml.g.cs

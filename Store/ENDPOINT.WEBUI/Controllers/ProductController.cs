@@ -41,12 +41,14 @@ namespace ENDPOINT.WEBUI.Controllers
 
         }
         //https://stackoverflow.com/questions/30566848/when-should-i-use-async-controllers-in-asp-net-mvc
+        //[HttpGet]
         public IActionResult showSingle(int ProductID)
         {
             LogDetails log = new LogDetails()
             {
                 productID = ProductID,
-                VisitTime = DateTime.Now 
+                VisitTime = DateTime.Now,
+                IP = Request.HttpContext.Connection.RemoteIpAddress.ToString()
             };
             _LogDetails.Add(log);
              Product res = RepoPrc.GetSingleProduct(ProductID);

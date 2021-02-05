@@ -11,5 +11,8 @@ namespace CORE.DOMAIN.Entities
         public Product product { get; set; }
         public int productID { get; set; }
         public DateTime VisitTime { get; set; }
+        //public string description { get; set; }
+        public string IP { get; set; }//15 
+        
     }
 }

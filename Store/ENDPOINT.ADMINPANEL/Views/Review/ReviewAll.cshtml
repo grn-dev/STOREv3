@@ -1,0 +1,20 @@
+﻿@model List<CORE.DOMAIN.Entities.LogMaster>
+@{ ViewData["Title"] = "Index"; }
+
+
+<table class="table table-info">
+    <tr>
+        <th>نام کالا</th>
+        <th>تعداد بازدید</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.product.Name</td>
+            <td>@item.CountVisit</td>
+        </tr>
+    }
+
+</table>

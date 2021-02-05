@@ -19,6 +19,12 @@ namespace INFRASTRUCTURES.DAL.Repository
             ctx = dbContext_;
         }
 
+        public void DeleteAll()
+        {
+            var res=ctx.Database.ExecuteSqlRaw("TRUNCATE TABLE [LogDetails]"); 
+             
+        }
+
         public override IEnumerable<LogDetails> GetAll()
         {
 
@@ -34,6 +40,7 @@ namespace INFRASTRUCTURES.DAL.Repository
                         Name = x.product.Name
                     },
                     VisitTime= x.VisitTime,
+                    IP=x.IP
                 })
                 .Take(50)
                 .ToList(); 

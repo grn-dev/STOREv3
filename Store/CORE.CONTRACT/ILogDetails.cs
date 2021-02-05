@@ -8,5 +8,6 @@ namespace CORE.CONTRACT
 {
     public interface ILogDetails : IAsyncRepository<LogDetails>
     {
+        void DeleteAll();
     }
 }

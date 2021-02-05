@@ -9,5 +9,6 @@ namespace ENDPOINT.ADMINPANEL.Models
     {
         public string productName { get; set; }
         public DateTime VisitDate { get; set; }
+        public string IP { get; set; }
     }
 }
