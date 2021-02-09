@@ -5,7 +5,7 @@ using CORE.CONTRACT;
 using CORE.DOMAIN.Entities;
 using ENDPOINT.WEBUI.Models;
 using ENDPOINT.WEBUI.Models.Product;
-
+using ENDPOINT.WEBUI.Pattern;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -42,81 +42,11 @@ namespace ENDPOINT.WEBUI.Controllers
 
 
         public IActionResult Index()
-        {
+        {  
+            var mainPageobj = MainPageSingleton.GetInstance(RepoPrc, _mapper);
 
-            //Partial1();
-            //Partial2();
-            //Partial3();
-            //return View();
-            //var _PartialCard23 = RepoPrc.GetProductmainPage("_PartialCard2");
-            //var _Partial13 = RepoPrc.GetProductmainPage("_Partial1");
-            //var _Partial23 = RepoPrc.GetProductmainPage("_Partial2");
-            //var _Partial33 = RepoPrc.GetProductmainPage("_Partial3");
-
-            //string Message = $"About page visited at {DateTime.UtcNow.ToLongTimeString()}";
-            //_logger.LogInformation(Message);
-
-
-            ////var routeInfo = ControllerContext.ToCtxString(id);
-
-            ////_logger.Log(LogLevel.Information, MyLogEvents.TestItem, routeInfo);
-            ////_logger.LogInformation(MyLogEvents.TestItem, routeInfo);
-            //Stopwatch stopWatch = new Stopwatch();
-            //stopWatch.Start();
-            //TimeSpan ts2 = stopWatch.Elapsed;
-            //_logger.LogInformation(ts2.TotalMilliseconds.ToString());
-
-            /*var _Partial1 = await RepoPrc.GetProductmainPageAsync("_Partial1");
-            var _Partial2 = await RepoPrc.GetProductmainPageAsync("_Partial2");
-            var _Partial3 = await RepoPrc.GetProductmainPageAsync("_Partial3");*/
-
-            /* var _Partial1temp = _mapper.Map<List<Product>, List<productSingleImage>>
-                 ((await RepoPrc.GetProductmainPageAsync("_Partial1")).ToList());
-
-             var _Partial2temp = _mapper.Map<List<Product>, List<productSingleImage>>
-                 ((await RepoPrc.GetProductmainPageAsync("_Partial2")).ToList());
-
-             var _Partial3temp = _mapper.Map<List<Product>, List<productSingleImage>>
-                 ((await RepoPrc.GetProductmainPageAsync("_Partial3")).ToList());*/
-
-
-
-            /*var _Partial1 =  RepoPrc.GetProductmainPageAsync("_Partial1");
-            var _Partial2 =  RepoPrc.GetProductmainPageAsync("_Partial2");
-            var _Partial3 =  RepoPrc.GetProductmainPageAsync("_Partial3");
-
-            var _Partial1temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial1.Result.ToList());
-            var _Partial2temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial2.ToList());
-            var _Partial3temp = _mapper.Map<List<Product>, List<productSingleImage>>(await _Partial3.ToList());*/
-
-
-            MainPage mainPage = new MainPage()
-            {
-                _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>
-                ((RepoPrc.GetProductmainPagev2("_Partial1")).ToList()),//new List<productSingleImage>(),
-
-                _Partial2 = _mapper.Map<List<Product>, List<productSingleImage>>
-                (( RepoPrc.GetProductmainPagev2("_Partial2")).ToList()),//new List<productSingleImage>(),
-
-                _Partial3 = _mapper.Map<List<Product>, List<productSingleImage>>
-                ((RepoPrc.GetProductmainPagev2("_Partial3")).ToList()),//new List<productSingleImage>(),
-                //_PartialCard2= _PartialCard2,
-
-            };
-            /*
-            stopWatch.Stop();
-            // Get the elapsed time as a TimeSpan value.
-            TimeSpan ts = stopWatch.Elapsed;
-
-            // Format and display the TimeSpan value.
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                ts.Hours, ts.Minutes, ts.Seconds,
-                ts.Milliseconds / 10);
-
-            _logger.LogInformation(ts.TotalMilliseconds.ToString());
-
-            _logger.LogInformation("____________________________________");*/
-            return View(mainPage);
+             
+            return View(mainPageobj);
 
 
         }
@@ -138,6 +68,10 @@ namespace ENDPOINT.WEBUI.Controllers
             var _Partial1 = _mapper.Map<List<Product>, List<productSingleImage>>
                 ((RepoPrc.GetProductmainPagev2("_Partial1")).ToList());//new List<productSingleImage>(),
             return PartialView("~/_Partial1", _Partial1);
+        }
+        public void ResetMain()
+        {
+            MainPageSingleton.DoItNull();
         }
         public IActionResult Partial2()
         {
