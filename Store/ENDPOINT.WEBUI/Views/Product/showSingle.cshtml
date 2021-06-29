@@ -1,5 +1,24 @@
 ﻿@model productMultiImage
+@using System.Text.RegularExpressions;
 @{ ViewData["Title"] = "Index"; }
+
+@section header {
+    <meta name="description" content="@StripHTML(@Model.Description)">
+    <meta name="twitter:title" content="@Model.Name">
+    @foreach (var item in Model.AllImages)
+    {
+        <meta name="twitter:image" content="@item">
+
+    }
+
+    @foreach (var item in Model.Tags)
+    {
+        <meta property="og:title" content="@item" />
+    }
+
+}
+
+
 <section class="breadcrumb_part single_product_breadcrumb">
     <div class="container">
         <div class="row">
@@ -21,7 +40,7 @@
                         <div>
                             <img src=@item alt="#" style="width:55%;height:88%;margin:0 auto">
                         </div>
-                     }
+                    }
 
 
                 </div>
@@ -99,4 +118,14 @@
         </div>
     </div>
 </section>
+
+
+
+@functions {
+
+    public static string StripHTML(string input)
+    {
+        return Regex.Replace(input, "<.*?>", String.Empty);
+    }
+}
 
